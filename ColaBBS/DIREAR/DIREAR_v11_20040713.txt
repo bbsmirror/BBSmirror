@@ -1,0 +1,64 @@
+[CardWare]索引檔案編輯重建程式(DIREAR) v1.1  Release
+
+
+[版本資訊]
+
+  1)程式說明: 重建遺失或故障的各類BBS索引檔案，亦提供編輯索引檔功能。
+              (This Program Only For ColaBBS 01040X Beta Series)
+  2)版    本: Version 1.1  2004/07/13
+  3)設 計 者: Thyme
+  4)下載網址: http://LH.twbbs.org/download/
+  5)支援社群: http://LH.twbbs.org/colabbs/
+  6)程式大小: 主程式(DIREAR.exe) - 327,680 Bytes
+  7)畫面觀賞: http://LH.twbbs.org/download/file/DIREAR_v11.gif
+  8)注意事項: 0.產生大量文章數量之索引檔，在速度較慢之主機將會造成程式暫時沒
+                有回應之現象，為正常現象，請耐心等候，勿強制關閉程式！
+              1.若先前有安裝過舊版程式，請利用控制台當中的新增移除程式功能，
+                請先移除舊版程式後，再行重新安裝最新版本程式。
+              2.謝謝您的使用，如果有任何問題，請幫忙反應，以利改進，謝謝 :)
+                作者信箱：thyme﹒bbs@LH﹒twbbs﹒org或ilan@ms3﹒url.com﹒tw
+  9)試用期限：無，個人非營利可永久免費使用，無任何限制。
+ 10)取得授權：個人非營利欲取得正式授權，請掃描一張您家鄉的風景名信片，並寫上
+              您的真實姓名、電話、住址等，e-mail至 ilan@ms3﹒url.com﹒tw ，
+              即為取得個人正式授權。
+ 11)特別聲明：若因使用本軟體，導致有任何資料之損壞，本人不負任何相關責任。
+ 12)版權宣告：本軟體若為個人非營利使用下，完全免費！在不涉及商業行為及反組譯
+              或修改程式內容下，可自由流傳或拷貝。（保留其他相關權利，若有商
+              業上使用請務必先行聯絡作者取得授權）
+ 13)聯絡作者：thyme﹒bbs@LH﹒twbbs﹒org、ilan@ms3﹒url﹒com﹒tw
+            、telnet://LH.twbbs.org
+
+
+[已知問題/下版改進]
+
+[下版]直接輸入路徑
+[下版]檔案覆蓋前,偵測&警告
+[下版]日期沒有排序
+[下版]自動產生,巢狀精華區之索引檔
+[下版]處理.AA~.ZZ檔案會有問題
+
+
+v1.1
+[新增]增強ANSI Color Code支援
+[新增]支援左側加入框線符號之Article Title格式
+說明: 目前支援以下符號作為文章標頭左側框線符號
+     (╭ ╰ │ ╔ ╚ ║ ╒ ╙ ╓ ╘ ├ ╞ ╟ ╠)
+
+例如: ucd.twbbs.org版本格式(文章標頭長度80)
+╭作者 LiWei (去學校)                                 幫派  Announce            EOL
+│標題 [公告]  新增 金門日報線上觀看 功能                                       EOL
+│時間 Tue Jun 15 23:51:46 2004                                                 EOL
+
+
+v1.01
+[新增]支援以下二種格式之Article Title
+
+格式一: 原始版本標準格式(文章標頭長度80)
+ 作者  thyme (繼續努力向前行^^)                       看板  SYSOPs_Program      EOL
+ 標題  [CardWare]索引檔案編輯重建程式(DIREAR) v1.1                              EOL
+ 時間  Mon Jul 12 18:03:25 2004                                                 EOL
+
+格式二: 修正版本格式(文章標頭長度78)
+作者 thyme (繼續努力向前行^^)                       看板  SYSOPs_Program      EOL
+標題 [CardWare]索引檔案編輯重建程式(DIREAR) v1.1                              EOL
+時間 Mon Jul 12 18:03:25 2004                                                 EOL

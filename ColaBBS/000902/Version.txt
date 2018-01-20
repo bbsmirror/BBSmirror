@@ -1,0 +1,31 @@
+
+  000902
+
+  ColaBBS
+   1. [修正] 內部修改.
+   2. [修正] NewsFilter 設定檔問題.
+  
+  ChatRoom
+   1. [修正] 設定清除畫面模式時, 在聊天室內的人都會看到訊息.
+   2. [修正] 清除模式改為移到最上面一行.
+  
+  MailHeader
+   1. [變更] 內部修改.
+  
+  RejectLoopArticle
+   1. [變更] 內部修改.
+   
+  TitleFilter
+   1. [新增] 轉信時過濾文章的標題.
+   
+  PosterFilter
+   1. [新增] 轉信時過濾文章的發文者.
+  
+  ViewAnnounce
+   1. [新增] 在使用者上站的時, 要求一定要看完某些公告討論區.  
+  
+  MailBoxLimiter
+   1. [新增] 限制使用者信箱容量大小.
+  
+  WeatherReport
+   1. [變更] 配合新的中央氣象局網站.

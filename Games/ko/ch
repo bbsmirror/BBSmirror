@@ -1,0 +1,5 @@
+#!/bin/sh
+export TERMINFO=~/.terminfo
+captoinfo -c -B
+./chess2 $@
+

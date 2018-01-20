@@ -1,0 +1,7 @@
+#domain hinet.net                  :擋某 domain
+#host forsale.com.tv               :擋某 host
+#content post@forsale.com.tv       :擋標題某字串
+#query no                          :domain name 反查，沒有就擋
+#only edu.tw                       :只有某 domain or host 的信才可以進來  
+#詳細說明請參閱 util/innbbsd/README.antispam
+#-------------------------------------------------------------------------

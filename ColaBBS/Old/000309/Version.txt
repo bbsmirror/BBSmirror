@@ -1,0 +1,11 @@
+
+000309
+
+ColaBBS
+ 1. [修正] 內部修改.
+
+UserReg
+ 1. [新增] 各項身分確認有關的 Plasmid, ActivePlasmid.
+ 
+ColaSMTPd
+ 1. [新增] ColaSMTPd_MBOX_REGMAIL, 配合 UserReg 的 MBOX.

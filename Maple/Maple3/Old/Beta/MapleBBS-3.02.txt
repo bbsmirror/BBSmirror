@@ -1,0 +1,47 @@
+µo«H¤H: lkchu.bbs@Rouge.Dorm10.NCTU.edu.tw (§Ñ¤F¦oªº¥Í¤é§a), ¬ÝªO: Plan
+¼Ð  ÃD: [anon] Maple 3.02 on FreeBSD 2.2.6
+µo«H¯¸: §NÄÉ©~ (Fri May  1 06:37:01 1998)
+Âà«H¯¸: fromzero!news.cs.nthu!Rouge
+
+
+source code now avaliable at
+ftp://Rouge.Dorm10.NCTU.edu.tw/pub/bbs/Maple-3.02/maple302a-FBSD_2.2.6.tgz
+
+Â²³æ¬[³]»¡©ú:
+
+      ¡½ ¼W¥[ bbs user: ¤@¯ë¨Ó»¡¡A¶È»Ý­n·s¼W¤@ "bbs" ªº¨Ï¥ÎªÌ¡A¦¹¨Ï¥ÎªÌ¬ÛÃö³]©w
+                        ¦P¤@¯ë user §Y¥i¡A¤£»Ý­n³]©w¨ä shell ¬° bbsrf.
+                        ·íµM¡A±z­n³]©w passwd¡A¤£»Ý­n¦A³]¬° null password.
+                        ¦p: id : bbs, uid: 9999, gid:99, home: /home/bbs
+                            shell: /bin/sh(or tcsh ...etc)
+
+      ¡½ ±N¦¹ source code ¸Ñ¶}¦Ü bbs's home
+
+      ¡½ ³]©w MapleBBS-3.02/include/config.h
+
+      ¡½ ¶i¤J lib/   ¥´ make
+              maple/ ¥´ make inst
+              util/ bmtad/ bgopherd/ bpop3d/ ¥´ make install
+         [1;31m¥H¤W§¡¤£»Ý­n§ó§ï Makefile¡A¥B½sÄ¶®É¤£·|¥X²{¥ô¦ó warning & error.[m
+
+      ¡½ ­Y»ÝÂà«H¡A½Ð¦Ü innbbsd/ ¤U­×§ï Makefile ¤¤
+         ADMINUSER BBSHOME BBSADDR ¤TÄæ¦ì¡A§¹¦¨«á½Ð¥´ make freebsd install
+
+      ¡½ °õ¦æ bbs : ¤º©w bbsd ·|¶]¦b 23, 3456, 3001, 3002, 3003 ³o¤­­Ó port
+                    ­Y¥u¶·¬Y¤@¯S©w port ½Ð¦b bbsd «á¥[¤J port number.
+         $ (as bbs)
+         $ bin/camera; bin/account; bin/xchatd; bin/bmda(¦¹¬° bbs °e«Hµ{¦¡)
+         $ innd/innbbsd(­Y»ÝÂà«Hªº¸Ü¡A¤]½Ð°µ¦nÂà«H¬ÛÃö³]©w¡A¤£¦AÂØ­z)
+         $ (as root)
+         $ /home/bbs/bin/bbsd 23
+         $ /home/bbs/bin/bmtad  (½Ð§â sendmail Ãö±¼¡A¦¹ bmtad ±M¬° bbs ¦¬«H)
+         $ telnet localhost ´ú¸Õ¬Ý¬Ý
+
+      ¡½ ¦p¦³µ{¦¡ port ¤è­±°ÝÃDÅwªï¦Ü Rouge.Dorm10.NCTU.edu.tw src ª©°Q½×
+         ©Î mailto: lkchu.bbs@rouge.dorm10.nctu.edu.tw
+
+--
+
+                                            lkchu@FreeBSD.csie.NCTU.edu.tw.
+--
+¡° Origin: §N ÄÉ ©~<Rouge.Dorm10.NCTU.edu.tw> ¡» From: Rouge.Dorm10.NCTU.edu.tw

@@ -1,0 +1,44 @@
+藍盒版 KOChess Client
+
+ko 原作者: 王重堯 cywang@ccca.nctu.edu.tw
+Freebsd test
+還不完全......
+藍盒版: 魏澤人  weijr@weijr.ml.org 
+		weijr@magic.math.ntu.edu.tw
+		weijr.bbs@magic.math.ntu.edu.tw
+
+Based on ko 1.14
+
+特色:
+	使用ncurses彩色.
+	-r 安全性增加
+
+主要測試平台: linux+crxvt ,rlogin -> FreeBSD 2.2.5
+
+參考 Readme.linux
+
+!或者直接使用 ./ch4!
+
+./chess freebsd binary
+./chess2 linux binary
+但目前 freebsd binary反而有問題,因為我的主要平台還是在linux,
+沒有太多時間做測試.
+輸入會有問題.
+使用linux的版本,我在phx.m6.ntu.edu.tw 上測試過,好像沒有問題.
+裝linux emu應該才能跑.
+基本上,設定有問題,我連ncftp 跑起來都有問題,
+所以,也許這個chess有人能跑.try ./chess 
+如果沒問題,試試看能否用彩色,(hint , cp chess chess2,然後./ch or ./ch4)
+
+
+另外 雖然man 的結果和 linux差不多,但實際上差異仍然不小.
+主要問題還是在 termcap/ terminfo /ncurses 上.
+使用 xterm or cxterm crxvt應該沒問題,可用彩色.
+使用b5c就不清楚了,
+試試看 ./ch
+
+
+
+
+
+

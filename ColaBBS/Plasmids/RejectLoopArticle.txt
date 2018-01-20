@@ -1,0 +1,9 @@
+
+  轉信有時本地發出去的文章會回流的問題, "補救措施"
+
+  這是個 NewsFilter, 安裝方法就直接把他複製到 bin 目錄下面, 
+  然後把 RejectLoopArticle 加到 NewsFilter.INI 中
+
+  如果下次轉進本地發出的文章, 就會被擋掉.
+
+  擋掉的方式是判斷該文章發文者字串是否包含 ColaBBS.INI 中 BBSAddress 設定的字串.

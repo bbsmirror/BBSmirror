@@ -1,0 +1,17 @@
+
+  可以從 ColaBBS 中編輯電腦上任何檔案, 只要你有權限的話
+
+  安裝方法是把 EditEverywhere.class 複製到 bin 目錄下面,
+  然後在 ActivePlasmid.INI 中加入一行
+ 
+  EditEverywhere
+
+  然後於 MENU.INI 中你想要放的地方加入
+
+  EditEverywhere =    "E)編輯檔案"     "@RunPlasmid@EditEverywhere"    "EditINI"
+
+  記得在權限的地方設大點, 不要讓隨隨便便的人能用這個功能,
+  要不然就等著被..ooxx...
+
+
+                                       WilliamWey 990503

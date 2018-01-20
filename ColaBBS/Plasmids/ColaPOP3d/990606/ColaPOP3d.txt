@@ -1,0 +1,23 @@
+
+  ColaPOP3 Server for ColaBBS 990606
+
+  遠端取信功能, 可以在其他地方, 利用 Outlook Express, Netscape
+  等程式直接取得 bbs 上面的信件.
+
+  安裝方法:
+  將 ColaPOP3d.class 複製到 bin 目錄下, 然後在 Plasmid.INI 中,
+  加上一行 ColaPOP3d 即可
+
+  使用方法:
+  在你的 Outlook Express 中, 將 pop3 server 設定為 bbs 站的 address,
+  然後帳號設定為 id.bbs, 例如 WilliamWey 這個 id 的帳號應該是 WilliamWey.bbs
+  密碼則是在站上的密碼. 其他請參考各種 POP3 客戶端軟體的使用說明.
+
+  注意事項:
+  這個版本對於之前版本對於 RFC 1939 標準的一些問題已經做了修正, 也支援 DELE 
+  指令, 現在已經可以自動刪除信件. 所以如果不希望 Mail Client 自動將信件刪掉的
+  , 請記得先在 Mail Client 中設定將信件保留在伺服器上.
+
+
+                                                            WilliamWey 9900606
+                                                       is85012@cis.nctu.edu.tw

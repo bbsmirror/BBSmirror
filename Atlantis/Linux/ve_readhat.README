@@ -1,0 +1,5 @@
+# cd /usr/local
+# wget ftp://ftp.ats.idv.tw/pub/Atlantis/Linux/ve_readhat.tar.gz
+# tar xvfz ve_readhat.tar.gz
+# cd ve ; make ; make install ; make clean
+# chmod 555 /usr/local/bin/ve

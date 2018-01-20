@@ -1,0 +1,257 @@
+ 文   章   列   表
+0 p          上移一篇文章標題
+[NULL]
+0 ↑         上移一篇文章標題
+[NULL]
+0 P          上移一頁
+[NULL]
+0 PgUp       上移一頁
+[NULL]
+0 r          閱讀此篇文章
+[NULL]
+0 →         閱讀此篇文章
+[NULL]
+0 Ctrl+p     發表新文章
+[NULL]
+0 d          刪除此篇文章
+[NULL]
+0 Ctrl+s     將此篇文章轉存至信箱
+[NULL]
+0 Ctrl+t     將同樣標題之文章轉存至信箱
+[NULL]
+0 ##         跳至某一篇文章 (## 表是一個數字號碼)
+[NULL]
+0 $          跳至最後一篇文章
+[NULL]
+0 f          對作者傳訊 (ID 高亮度 表示現在上線中)
+[NULL]
+0 Q          查詢文章作者
+[NULL]
+0 u          主題式閱讀
+[NULL]
+0 Tab        進入文摘模式
+[NULL]
+0 z          進入精華區
+[NULL]
+0 b          閱讀進板畫面 (備忘錄)
+[NULL]
+0 [          同標題閱讀 跳至上一篇文章
+[NULL]
+0 ]          同標題閱讀 跳至下一篇文章
+[NULL]
+0 <          找尋上一篇非回文標題
+[NULL]
+0 >          找尋下一篇非回文標題
+[NULL]
+0 h          執行此求助選單
+[NULL]
+0 Ctrl+r     回應來訊
+[NULL]
+0 Ctrl+g     全頁式回應來訊
+[NULL]
+0 x          轉錄此文章至其他看板 (Cross Post)
+[NULL]
+0 F          將文章寄至網際網路信箱 (Internet Mail)
+[NULL]
+0 g          推薦此篇文章
+[NULL]
+0 a          找尋本看板某位特定作者的作品
+[NULL]
+0 A          找尋本看板某位特定作者的作品
+[NULL]
+0 ?          找尋特定標題
+[NULL]
+0 /          找尋特定標題
+[NULL]
+0 V          進行投票
+[NULL]
+0 R          查詢上次投票之開票結果
+[NULL]
+0 o          以閱讀模式搜尋精華區文章 (精華區串列閱讀)
+[NULL]
+0 l          以目錄所在方式搜尋精華區文章 (精華區串列索引)
+[NULL]
+0 =          找尋同標題中 首篇發文的文章
+[NULL]
+0 %          列出所有被推薦文章
+[NULL]
+0 G          列出所有被保留 (Mark) 文章
+[NULL]
+0 S          列出所有與本篇同標題之文章
+[NULL]
+0 E          重新編輯文章
+[NULL]
+0 |          找尋特定檔案之 Message-ID 並跳至該檔案
+[NULL]
+0 B          找尋特定檔案之 識別號碼 並跳至該檔案
+[NULL]
+0 &          查詢此篇文章之 Message-ID
+[NULL]
+0 !          切換 一般/MSGID 顯示模式
+[NULL]
+1 m          保留 / 反保留 此篇文章
+[NULL]
+1 M          維護投票功能 (舉行 / 查看 / 提早開票)
+[NULL]
+1 D          刪除一段範圍的文章
+[NULL]
+1 J          將文章收錄文摘
+[NULL]
+1 w          編輯水桶名單 (禁止發表文章)
+[NULL]
+1 W          編輯備忘錄 (進板畫面)
+[NULL]
+1 t          標記欲刪除的文章
+[NULL]
+1 i          呈報此篇文章與系統備查 (需站長搭配自動發薪程式)
+[NULL]
+1 Ctrl+d     刪除已標計的文章
+[NULL]
+1 Ctrl+o     標記欲刪除的特定 標題 / 作者 的文章
+[NULL]
+1 Ctrl+w     編輯允許進板的名單 (僅秘密看板適用)
+[NULL]
+1 I          維護允許進板的名單 (僅秘密看板適用)
+[NULL]
+1 Ctrl+k     編輯不允許進板的名單 (所有看板皆適用)
+[NULL]
+1 Ctrl+y     編輯進板的守則條件 (僅設定進板秘密守則看板有效 <黃色>)
+[NULL]
+1 K          將被推薦的文章之推薦數目歸零
+[NULL]
+1 c          拷貝此篇文章 (需搭配精華區的 a/p 命令)
+[NULL]
+1 C          拷貝此篇文章 並 跳至上次貼文章的精華區目錄
+[NULL]
+1 Ctrl+C     拷貝此篇文章 且 直接貼到上次貼文章的精華區目標目錄
+[NULL]
+1 Ctrl+x     拷貝此篇文章 且 直接貼到標定附加的精華區目標檔案
+[NULL]
+1 ^          列出所有等待審核轉信的文章
+[NULL]
+1 #          選擇此篇文章之轉信設定為 轉出 / 不轉出
+[NULL]
+1 H          鎖定此篇文章 (限制型系統命令)
+[NULL]
+1 X          查詢此看板閱讀的使用者記錄 (限制型系統命令)
+[NULL]
+1 Y          切換 一般 / 預覽 閱文模式 (限制型系統命令)
+[NULL]
+2 T          修改文章標題
+[NULL]
+2 Ctrl+h     清除欲呈報的文章旗標
+[NULL]
+2 Ctrl+n     查詢檔案名稱
+[NULL]
+2 Ctrl+z     編輯呈報列表檔
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]

@@ -1,0 +1,96 @@
+魔法王國 BBS      Ver 0.9
+=========================
+本站位址：tsunami.ml.org
+程式維護者：Magi (u862502@oz.nthu.edu.tw)
+
+    本站由FireBird 2.52發展而來，有鑑於sob系列有許多不錯的功能，所以在架站的
+過程當中，我就一邊修改出一些sob系列才有的功能，以及加入錢幣制度和一些線上遊戲
+。程式內也附上fb->magicbbs的PASSWD轉換程式，拿來升級舊有的系統沒有問題。
+
+* 本系統特異功能 *
+==================
+
+  1. 首創光棒選單
+  2. query畫面採設定檔形式，而非寫死在程式當中，易於修改
+  3. 多樣化的控制碼，可靠左靠右、欄寬控制，十分方便
+  4. 精華區計數器功能
+  5. 引進sob系列與我為友顯示功能
+  6. 提供簡易 web 介面
+  7. 錢幣及魔法力制度
+
+
+* 安裝步驟 *
+============
+
+到ftp://tsunami.ml.org/pub 取得 MagicBBS-xxxxxx-src.tgz (xxxxxx為版本日期)
+
+1. 以root身份，編輯/etc/passwd，建立以下這些帳號
+
+bbsroot:*:9999:99:BBS and modify source code:/home/bbsroot:/bin/csh
+bbs::9999:99:BBS user:/home/bbs:/home/bbs/bin/bbsrf
+
+2. 編輯/etc/group，加入下面這行
+
+bbs:*:99:bbsroot,bbsuser,bbs
+
+3. 以bbsroot身份執行以下命令 
+
+% tar zxvf MagicBBS-xxxxxx-src.tgz
+% cd bbs_src
+% cd CONFIG ; ./configure
+% cd ..
+% make
+% make mlib 
+% su
+# make install
+
+4. 安裝成功..^^
+   
+    此時telnet localhost以bbsuser login應該就可以囉。然後用new註冊一個叫SYSOP
+的新帳號，這個帳號將會擁有所有權限，作為系統管理之用。
+
+* 安裝完後序設定 *
+==================
+
+    make installchatd 安裝聊天室
+
+    您可以至精華區中看 Firebird BBS 2.5M 手冊，依照裡面說明繼續安裝一些周邊
+程式與系統設定的工作。
+
+* 動態看版 *
+============
+
+    請先新增一個note討論區，然後在此討論區中找想放上活動看版的文章，在前面按
+g 鍵把它收入文摘，爾後即會出現在動態看版裡。在主選單按~ 可立刻重新把動態看版
+文章從note版讀入共享記憶體。
+
+* Make 參數說明 *
+=================
+
+  make clean        清除編譯出來的檔案
+  make install      安裝一套新的BBS
+  make installbbs   僅安裝主程式，適用於修改完自己的source
+  make mlib         建立動態連結函示庫(libmbbs.so.1.0)，供附屬工具程式用
+  make installchatd 安裝聊天室
+
+* source 目錄結構說明 *
+=======================
+  bbs_src      存放MagicBBS原始碼
+    +-- mutil      MagicBBS專屬工具程式
+    +-- local_utl  原Firebird BBS工具程式
+    +-- webext     WWW 介面 (需搭配cgic library使用)
+    +-- telnetd    讓user可以直接telnet進來不用login的telnet server
+    +-- innbbsd    轉信程式
+
+* 從 Firebird 2.5x or M 版升級 *
+================================
+
+用bbs_src/mutil/fb255tomagic.c這隻程式可以將火鳥的.PASSWDS轉成Magic Ver的..
+
+使用步驟如下：
+
+1. 把fb255tomagic.c編譯後，copy到~bbs，然後執行，就會跑出一個.PASSWDS.new
+2. 清空站上的user，同時不要讓人家連線進來
+3. cp .PASSWDS .PASSWDS.old
+4. cp .PASSWDS.new .PASSWDS
+5. 清share memory or 重開機

@@ -1,0 +1,37 @@
+ 作者  verit.bbs@bbs.yzu.edu.tw (.......................), 信區: installbbs
+ 標題  [公告]WindTopBBS-3.02-20030629-SNAP
+ 時間  元智大學風之塔 (Sun Jun 29 21:05:16 2003)
+ 轉信  PigHeadPark!news.cs.nthu!netnews.csie.nctu!ctu-peer!ctu-gate!news.nctu!
+ 序碼  <474hAg$byP@bbs.yzu.edu.tw>
+ 編碼  Installbbs/A0VFUH8A
+
+
+【安裝版本】
+
+http://windtop.yzu.edu.tw/~windtop/release/WindTopBBS-3.02-20030629-SNAP.tgz
+   ports/outta-port/windtop
+
+【版本資訊】
+   最新更新版本: WindTop BBS-20030629
+            MD5: 84650082ce9c4354bebf4d5168749532
+   最新程式文件: WindTop BBS-20000706
+   最新FAQ 文件: WindTop BBS FAQ (整理中)
+
+【更新項目】
+   [重大] .BRD 由 128bytes 擴充成 256bytes 需要 util/tranBRD.c 作轉換
+   [一般] expire.ini 放入 .BRD
+   [一般] 新增檢視上站紀錄功能
+   [一般] 編輯文章在本文後面加入還原碼
+   [修正] bmtad.c 不能解 base64 跟 qp-code 編碼問題
+   [修正] WindTop BBSNet
+
+--
+ █▂█▂█  Computer Science & Engineering, Yuan Ze University
+ ◥███◤  Hsi-Feng Chen                  verit         風之塔
+   ┼┐├    E-Mail  : verit.bbs@bbs.yzu.edu.tw               Core Team
+   ┼┬      Project : http://windtop.yzu.edu.tw/~windtop/     程式設計小組
+   ┼┼┬
+ ◢███◣       Program of Wind's Top BBS      bbs.yzu.edu.tw/140.138.2.235
+--
+※ Origin: 元智大學 風之塔 <bbs.yzu.edu.tw>
+※ From  : bbs.yzu.edu.tw

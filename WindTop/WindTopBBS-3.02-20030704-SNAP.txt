@@ -1,0 +1,30 @@
+ 作者  visor (吃冰去 ￣▽￣)                                看板  WindTop
+ 標題  [公告]WindTopBBS-3.02-20030704-SNAP
+ 時間  Fri Jul  4 18:28:11 2003
+───────────────────────────────────────
+                                                                                
+                                                                                
+【安裝版本】
+
+http://windtop.yzu.edu.tw/~windtop/release/WindTopBBS-3.02-20030704-SNAP.tgz
+   ports/outta-port/windtop
+                                                                                
+【版本資訊】
+   最新更新版本: WindTop BBS-20030704
+            MD5: a69c7ebf089112a473ecf47f1acd668a
+   最新程式文件: WindTop BBS-20000706
+   最新FAQ 文件: WindTop BBS FAQ (整理中)
+                                                                                
+【重大更新】
+   [修正] pop3 認證方式。修正檔案 maple/acct.c maple/socket.c maple/maple.p
+                                                                                
+--
+ █▂█▂█  Computer Science & Engineering, Yuan Ze University
+ ◥███◤  Weng Cheng Hao                  visor         風之塔
+   ┼┐├    E-Mail  : visor.bbs@bbs.yzu.edu.tw               Core Team
+   ┼┬      Project : http://windtop.yzu.edu.tw/~windtop/       程式設計小組
+   ┼┼┬
+ ◢███◣       Program of Wind's Top BBS      bbs.yzu.edu.tw/140.138.2.235
+--
+※ Origin: 元智大學 風之塔 <bbs.yzu.edu.tw>
+※ From  : u8-177.u203-204.giga.net.tw

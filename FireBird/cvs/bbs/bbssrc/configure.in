@@ -1,0 +1,420 @@
+dnl ====================================================
+dnl configure.in for Firebird BBS 3.0 SM series
+dnl borrowed from SEEDNet BBS generation 1
+dnl $Id: configure.in,v 1.20 2002/09/08 00:08:25 edwardc Exp $
+dnl ====================================================
+dnl configure.in for SEEDNet BBS
+dnl configure.in,v 1.16 1999/04/04 00:34:32 edwardc Exp
+dnl ====================================================
+
+AC_REVISION($Revision: 1.20 $)
+AC_INIT("include/bbs.h")
+
+color_f=`awk 'BEGIN { printf("%c%c%c%c", 27, 91, 49, 109); }' </dev/null 2>/dev/null `
+color_r=`awk 'BEGIN { printf("%c%c%c", 27, 91, 109); }' </dev/null 2>/dev/null`
+
+echo "${color_f}Firebird BBS 3.0${color_r} series configure $1"
+echo "\$Id: configure.in,v 1.20 2002/09/08 00:08:25 edwardc Exp $"
+
+dnl ------------------------------------------
+dnl ---- Checking C compiler              ----
+dnl ------------------------------------------
+
+echo " "
+echo "${color_f}Testing C Compiler:${color_r}"
+
+rm -fr Makefile.cflags
+
+cat > Makefile.cflags << EOF
+all:
+	@echo \${CFLAGS}
+EOF
+
+CFLAGS=`make -f Makefile.cflags`
+rm -fr Makefile.cflags
+
+AC_PROG_CC
+
+DIRS="lib src"
+
+AC_PROG_INSTALL
+AC_ARG_ENABLE(lite,
+--enable-lite to active lite-package mode (FB 3.0), \
+x="Makefile src/Install.sh include/config.h include/chat.h include/os_dep.h", \
+x="Makefile src/Install.sh include/config.h include/chat.h include/os_dep.h util/innbbsd/Makefile util/mail2bbs/Makefile util/local_utl/Makefile")
+
+dnl -----------------------------------
+dnl checking avaliable libraries ..
+dnl -----------------------------------
+
+dnl echo " "
+dnl echo "${color_f}Checking necessary libraries:${color_r}"
+
+AC_CHECK_FUNC(crypt, , AC_CHECK_LIB(crypt, crypt))
+AC_HAVE_LIBRARY(socket)
+AC_HAVE_LIBRARY(nsl)
+AC_HAVE_LIBRARY(bsd)
+AC_HAVE_LIBRARY(ucb)
+AC_HAVE_LIBRARY(rpcsvc)
+AC_HAVE_LIBRARY(dl)
+AC_HAVE_LIBRARY(termcap, , echo "ERR: no libtermcap found. ${color_f}please read doc/FAQ for solutions${color_r}." ; exit )
+AC_HAVE_LIBRARY(cygipc)
+
+dnl -----------------------------------
+dnl checking for external program
+dnl -----------------------------------
+
+dnl echo " "
+dnl echo "${color_f}Checking for 3rd party program:${color_r}"
+
+AC_PROG_YACC
+AC_PATH_PROG(perl, perl, /usr/bin/perl, $PATH:/usr/bin:/usr/local/bin:/usr/sbin)
+AC_PATH_PROG(SENDMAIL, sendmail, /usr/sbin/sendmail, $PATH:/usr/lib:/usr/sbin)
+AC_PATH_PROG(ld, ld, /usr/bin/ld, $PATH:/bin:/usr/lib:/usr/sbin:/usr/local/bin)
+AC_PATH_PROG(file, file, /usr/bin/file, $PATH:/usr/bin:/usr/local/bin:/usr/sbin)
+
+echo -n "checking if $ld is GNU ld ..."
+
+gnuld=`ld -V | grep GNU`
+
+if test -z "$gnuld"; then
+	if test "$with_gnuld" = no; then
+		echo "${color_f}no${color_r}"
+		echo "${color_f}   ... using that anyway, may cause some problem!${color_r}"
+		LD_PARA=""
+	else
+		echo "${color_f}no${color_r}"
+		echo "${color_f}   ... there could be some problem with non-GNU ld, install GNU ld.${color_r}"
+		echo "   or try configure ${color_f}--without-gnuld${color_r}"
+		exit;
+	fi
+else
+	echo "${color_f}yes${color_r}"
+	LD_PARA="-export-dynamic"
+fi
+
+iself=`$file $file | grep ELF`
+
+echo -n "checking file format ... "
+
+if test -z "$iself"; then
+	ff="aout"
+	LD_PARA=""
+else
+	ff="elf"
+fi
+
+echo $ff
+
+dnl ------------------------------------------
+dnl ---- Checking system type             ----
+dnl ------------------------------------------
+
+echo " "
+echo "${color_f}Checking system type:${color_r}"
+
+AC_CANONICAL_SYSTEM
+
+OS=""
+OSDEP=""
+TERMIOS=""
+
+objtarget="unknown"
+
+case ${target} in
+    *sun-sunos*)   
+        systype=SunOS
+        OS_DEF="-D_SunOS_"
+		OS="#define SUNOS"
+		objtarget="sun"
+        ;;      
+
+    *-solaris*) 
+        systype=Solaris
+        OS_DEF="-D_Solaris_"
+		OS="#define SOLARIS"
+		OSDEP="#define SYSV"
+		LD_PARA=""
+		TERMIOS="#define TERMIOS"
+		LIBS="$LIBS -L/usr/ucblib -lucb"
+		objtarget="solaris"
+        ;;      
+
+	*-freebsd*)
+        systype=FreeBSD
+		OS_DEF="-D_FreeBSD_"
+		OS="#define BSD44"
+		TERMIOS="#define TERMIOS"
+		OSDEP="#define _XOPEN_SOURCE"
+		objtarget="freebsd"
+		;;
+
+	*bsd*)
+        systype=BSD_Family
+        OS_DEF="-D_BSD_Family_"
+		OS="#define BSD44"
+		TERMIOS="#define TERMIOS"
+		objtarget="bsd"
+		;;
+
+    *hp-hpux*)     
+        systype=HP_UX
+        OS_DEF="-D_HP_UX_"
+		OS="#define HP_UX"
+		OSDEP="#define SYSV"
+		objtarget="hpux"
+        ;;     
+
+    *ibm-aix*)     
+        systype=IBM_AIX
+		OS_DEF="-D_IBM_AIX_"
+		OS="#define AIX"
+		OSDEP="#define SYSV"
+		objtarget="aix"
+        ;;     
+
+    *sgi-irix*)    
+        systype=SGI_IRIX
+        OS_DEF="-DIRIX -DSYSV -DTERMIOS"
+		objtarget="irix"
+        ;;     
+
+    *dec-osf*)     
+        systype=DEC_OSF
+        OS_DEF=""
+		objtarget="alpha"
+        ;;      
+
+    *-linux*|*-cygwin*)
+        systype=LINUX
+		OS_DEF="-D_Linux_"
+		OS="#define LINUX"
+		TERMIOS="#define TERMIOS"
+        CC="gcc"
+		objtarget="linux"
+        ;;
+
+    *)
+		echo " "
+		echo "${target} is unknown. You may not complete the compile on this platform"
+		echo "please report the information to ${color_f}edwardc@firebird.org.tw${color_r} for future support"
+
+        systype=UNKNOWN
+		OS_DEF="-D_unknown_"
+		objtarget="bsd"
+        ;;     
+esac
+
+echo "platform type... ${color_f}$objtarget${color_r}/${color_f}${ff}${color_r}"
+
+dnl ------------------------------------------
+dnl    Asking about local BBS configuration 
+dnl ------------------------------------------
+changequote(<<,>>) dnl
+
+if test -f "configure.inf"; then
+	echo " "
+	echo "${color_f}loading configure.inf as default setting${color_r} ..."
+
+	inf=`cat configure.inf`
+	uid_def=`echo "$inf" | grep BBSUID | awk -F = '{print $2}'`
+	uid_def=${uid_def:-9999}
+
+	gid_def=`echo "$inf" | grep BBSGID | awk -F = '{print $2}'`
+	gid_def=${gid_def:-99}
+
+	domain_def=`echo "$inf" | grep DOMAIN | awk -F = '{print $2}'`
+	domain_def=${domain_def:-"some.where.on.earth"}
+
+	bbsid_def=`echo "$inf" | grep BBS_ID | awk -F = '{print $2}'`
+	bbsid_def=${bbsid_def:-"NoName"}
+
+	cname_def=`echo "$inf" | grep CNAME | awk -F = '{print $2}'`
+	cname_def=${cname_def:-"火鳥系統 3.1"}
+
+	bbsip_def=`echo "$inf" | grep BBS_IP | awk -F = '{print $2}'`
+	bbsip_def=${bbsip_def:-"127.0.0.1"}
+
+	defaultbd_def=`echo "$inf" | grep DEFAULTBD | awk -F = '{print $2}'`
+	defaultbd_def=${defaultbd_def:-"sysop"}
+
+	maxusers_def=`echo "$inf" | grep MAXUSERS | awk -F = '{print $2}'`
+	maxusers_def=${maxusers_def:-"20236"}
+
+	maxboard_def=`echo "$inf" | grep MAXBOARD | awk -F = '{print $2}'`
+	maxboard_def=${maxboard_def:-"256"}
+
+	maxactive_def=`echo "$inf" | grep MAXACTIVE | awk -F = '{print $2}'`
+	maxactive_def=${maxactive_def:-"256"}
+
+	showidle_def=`echo "$inf" | grep SHOWIDLETIME | awk -F = '{print $2}'`
+	showidle_def=${showidle_def:-"Y"}
+
+else
+	uid_def="9999"
+	gid_def="99"
+	domain_def="some.where.on.earth"
+	bbsid_def="NoName"
+	cname_def="火鳥系統 3.1"
+	bbsip_def="127.0.0.1"
+	defaultbd_def="sysop"
+	maxusers_def="20236"
+	maxboard_def="256"
+	maxactive_def="256"
+	showidle_def="Y"
+fi
+
+echo " "
+echo "${color_f}Please fill data for your BBS${color_r}"
+echo " "
+
+bbshome=`cd .. ; pwd`
+echo -n "Home directory of BBS --> [$bbshome] "
+read BBS_HOME
+BBS_HOME=${BBS_HOME:-$bbshome}
+
+bbssrc=`pwd`
+echo -n "BBS Source Code directory --> [$bbssrc] "
+read BBSSRC
+BBSSRC=${BBSSRC:-$bbssrc}
+
+echo -n "UID of BBS --> [$uid_def] " 
+read BBS_UID
+BBS_UID=${BBS_UID:-$uid_def}
+
+echo -n "GID of BBS --> [$gid_def] " 
+read BBS_GID
+BBS_GID=${BBS_GID:-$gid_def}
+
+echo -n "The ID of your site --> [$bbsid_def] "
+read BBS_ID
+BBS_ID=${BBS_ID:-$bbsid_def}
+
+echo -n "The name of your site --> [$cname_def] "
+read BBS_CNAME
+BBS_CNAME=${BBS_CNAME:-"$cname_def"}
+
+echo -n "The domain name of your site --> [$domain_def] "
+read DOMAIN
+DOMAIN=${DOMAIN:-"$domain_def"}
+
+echo -n "The ip address of your site --> [$bbsip_def] "
+read BBS_IP
+BBS_IP=${BBS_IP:-"$bbsip_def"}
+
+echo "The Default board of your site, only change it if upgrading "
+echo -n "from old system with different default board --> [$defaultbd_def] "
+read DEFAULTBD
+DEFAULTBD=${DEFAULTBD:-"$defaultbd_def"}
+
+echo -n "Maximum number of users --> [$maxusers_def] "
+read MAXUSERS
+MAXUSERS=${MAXUSERS:-$maxusers_def}
+
+echo -n "Maximum number of boards --> [$maxboard_def] "
+read MAXBOARD
+MAXBOARD=${MAXBOARD:-$maxboard_def}
+
+echo -n "Maximum number of on-line users --> [$maxactive_def] "
+read MAXACTIVE
+MAXACTIVE=${MAXACTIVE:-$maxactive_def}
+
+echo -n "Show idle time of BBS users ? --> [$showidle_def] "
+read ansidl
+ansidl=${ansidl:-$showidle_def}
+case $ansidl in
+   [Nn]) CSIE_DEF="" ;;
+      *) CSIE_DEF="-DSHOW_IDLE_TIME -DWITHOUT_CHROOT" ;;
+esac
+
+changequote([,]) dnl
+
+echo " "
+echo "${color_f}Generating output files${color_r}"
+echo " "
+
+dnl ---------------------------------------------------
+dnl ---- Substitute system configuration variables ----
+dnl ---------------------------------------------------
+
+AC_SUBST(systype)
+AC_SUBST(RPCSVC)
+AC_SUBST(OS_DEF)
+AC_SUBST(CC)
+AC_SUBST(LIBS)
+AC_SUBST(OS_DEF)
+AC_SUBST(BBS_HOME)
+AC_SUBST(BBS_UID)
+AC_SUBST(BBS_GID)
+AC_SUBST(CSIE_DEF)
+AC_SUBST(BBS_CNAME)
+AC_SUBST(BBS_ID)
+AC_SUBST(BBS_IP)
+AC_SUBST(DEFAULTBD)
+AC_SUBST(MAXUSERS)
+AC_SUBST(MAXBOARD)
+AC_SUBST(MAXACTIVE)
+AC_SUBST(perl)
+AC_SUBST(DIRS)
+AC_SUBST(objtarget)
+AC_SUBST(DOMAIN)
+AC_SUBST(BBSSRC)
+AC_SUBST(SENDMAIL)
+AC_SUBST(libCRYPT)
+AC_SUBST(YACC)
+AC_SUBST(OS)
+AC_SUBST(OSDEP)
+AC_SUBST(TERMIOS)
+AC_SUBST(LD_PARA)
+AC_SUBST(ld)
+AC_SUBST(target)
+
+dnl ------------------------------------------
+dnl ---- Output file                      ----
+dnl ------------------------------------------
+
+AC_OUTPUT($x)
+
+chmod 755 src/Install.sh
+
+echo "generating configure.inf"
+
+`rm -fr configure.inf`
+cat > configure.inf << EOF
+######################################################
+This file is generate by configure \$Revision: 1.20 $
+######################################################
+BBSUID=$BBS_UID
+BBSGID=$BBS_GID
+BBS_IP=$BBS_IP
+MAXUSERS=$MAXUSERS
+MAXBOARD=$MAXBOARD
+MAXACTIVE=$MAXACTIVE
+SHOWIDLETIME=$ansidl
+PERL=$perl
+BBS_ID=$BBS_ID
+DOMAIN=$DOMAIN
+CNAME=$BBS_CNAME
+DEFAULTBD=$DEFAULTBD
+BUILD_PLATFORM=$objtarget
+EOF
+
+if [ test -f ".reldate" ]; then
+	echo "RELDATE=`cat .reldate`" >> configure.inf
+fi
+
+cat << EOF
+
+......................................................................
+You may review the Makefile now. ${color_f}Type 'make' before you read the docs.${color_r}
+......................................................................
+
+EOF
+
+`rm -fr config.cache`
+`rm -fr config.log`
+`rm -fr config.status`
+
+dnl -------------------- 
+dnl END of configure.in
+dnl --------------------

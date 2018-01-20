@@ -1,0 +1,56 @@
+This file contains a list, in reverse chronologocal order.
+$Id: TODO_List,v 1.16 2002/01/10 16:18:02 chinsan Exp $     
+
+/*--------------------------------------------------------------------------*/
+ 大家有想要做的事就寫到這檔，才不會在 FPUG 版左一篇，右一篇，等到要做時找不到。
+ 已經著手的就在後面加個 ID 吧 ^_^
+/*--------------------------------------------------------------------------*/
+
+Sat Dec 29 2001
+* [bug]  找尋 .boardrc 以及 .BOARDS 的終極解法... :p
+* [bug]  maillist 跟 deny_users 相關地方有問題...       -- done
+* [bug]  改討論區的英文版名時, .Search 相關處沒跟著更新
+* [bug]  回信給作者時按 Q 無效, 
+         必須先進入編輯狀態按 ^X 然後選 a(abort)...
+* [bug]  水球寄回信箱要做個 header 給他
+* [func] 精華區的東西搬移功能，有使用者反映希望能做到隨搬隨移。
+* [func] 精華區可命名的長度有點少...。
+* [func] 精華區看文章的話, 希望能連續接著看下一篇.
+* [func] 精華區文章的格式最好改成一般文章格式有 header & endding 
+* [func] 好友廣播要限制次數...扣文章點數..or 付費? :p  (其實是一直被廣播很煩)
+* [func] 增加熱鍵 ^U(隨時看誰在線上), ^\(隨時看信)
+         ^R(隨時回水球), ^W(隨時看水球),
+* 編寫一下 Server-Gateway 轉信方式(這方面的似乎蠻欠缺的)
+
+Fri Aug 17 2001 by edwardc
+
+1.修正編輯過大檔案會斷線的問題。(by Harimau)
+2.防止惡意灌水。(by Harimau)
+4.修正訊息過長導致查看訊息發現空一行的問題。(by someone)-- done
+5.bad_user_id 改良，可配合使用萬用字元。(by Cloud)
+7.限制擁有站長權限的人只能從特定地點上站。(by cwind)	-- done
+8.防止掛站。(by Harimau)
+9.板主被砍通知，提醒站長修改板主權線。(by Harimau)
+11.加強 mail 管理，列出使用者"已用/可用"的硬碟空間。	-- done
+12.完成對 cgywin 平台的支援。
+
+Wed Mar 07 2000 by skyo
+
+* bbsnnrp only 功能修正，log 訊息也不再有很多個了	-- done
+* startbbs.sh、cron.bbs 修改				-- done
+* logins.bad、use_board 移至 log/，請更新 usage 程式	-- done
+* .badname -> etc/bad_id、.bad_email -> etc/bad_email	-- done
+* mail-log、bbslog 移至 log/，請更新 inntobbs、bbsmail  -- done
+
+Sat Feb 19 2000 by edwardc
+
+* Solaris 下的 flock() 問題		-- 新解, 採用 fcntl() POSIX 解法 (clkao)
+* vio 最終修正
+* *** release 正式板 ***		-- already done :p
+* 更新個人資料時, 生日資訊會消失的問題
+
+Mon Jan 11 2000 by edwardc
+
+* 相同主題放入精華區有 [錯誤] 問題			-- done
+* mail2bbs user not found 問題				-- done
+

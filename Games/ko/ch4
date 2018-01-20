@@ -1,0 +1,6 @@
+#!/bin/sh
+export TERMINFO=~/.terminfo
+captoinfo -c -t xterm-color -B
+export TERM=xterm-color
+./chess2 $@
+

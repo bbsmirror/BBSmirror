@@ -1,0 +1,78 @@
+From Leeym.bbs@NetoWorld.Neto.Net  Sat Mar  6 13:48:37 1999
+Received: from info.neto.net (com@info.neto.net [210.209.34.33])
+	by uranus.civil.ncku.edu.tw (8.9.2/8.9.0) with ESMTP id NAA11803
+	for <leeym@uranus.civil.ncku.edu.tw>; Sat, 6 Mar 1999 13:48:36 +0800 (CST)
+From: Leeym.bbs@NetoWorld.Neto.Net
+Received: (from com@localhost)
+	by info.neto.net (8.8.8/8.8.8) id NAA11500
+	for leeym@mail.civil.ncku.edu.tw; Sat, 6 Mar 1999 13:48:34 +0800 (CST)
+Date: Sat, 6 Mar 1999 13:48:34 +0800 (CST)
+Message-Id: <199903060548.NAA11500@info.neto.net>
+X-Authentication-Warning: info.neto.net: com set sender to Leeym.bbs@NetoWorld.Neto.Net using -f
+Reply-To: Leeym.bbs@NetoWorld.Neto.Net
+To: leeym@uranus.civil.ncku.edu.tw
+Subject: NoCeM 簡介 - 1
+X-Disclaimer: 網際新世界對本信內容恕不負責。
+Status: R
+
+作者: benjamin (哈~) 看板: benjamin
+標題: NoCeM 簡介 - 1
+時間: Fri Mar  5 05:03:38 1999
+
+
+                        NoCeM 簡介
+
+1.NoCeM簡介
+
+  NoCeM的發音為(No See 'Em, 也就是No See Them), 其主要的目的是處理現在
+  常見的 SPAM, 適用的對像相當廣泛, 從 news server 的管理員到一般閱讀
+  NEWS 的使用者都可加入.
+
+  每位使用者可將他在網路上認為不值得閱讀(或值得閱讀的文章), 整理出來,
+  按照一定的格式 (NoCeM有特別規定格式), 將相關的資料(message-id)製成一
+  篇文章 (在NoCeM中稱為notice), 利用各種管道將這些資料散播給其他的使用
+  者, 散播的管道並沒有限制, mailing list, web, news都是常見的方式.
+
+  其他的使用者則可接受這些notice, 接受發文者的建議, 閱讀或者拒看文章,
+  使用者有絕對的權利可以選擇是否接受這些notice, 如果使用者信任發出
+  notice的使用者, 那麼可以選擇接受他的建議, 拒看某些文章, 反之, 使用者
+  也有充份的自由可以選擇不加理會.
+
+  特別重要的一點, 所有的notice必須經過發文者的 PGP 簽名, 如此可以確定
+  notice不會被任何人偽造或竄改.
+
+2.實際的做法及應用
+
+  上面提到使用者接到 notice 後可以接受建議拒看文章, 實際的應用可分:
+  一般使用者與 news server 管理者來說明
+
+  一般使用者:
+
+  每位使用者可以自行設定接受那些人送出的 notice, 當使用者在閱讀文章之前
+  先取得 nocem notice, 然後針對使用者的設定做 PGP 簽名的檢查, 檢查通過
+  後才繼續進行下一個步驟.
+
+  剛才提到 notice 可分為建議閱讀(show), 或拒看(hide), 來更動使用者的
+  .newsrc檔, 凡是被歸為hide的文章, 會在 .newsrc上做上標記, 使得使用者接下
+  來閱讀文章時, 該文章會自動被過濾掉或被設為已讀, 至於歸類為show的文章
+  也做特別標記將其顯示出來
+
+  以目前來講, hide是較常被使用的, 所有的spam都會被歸類為hide.
+
+  因此, 在使用者閱讀時, 就已經看不到這篇文章, 不過, 這篇文章依然存在 news
+  server之中, 並不會被刪除
+
+  現在已有發展相關的程式, 供使用者選用, 不過只限定支援有.newsrc檔的 news
+  reader  程式, 如:tin......
+  一般使用者除了可以指定接收那些人送出的notice外, 也可設定這些notice所
+  能影響及控制的newsgroup.
+
+  news server管理者:
+
+  主要的原理和上面所寫的大致相同, 不過原來修改.newsrc檔的動作, 現在變成
+  直接將文章從 news server 中刪除, 同樣地, 管理者有絕對的權利選擇是否加入
+  NoCeM 或是加入後只接受某些人的notice.
+
+--
+※ Origin: 網際新世界 ◆ From: 163.28.64.246
+

@@ -1,0 +1,17 @@
+  [[1m//[m]help            - MUD-like ªÀ¥æ°Êµü
+  [[1m/h[m]elp op          - ½Í¤Ñ«ÇºÞ²z­û±M¥Î«ü¥O
+  [[1m/a[m]ct <msg>        - °µ¤@­Ó°Ê§@
+  [[1m/b[m]ye [msg]        - ¹D§O
+  [[1m/c[m]lear            - ²M°£¿Ã¹õ
+  [[1m/j[m]oin <room>      - «Ø¥ß©Î¥[¤J½Í¤Ñ«Ç
+  [[1m/ca[m]ll Userid      - ÁÜ½Ð Chatroom ¥~ªº¨Ï¥ÎªÌ¥[¤J²á¤Ñ«Ç
+  [[1m/l[m]ist [room]      - ¦C¥X½Í¤Ñ«Ç¨Ï¥ÎªÌ
+  [[1m/m[m]sg <id> <msg>   - ¸ò <id> »¡®¨®¨¸Ü
+  [[1m/n[m]ick <id>        - ±N½Í¤Ñ¥N¸¹´«¦¨ <id>
+  [[1m/r[m]oom             - ¦C¥X¤@¯ë½Í¤Ñ«Ç
+  [[1m/u[m]sers            - ¦C¥X¯¸¤W¨Ï¥ÎªÌ
+  [[1m/w[m]ho              - ¦C¥X¥»½Í¤Ñ«Ç¨Ï¥ÎªÌ
+  [[1m/w[m]hoin <room>     - ¦C¥X½Í¤Ñ«Ç<room> ªº¨Ï¥ÎªÌ
+  [[1m/s[m]etrec           - ±Ò°Ê©ÎÃö³¬¿ý­µ
+  [[1m/p[m]ager            - ¶}/Ãö ©I¥s¾¹
+  [[1m/q[m]uery            - ¥´Å¥ºô¤Í°T®§

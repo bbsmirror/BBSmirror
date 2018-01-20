@@ -1,0 +1,130 @@
+<html>
+<title>bbsmailq 廣告信自動篩檢程式 (2001/12/16)</title>
+<meta http-equiv="content-type" content="text/html; charset=Big5">
+<body>
+<h2>
+    -- bbsmailq 廣告信自動篩檢程式 (2001/12/17) --
+</h2>
+
+       最近更新&nbsp;2001/12/17&nbsp;<a href=./bbsmailq-121701.tgz>下載</a><br>
+
+<pre>
+    */ 前言 /*
+
+        這個方法姑且稱作 bbsmailq 好了 :)
+
+        此方法僅配合 sendmail + bbsmail 使用，尚未在 postfix 與其他 smtp
+        daemon 上測試。如果是使用 Maple 3 的 bmtad 來負責 BBS user 的收
+        信，很抱歉此方法是不適用的。
+                                    
+    */ 原理 /*                      
+
+        因為當下寄發給 BBS user 的廣告信已經具備了短時間內大量寄信給許多
+         user的特徵，因此依據這個特徵我們可以先將送進來的信 queue 住，等
+        待一段時間後去檢查這段時間送進來的信與該使用者收到信的比例，超過 
+        一個可忍受的範圍則可視為廣告信。
+                                        
+    */ 程式列表 */                      
+
+        以下的程式是以 bash(*) 為環境寫成，由於我的 shell script 新學乍用
+        或許有不好的地方，歡迎來信討論指正。
+
+        (*)註：由於我所使用的 RedHat Linux 是將 sh 硬連結至 bash 的，所以
+        程式開頭都是寫成 #!/bin/sh。以下是我的 bash 版本資訊：
+
+        GNU bash, version 2.05.9(1)-release (i386-redhat-linux-gnu)
+        Copyright 2000 Free Software Foundation, Inc.
+
+        程式部份：
+          dmailq.sh    -- 負責判斷信件寄送比例並寄發信件給 BBS user。
+          func.sh      -- mailq.sh & dmailq.sh 共用的函式定義於此。  
+          mailq.sh     -- 是一隻 mailer，負責 queue 住外來信件並分類。
+          sendlog.sh   -- 將紀錄檔寄給指定的 e-mail 後刪除舊的 log。  
+
+        設定檔：
+          smtp.acl     -- 設定來信的 SMTP Server 黑/白名單。
+
+        紀錄檔：
+          dmailq.log   -- 執行 dmailq.sh 之後產生的紀錄檔。
+
+        說明文件：
+          README       -- 你正在閱讀的這份文件。
+
+        以後或許還會根據網友的建議及指正修改這些程式，屆時請蒞網址：
+        http://www.csie.nctu.edu.tw/~gjchen/bbsmailq.html 下載更新。
+
+    */ 步驟 /*
+
+        1) 在 BBS home 目錄下建立一個暫存目錄，在以下的程式裡我預設的目錄
+           是 /home/bbs/spool，可依據需要做更改。
+
+        2) 把取得的 bbsmailq.tgz 解開置於 spool 下，與上葭{式列表比對，並
+           且 將 *.sh chmod 成可執行。
+
+        3) 修改 sendmail.cf，找到 Ruleset 0 原本可能如下的設定：
+
+R$+.bbs < @ $=w . >     $#bbsmail $: $1         bbs mail gateway
+
+           改成
+
+R$+.bbs < @ $=w . >     $#bbsmailq $: $1                bbs mail gateway
+
+           然後新增一個 Mbbsmailq 的設定。找到 Mbbsmail 的設定可能如下：
+
+Mbbsmail,      P=/home/bbs/bin/bbsmail, F=lsSDFMhPu, U=bbs, S=10, R=20/40,
+               A=bbsmail $u
+
+           增加一個 Mbbsmailq：
+
+Mbbsmailq,      P=/home/bbs/spool/mailq.sh, F=lsSDFMhPu, U=bbs, S=10, R=20/40,
+                A=mailq.sh $u ${client_addr}
+
+           重跑 sendmail。
+
+        4) 在 bbs 的 crontable 裡增加一行定時執行 dmailq.sh 的設定：
+
+           0-59/3 * * * * spool/dmailq.sh       # 3 分鐘執行一次 dmailq.sh
+
+           如果你覺得效果不好可以試著放大執行的間隔時間。
+           如果你要定時檢查清理 dmailq.log 可以在 crontable 中加入定
+           時執行 sendlog.sh 的設定：                               
+
+           0 0 * * * spool/sendlog.sh sysadm@localhost gjchen@csie.nctu.edu.tw
+
+           sendlog.sh 會將 dmailq.log 寄給 sysadm 和 gjchen@csie.nctu.edu.tw
+           之後將 dmailq.sh 刪除。                                          
+
+        5) dmailq.sh 的執行會簡單的 log 在 dmailq.log 裡，其中 UAVG 的比例
+           若大於等於 dmailq.sh 的 MAXUAVG，則不會呼叫 bbsmail 將信件送給 
+            bbs user。如果你將 dmailq.sh 中的 AUTO_ADD_BLACK 設為 1 (預設)
+           則程式會自動將 UAVG >= MAXUAVG 的 SMTP Server 丟入黑名單。
+
+        6) smtp.acl 目前簡單的提供了黑/白名單的機制，寫法在 smtp.acl 中有
+           說明及範例。當 mailq.sh 判讀SMTP Server在黑名單則不收此信件，當
+           SMTP Server 在白名單之列則直接呼叫 bbsmail 寄送郵件給 BBS user。
+
+        7) 程式臭蟲回報及建議，請來信作者信箱 gjchen@csie.nctu.edu.tw。
+
+    */ 後記 /*
+
+        由於我手邊尚無使用 postfix 與 FireBird BBS 的機器可供測試，若有熱心
+        的網友將此法用在 postfix 與 FB BBS上，請將不同的設定方法寄給我，謝
+        謝。
+
+    */ 其他 /*
+
+        附上開發環境的資料：
+
+        Linux 2.4.12 ( Redhat Linux 7.0 )
+        Sendmail 8.11.6
+        GNU bash, version 2.05.9(1)
+        Maple BBS 3.02
+        Joe's Own Editor v2.9.6
+
+
+--
+        陳俊哲(Gin-Jerr Chen), gjchen@csie.nctu.edu.tw, 新竹交大資工, TWN。
+
+</pre>
+</body>
+</html>

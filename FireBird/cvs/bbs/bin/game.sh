@@ -1,0 +1,1 @@
+exec /usr/games/hangman

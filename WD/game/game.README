@@ -1,0 +1,29 @@
+ 作者  Chukuang.bbs@wdbbs.net (二月杏花雨), 信區: WD_DOC
+ 標題  遊戲
+ 時間  風與塵埃的對話 BBS (Wed Dec 11 01:31:23 2002)
+ 轉信  PigHeadPark!wd-news!WD
+
+一些 WD 裡沒有的遊戲，都是修正過的，WD 都應該會適用
+測試了一陣子，應該沒啥問題才是了，想說提供回給 WD
+http://knight.fcu.edu.tw/~d8775721/game.tar
+相關檔案我用目錄把它們分類，加上一些小說明
+
+不過我剛修正好的 Mario，可能要麻煩大家測一下囉...
+應該只有比大小的部分，還是有點怪怪的吧
+
+裡面蠻多都是修正自 StarBBS，在 WD 下修正跑起來沒問題
+包括 sheng 修正好的孔明棋，與我自己小修正好的 Mario
+另外還有我將星河BBS的象棋對奕還有暗棋對戰之修正
+裡面我有弄上簡易的說明檔說明，包括瘋狂賭盤下注問題
+
+不過裡面 card 這檔案我改了好久一直都無法修正好
+不知道有哪位前輩能力比較強願意幫忙修正在 WD 可適用
+附上 card.c.ptt 是 ptt 下的，card.c.star 是 StarBBS 的
+
+另外提供 Wintop 的 railway.c 跟 Maple 的 KimoNEWS 供參考
+WD 目前的 railway.c 已經無法用了，奇摩新聞看誰能修正
+不然好像 WD 版本 BBS 近來都沒啥新的遊戲之類了....
+
+PS: 能否請 WD主站這裡或 php.twbbs.org 等能否整理過去
+    因為檔案位置我這邊可能不能放太久，先說聲抱歉囉....
+

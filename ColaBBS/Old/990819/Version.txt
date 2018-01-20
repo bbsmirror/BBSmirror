@@ -1,0 +1,11 @@
+
+990819
+
+ColaBBS
+ 1. [修正] 內部修改.
+ 2. [修正] ActivePlasmid.INI 註解會出問題.
+  
+ChatRoom
+ 1. 修正錯誤
+ 2. 採用自己的 Msg File.
+ 3. 採用自己的設定檔.

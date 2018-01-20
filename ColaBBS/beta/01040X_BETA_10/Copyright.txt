@@ -1,0 +1,16 @@
+
+   Cola Bulletin Board System    Version 01040X_B10
+                            Copyright (C) 1997-2001
+
+                              §d­^»¨ (Ying-haur Wu)
+      Department of Computer and Infomation Science
+                       Nation Chiao Tung University
+
+                              ÃQ·Á¨°  (William Wey)
+                     Department of Computer Science
+                      National Tsing Hua University
+  
+                                                  &
+                                                  
+                      infoX Studio, Hsinchu, Taiwan
+

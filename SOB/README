@@ -1,0 +1,19 @@
+innbbsd-050b4-RFC_204X.tgz   支援 RFC 2045/2047 轉信的 innbbsd-050b4(innbbsd/)
+
+maple_favor_ok.tgz           加入了 我的最愛/RFC 822 功能修正的 SOB-Domi 版本
+                             (maple/)
+
+sob_20030720_pack.tgz        SOB-PACK 完整版 (src/) 於 2003/07/20 發表
+sob_20030803_pack.tgz        SOB-PACK 完整版 (src/) 於 2003/08/03 發表
+
+sob_pack.tgz                 SOB-PACK 完整版 (tar all) 最新釋出版本 (隨時更新)
+
+sob_rfc2047.tar.gz           僅針對 RFC 822/2045/2047 做修正的 SOB-Domi 版本
+                             (tar all)
+
+str_decode_m3.c.gz           PaulLiu 兄整理的 str_decode.c 由 Dopin 改寫
+
+utility/                     由 ATS 所改寫 適合 SOB 使用的各種工具程式壓縮檔
+                             收集目錄 (SOC-PACK 系列內含)
+
+欲參觀 SOB-PACK Current 之示範站台 請 telnet://ftp.ats.idv.tw/ 即可 謝謝

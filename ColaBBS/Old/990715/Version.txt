@@ -1,0 +1,46 @@
+
+990715
+
+ColaBBS
+1. [修正] 使用該版面全部讀過功能後, 讀取文章會發生的幾個小問題.
+2. [修正] 使用該版面全部讀過功能後, 會發生無法刪除文章的問題.
+3. [修正] 編輯器編輯長度為 0 的檔案時, 所發生的問題.
+4. [修正] 一些介面上的小缺點.
+5. [新增] 新的 LogFile 功能.
+
+BoardExpire
+1. [新增] 支援新的 LogFile 功能.
+2. [修正] 修正 Expire 時會多刪除最後一篇文章的問題.
+
+Fingerd
+1. [新增] 支援新的 LogFile 功能.
+
+HappyBirthday
+1. [新增] 支援新的 LogFile 功能.
+
+HappyBirthdayList
+1. [新增] 支援新的 LogFile 功能.
+2. [新增] 顯示未來七天內生日的使用者.
+3. [修正] 顯示歪掉的問題.
+
+WeatherReport
+1. [新增] 支援新的 LogFile 功能.
+
+TopUserList
+1. [新增] 支援新的 LogFile 功能.
+
+EditEverywhere
+1. [新增] 支援新的 LogFile 功能.
+
+ACBoardManager
+1. [新增] 支援新的 LogFile 功能.
+2. [新增] 可從多個版面及目錄載入活動看板.
+3. [變更] 拿掉 Style 的設定.
+
+LockScreen
+1. [功能] 支援新的 LogFile 功能.
+2. [功能] 可以鎖住使用者的畫面, 當要暫時離開座位時就用得到了.
+
+UserTeaTime
+1. [功能] 支援新的 LogFile 功能.
+2. [功能] 可以選擇使用者動態, 當要做其他事情時就用得到了.

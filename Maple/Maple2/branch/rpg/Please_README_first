@@ -1,0 +1,20 @@
+
+ convertrpg.c 分別是轉換 .RPGS 的舊資料格式至新的資料格式。
+ 若您原本架的BBS是 RPG BBS 1.0A 之前的版本,在Update之前,
+ 務必執行 convertrpg 程式，否則將導致RPG資料全毀!!!!!
+ 若您是從零開始架起一個RPG BBS或從Maple2.36轉為RPG BBS，
+ 則可以忽略以下的步驟。
+                                                                
+ Step 0. 一定要將bbs對外關閉,否則新舊程式同時跑的情況下，       
+         RPG資料也會完蛋，Please!!
+ Step 1. su bbsadm
+ Step 2. 將 ~bbs/ 下的 .RPGS 備份到別的目錄去
+ Step 3. 使用 ipcs 與 ipcrm 將 shm 清乾淨        
+ Step 4. 測試bbs:
+    cd <新的rpgbbsrc目錄>; make bbstest convert;convertrpg;cd ~bbs;./bbs2
+ Step 4. 測試有問題則一步步解決，一切都OK後 make update
+ Step 5. 然後可以開放bbs了                                     
+ Final:  有什麼問題,我們還有備份的.RPGS跟舊的程式,所以不要怕:)
+
+ ps.convertrpg執行一次成功後,就不要再執行了,不然.....
+

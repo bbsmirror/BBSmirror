@@ -1,0 +1,40 @@
+NoCeM-innbbsd-patch (以下簡稱 ncm-innbbsd)
+CHANGES
+
+ver 0.51
+5-21-99 新增 NCMregister(), 紀錄 NoCeM-innbbsd 使用情形.
+
+ver 0.5
+3-6-99  更新文件
+3-5-99  將 strcasestr() 換成 strstr().
+3-4-99  de 掉一個很嚴重的 bug: SPAMMID 不限制陣列大小的話將會超用,
+        蓋掉其他變數.. 造成 innbbsd 掛掉.
+        (特別像是吃到 nocem@newsgate.nctu.edu.tw 一篇 notice 的 Count 七百多)
+        整理程式碼, Beta release..
+
+ver 0.43
+3-3-99  修改 receive_nocem(), 發現不是 notice 即改 receive_article()
+
+ver 0.42
+3-2-99  修改 cancel_article_front(), 允許 Issuer 砍信, 並配合修正說明文件
+
+ver 0.41
+3-2-99  修改 NCMverify();
+
+ver 0.4
+3-1-99  細部整合, 變數處理, 改用 NCMfunction() 統一格式提高程式可讀性
+
+ver 0.3
+2-28-99 新增 PGP verify 之簽名檢查
+        新增 NCMupdate 自動更新設定檔
+        改由 search_group 來比對文章, 減少 DBfetch 的次數, 大幅提高效能.
+
+ver 0.2
+2-27-99 新增 ncmperm.bbs 之 Issuer 權限控制
+
+ver 0.1
+2-26-99 編寫 ncm-innbbsd 主程式
+        分析 NCM 0.9 之 NCM HEADERS
+        分析 NCM 之 NCM BODY
+        分析 NCM 0.93 之 NCM HEADERS
+2-25-99 參考 ncmspool-0.92.3b 及 c-nocem-3.2 決定 ncm-innbbsd 之運作方式

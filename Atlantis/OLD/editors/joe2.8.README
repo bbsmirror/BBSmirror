@@ -1,0 +1,6 @@
+FreeBSD 的使用者請直接在 /usr/ports/editors/joe 下 make ; make install 即可
+本檔案可抓至 /usr/ports/distfiles 下備用
+
+其他 UNIX 的使用者請抓至要安裝的目錄下解開, 並按照標準程序安裝 (使用 redhat
+linux 的朋友可直接到 /pub/release/linux/redhat 目錄下抓取修改過的 redhat 專
+用版本)

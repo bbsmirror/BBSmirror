@@ -1,0 +1,38 @@
+
+*** Modified files in JOE when it aborted on Sat Feb 21 00:36:56 1998
+*** JOE was aborted because the terminal closed
+
+*** File 'README'
+藍盒版 KOChess Client
+
+ko 原作者: 王重堯 cywang@ccca.nctu.edu.tw
+
+藍盒版: 魏澤人  weijr@weijr.ml.org 
+		weijr@magic.math.ntu.edu.tw
+		weijr.bbs@magic.math.ntu.edu.tw
+
+Based on ko 1.14
+
+特色:
+	使用ncurses彩色.
+	-r 安全性增加
+
+主要測試平台: linux+crxvt
+
+彩色使用參考:
+for Linux
+bash:
+	export TERMINFO=/usr/lib/terminfo
+	export TERM=rxvt
+	chess
+
+或者,請直接使用 ./ch4
+for FreeBSD
+  freebsd 的binary 基本上就是用linux 版本的source 
+under freebsd
+用tcsh
+setenv TERMINFO /usr/lib/terminfo
+
+
+
+

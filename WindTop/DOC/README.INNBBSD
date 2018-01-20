@@ -1,0 +1,150 @@
+innbbsd Guide                                                  [WindTopBBS]
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+                          WindTopBBS Ver 3.02
+
+                    BBS <==> News 轉信程式 innbbsd 介紹
+
+               Modified by 元智資工  沈俊興(statue.bbs@bbs.yzu.edu.tw)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+                        目      錄
+
+                (二) 收信 Server Gateway (innbbsd) 安裝和使用
+
+                     [a] 設定 bbsname.bbs
+                     [b] 設定 nodelist.bbs
+                     [c] 設定 newsfeeds.bbs
+                     [d] 設定 activefile
+                     [e] 跑 bbsnnrp
+
+
+─────────────────────────────────────
+(二) 收信 Server Gateway (innbbsd) 安裝和使用
+─────────────────────────────────────
+
+[a] 設定 bbsname.bbs
+        bbs.yzu
+[b] 設定 nodelist.bbs
+   innbbsd 由 nodelist.bbs 控制連線機器.
+   如
+#sitename       hostname                PROT(port)      comments
+bbs.yzu         bbs.yzu.edu.tw          IHAVE(7777)     元智大學風之塔
+news.yzu        news.yzu.edu.tw         POST(119)       元智計中 News Server
+
+   則 news.yzu.edu.tw 才能 connect.
+
+[c] 設定 newsfeeds.bbs
+
+
+D. 跑 client (bbsnnrp) gateway
+   1. 每個 bbsnnrp process 必須用不同的 active file. 當此 active file
+      被 bbsnnrp process 使用時, 請勿修改. 修改前先停(殺)掉 bbsnnrp process.
+   2. active file format 如下:
+      newsgroup-name high-number low-number y
+      .......
+
+      例如:
+      tw.bbs.test 0000000000 0000000001 y
+      tw.test 0000000000 0000000001 y
+
+   3. 假設 news server 是 news.csie.nctu.edu.tw,
+      active file 在 ~bbs/innd/news.csie.nctu.edu.tw.active
+
+      bbsnnrp news.csie.nctu.edu.tw ~bbs/innd/news.csie.nctu.edu.tw.active
+
+   4. 若要跨站砍信, news server 有 control.cancel 則加入
+      control.cancel 0000000000 000000001
+      若無 control.cancel 則用
+      control 0000000000 000000001 y
+
+      先跑一次
+        bbsnnrp -c server control-active-file
+
+      bbsnnrp 對 control 或 control.cancel 會特別處理, 只取必要的 header.
+
+   5. 若第一次跑 bbsnnrp, 建議不要取舊文章, 只 reset active file, 用
+      bbsnnrp -c server-to-receive active-file
+
+   6. 可將以上動作加到 crontab 定時抓,  或用
+      bbsnnrp -w wait-time ......... &
+      則 bbsnnrp 每 wait-time 抓一次.
+
+   7. bbsnnrp 可在其它機器跑, 例如
+      BBS host: bbs.dorm10.nctu.edu.tw
+      bbsnnrp host: ccsun1.cc.nctu.edu.tw
+
+      在 bbs.dorm10.nctu.edu.tw 跑 innbbsd 7777 並將
+      ccsun1.cc.nctu.edu.tw 加入 nodelist.bbs, 如
+      bbsnnrp-ccsun1 ccsun1.cc.nctu.edu.tw
+
+      跑
+      bbsnnrp -r bbs.dorm10.nctu.edu.tw -p 7777 server active-file
+
+E. Feed 給多個 news servers 或 BBS server
+   修改 nodelist.bbs, newsfeeds.bbs ,
+   例如 nodelist.bbs
+   news-server1 news-server1-full-domain IHAVE(119) comment .. server gateway
+   news-server2 news-server2-full-domain POST(119)  comment .. client gateway
+   bbs-server1  bbs-server1-full-domain  IHAVE(7777) comment .. server gateway
+   bbs-server2  bbs-server2-full-domain  IHAVE(7777) comment .. server gateway
+
+   newsfeeds.bbs
+   tw.bbs.test test news-server1 news-server2 bbs-server1 bbs-server2
+   tw.test     twtest news-server2 bbs-server1
+   ........
+
+
+F. Related commands
+   innbbsd [portno]
+   bbsnnrp [options]
+   mkhistory history-file
+   makedbz history-size
+
+G. 其它說明
+   innbbsd 只能跑一隻, 但能收多個 news server 和 bbs server feed.
+   bbsnnrp 能跑多隻, 甚至在其它幾器都可以.
+
+   innbbsd 和 bbsnnrp 收的 newsgroups 可重複.
+
+H. BBS 站不透過 News server 互轉
+   nodelist.bbs 加入
+   bbs-server1 bbs-server1-host-name IHAVE(7777)
+   bbs-server2 bbs-server2-host-name IHAVE(7777)
+
+   newsfeeds.bbs
+   newsgroups  board-name name1       name2       ...
+   tw.bbs.test test       bbs-server1 bbs-server2
+
+[d] 設定 activefile
+[e] 跑 bbsnnrp
+
+這個 client gateway 讓你 "亂拿 news".
+同時可
+1. 到 A server 取 a group, 到 B server 取 b group.
+   a 和 b 可以相同或不同.
+   例如, 到 netnews.ntu.edu.tw 取 ntu.dep.csie,ntu.dep.ee,tw.bbs.*
+         到 aidebbs.edu.tw 取 csie.bbs.aidesysop,tw.bbs.*
+         到 news.mgt.ncu.edu.tw 取 ncu.mgt.*
+   設好不同的 active file, 如 act1, act2, act3
+   跑
+   bbsnnrp netnews.ntu.edu.tw act1
+   bbsnnrp aidebbs.edu.tw act2
+   bbsnnrp news.mgt.ncu.edu.tw act3
+
+2. 分散 load, 及網路結構因素, 找一台 bbsnnrp 專屬 host, 只用來跑 bbsnnrp,
+   再餵給其它 BBS servers 或 news servsers.
+   (用來 "偷" news)
+   bbsnnrp -r bbs1.domain1 -p 7777 newsa.domainb bbs1.newsa.active
+   bbsnnrp -r bbs2.domain2 -p 7777 newsb.domainb bbs2.newsb.active
+      bbsnnrp -r newsc.domainc -p 119 newsx.domainx newsc.newsx.active
+   (從 newsx 取 news 再餵給 newsc, a gateway ? )
+   ............................
+
+當然大量讀取時必須禮貌地徵求 server 同意.
+
+
+--
+                                                    元智資工 沈俊興
+                                        E-Mail: <statue.bbs@bbs.yzu.edu.tw>

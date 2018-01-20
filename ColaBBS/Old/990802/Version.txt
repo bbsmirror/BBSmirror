@@ -1,0 +1,20 @@
+
+990802
+
+ColaBBS
+1. [新增] 關站時會詢問是否確定關站.
+2. [新增] MENU.INI 新增 EditFile 指令.
+3. [修正] MENU 捲頁的問題.
+4. [修正] 文章列表捲頁的小問題.
+
+ShutDownWindows
+1. 可以從功能表上關閉或是重新啟動電腦.
+
+EditEverywhere
+1. [變更] 編輯檔案的路徑不是由 BBSHOME 開始算了.
+
+HappyBirthdayList
+1. [修正] 時間錯誤問題.
+
+ListUsersAstrology
+1. 可以列出某個星座的使用者.

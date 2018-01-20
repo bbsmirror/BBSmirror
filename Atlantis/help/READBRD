@@ -1,0 +1,257 @@
+ 看板列表 (Brd List)
+0 ←         離開到分類看板選單
+[NULL]
+0 q          離開到分類看板選單
+[NULL]
+0 ↑         上一個看板
+[NULL]
+0 p          上一個看板
+[NULL]
+0 ↓         下一個看板
+[NULL]
+0 n          下一個看板
+[NULL]
+0 →         進入文章一覽 (多功能閱讀選單)
+[NULL]
+0 r          進入文章一覽 (多功能閱讀選單)
+[NULL]
+0 Enter      進入文章一覽 (多功能閱讀選單)
+[NULL]
+0 $          將游標移到最後一個看板
+[NULL]
+0 ##         將游標移到第 ## 個看板 (## 表數字)
+[NULL]
+0 h          執行此求助選單
+[NULL]
+0 Ctrl+r     回應來訊
+[NULL]
+0 Ctrl+g     全頁式回應來訊
+[NULL]
+0 z          訂閱 / 反訂閱 此看板
+[NULL]
+0 y          列出所有可視看板 (需搭配 z 命令)
+[NULL]
+0 f          將此看板加入我的最愛看板列表中 (僅限一般分類看板模式)
+[NULL]
+0 u          將此看板移出我的最愛看板列表中 (僅限我的最愛看板模式)
+[NULL]
+0 v          設定此看板內所有文章皆為已讀
+[NULL]
+0 V          設定此看板內所有文章皆為未讀
+[NULL]
+0 S          變更看板排序的方式 (依照 字母 / 分類)
+[NULL]
+0 /          找尋特定看板
+[NULL]
+1 l          編輯看板說明欄 (看板小招牌)
+[NULL]
+1 B          更改看板中文名稱
+[NULL]
+1 M          變更 個人/群體 看板屬性 公開/隱藏 (站長決定權限制)
+[NULL]
+1 F          設定看板節日 (站長決定權限制)
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]
+0 NULL       未設定
+[NULL]

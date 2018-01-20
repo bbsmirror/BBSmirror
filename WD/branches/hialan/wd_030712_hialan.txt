@@ -1,0 +1,151 @@
+From shakalaca.bbs@php.twbbs.org Sat Jul 12 22:04:05 2003
+Return-Path: <shakalaca.bbs@php.twbbs.org>
+Received: from soc20.csie.nctu.edu.tw (localhost [127.0.0.1])
+	by soc20.csie.nctu.edu.tw (8.12.9/8.12.9) with ESMTP id h6CE45UB022676
+	for <qq@php.twbbs.org>; Sat, 12 Jul 2003 22:04:05 +0800 (CST)
+	(envelope-from shakalaca.bbs@php.twbbs.org)
+Received: (from php@localhost)
+	by soc20.csie.nctu.edu.tw (8.12.9/8.12.9/Submit) id h6CE3tjJ022668
+	for qq@php.twbbs.org; Sat, 12 Jul 2003 22:03:55 +0800 (CST)
+	(envelope-from shakalaca.bbs@php.twbbs.org)
+Date: Sat, 12 Jul 2003 22:03:55 +0800 (CST)
+Message-Id: <200307121403.h6CE3tjJ022668@soc20.csie.nctu.edu.tw>
+X-Authentication-Warning: soc20.csie.nctu.edu.tw: php set sender to shakalaca.bbs@php.twbbs.org using -f
+Reply-To: shakalaca.bbs@php.twbbs.org
+From: shakalaca.bbs@php.twbbs.org
+To: qq@php.twbbs.org
+Subject: [Release] WD_hialan_BBS_v1.1.0
+Mime-Version: 1.0
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: 8bit
+X-Disclaimer: ½ÞÀY¬ö¤½¶é¹ï¥»«H¤º®e®¤¤£­t³d¡C
+Content-Length: 4802
+Lines: 126
+
+µo«H¤H: hialan.bbs@Athena.infor.org (¦n·Q¥h¦º), «H°Ï: installbbs
+¼Ð  ÃD: [Release] WD_hialan_BBS_v1.1.0
+µo«H¯¸: ¶®°Ç¥§®¦BBS (Sat Jul 12 20:20:13 2003)
+Âà«H¯¸: PigHeadPark!news.cs.nthu!news.cis.nctu!freebsd.ntu!news.ck.tp!Athenaeum
+§Ç  ¸¹: <47EcbE$i0_@Athena.infor.org>
+½s  ½X: InstallBBS/M.1058012414.A
+
+[0m«Ü©êºp, ¤§«e Release ¨S¦³Á¿²M·¡..^^||
+[0m³o¦¸¨Ó¥¿¦¡¤¶²Ð§a!!
+[0m
+[0mµ{¦¡½X:
+[0m  http://hialan.infor.org/Download/Hbbs/wd_030712_src_hialan_pack.tgz
+[0m  http://hialan.infor.org/Download/Hbbs/wd_030712_snap_hialan_pack.tgz
+[0m
+[0m[46;1m   WD_hialan ¨t²Î¥Ñ¨Ó   [0m
+[0m¦b°ª¤G®É, ¥Ñ©óªÀ¹Î»Ý­n, ©Ò¥H´N¨Ï¥Î WD BBS ¬[¤F¤@­Ó¯¸
+[0m«á¨Ó´N¶V§ï¶V¦³¤ß±o, Athenaeum BBS ´N¦]¦¹¦Ó¥Í¡C
+[0m«á¨ÓªÀ¹Î¥æ±µ, §Ú´N§â Athenaeum BBS ¥æµ¹¾Ç§Ì, ¦Û¤v¿W¥ß¥X¨Ó
+[0m¦¨¬°²{¦bªº WD_hialan
+[0m
+[0m[46;1m   WD_hialan ª©¥»ºt¶i
+[0m1. WD BBS         (wd.twbbs.org)
+[0m2. Athenaeum BBS  (athenaeum.twbbs.org , infor.org)
+[0m3. WD_hialan      (¥Ø«e©|¨S¦³¤½¶}¯¸¥x)
+[0m
+[0m[46;1m   WD_hialan µo®i¥Ø¼Ð
+[0m¥»¨t²Î§Æ±æ¯à°÷°µ¥X§ó¤è«K¦n¬Ýªº¨Ï¥ÎªÌ¤¶­±, ®e©öºÞ²z.
+[0m¾¨¶q´î¤Ö make ªº¦¸¼Æ,
+[0m¥H«áÁÙ¦³¦h»y¨¥®M¥óµ¥µ¥ªº·Qªk
+[0m
+[0m[46;1m   WD_hialan ¥\¯à¤¶²Ð
+[0m¦b¦¹»¡©ú WD -> WD_hialan °µ¤F¨Ç¤°»ò§ó°Ê:
+[0m1. §R°£ ÁcÂ²Âà´«, rpg, hyperBBS, ÁÙ¦³«Ü¦h¦n¥Îªº©µ¦ù¥\¯à
+[0m   [hyperBBS] ­Ó¤HÄ±±o¤£¬O«Ü»Ý­n
+[0m   [rpg]      ¦]¬°¦³¨Çµ{¦¡½X¼g¨ì®Ö¤ß code ¤¤,
+[0m              §Æ±æ¾Ö¦³°®²bªºªÅ¶¡©Ò¥H¬å±¼¤F
+[0m   [ÁcÂ²Âà´«] ¼È®É©Ê§R°£
+[0m   [©µ¦ù¥\¯à] ¼È®É©Ê§R°£
+[0m
+[0m2. ¥ú´Î(¥i¦Û©wÃC¦â) by robert
+[0m   [¥ú´Î] ¥ú´Î¦b«Ü¦h¯¸¤¤, ¬O¤@¶µ°ò¥»ªº¥\¯à, ¥i±¤ WD ¨Ã¨S¦³¤ä´©
+[0m          ©Ò¥H®Ú¾Ú robert ¦b 2001/07/26 ©Ò´£¨Ñªº patch ¥[¤J¥ú´Î
+[0m
+[0m   [¥ú´Î½s¿è¾¹] «Ü¦h¯¸¥x¨Ã¨S¦³´£¨Ñ½Õ¦â½Lªº¤u¨ã, ¤j¦hÄÝ©ó¿é¤J«¬
+[0m                ¥»¨t²Îªº¥ú´Î½s¿è¾¹, ¥u­n¨Ï¥Î¤è¦VÁä, ´N¥i­×§ï¥ú´Î
+[0m
+[0m3. µøµ¡¤¶­±(¥i¦Û­q¥~Æ[) ¥»¥\¯à·PÁÂ ¤Ñ¤õBBS ´£¨ÑÆF·P
+[0m   [µøµ¡] ¬Ý¨ì¤Ñ¤õ BBS ´£¨Ñ¤F¬¯ÄRªºµøµ¡¤¶­±¥H«á,
+[0m          ²`²`ªº³Q¨ä§l¤Þ, ¥i±¤¤Ñ¤õ¨Ã¤£´£¨Ñcode ,©Ò¥H´N¦Û¦æ¥[¤J¤F
+[0m          ¦b¦¹¯S§O¦Vµo®i¤Ñ¤õªº¤j¤j­Ì»¡Án·PÁÂ¥H¤Î©êºp,
+[0m          ¦]¬°§Ú¨Ã¨S¦³¦V¥L­Ì¥ý¦æ³ø³Æ
+[0m
+[0m   [µøµ¡¥~Æ[³]©w] §Æ±æ¨Ï¥ÎªÌ¯à°÷¾Ö¦³­Ó¤H¤ÆªºªÅ¶¡,
+[0m                  ©Ò¥H¥[¤J¤Fµøµ¡¥~Æ[¥i¥H¦Û­qªº¿ï¾Ü
+[0m
+[0m4. ¤W¯¸°õ¦æ¼@¥»
+[0m   ÁÙ¬O¬°¤FÅý¨Ï¥ÎªÌ¦³­Ó¤H¤ÆªºªÅ¶¡, ©Ò¥H¥[¤J¤W¯¸°õ¦æ¼@¥»
+[0m   ¥H«e¤W¯¸­n°µ¤°»ò¥u¯à¥Ñ³ß¦n³]©w¤¤¤Ä¿ï¤W¯¸­n°µ¤°»ò,
+[0m   (¨Ò¦p:¬Ý¯d¨¥ªOµ¥µ¥)¨Ã¤£¯à¨M©w¶¶§Ç¡C
+[0m   ¤W¯¸°õ¦æ¼@¥»¥i¥HÅý¨Ï¥ÎªÌ¨M©w¤W¯¸­n°µªº¨Æ±¡ªº¶¶§Ç,
+[0m   ¦Ó¥BÁÙ¥i¥H¼Ò²Õ¤Æªº¥[¤J¥\¯à, ÅýºÞ²zªº¤H¤]¤è«K
+[0m
+[0m   ¦b§Ú·Q¨ì³o­Ó¥\¯à¤§«á, ¬Y¦¸©M Dopin ¤j¤j²á¤Ñµo²{¤w¸g¦³¤H¦b°µ¤F
+[0m   ¤£¹L¥Ø«eÁÙ¨S¬Ý¨ì¦³¤HÄÀ¥X, ©Ò¥H§Ú´N¥ý¦æ°µ¤F
+[0m
+[0m5. ¤å³¹¥[±K  by itoc && yagami
+[0m   ¥H«e¥u¦³³]¦¨ÁôªO©M¨p¤HªO¤~¯àÅý§O¤H¬Ý¤£¨ìªO¤ºªº¤å³¹
+[0m   ¦ý¬O¦pªG¬O¦b¤½¶}ªO, ·Q­nÅý¯S©wªº¤H¤~¯à¬Ý¨ì¸Ó½g¤å³¹
+[0m   ´N¥i¥H¨Ï¥Î¤å³¹¥[±Kªº¥\¯à¡C
+[0m
+[0m6. ¤å³¹µû¤À by wildcat
+[0m
+[0m7. ±À¤å from ptt.twbbs.org
+[0m
+[0m8. ¤ô²y¦^ÅU·s®æ¦¡ by itoc
+[0m   ´N¬O Maple 3 ªº¤ô²y¦^ÅU¼Ò¦¡, ¥»¤H¦A±N¨ä§ï¦¨¨Ï¥Î i_read Åª¨ú
+[0m
+[0m9. ¤¶­±«ü¥Oµ²ºc­×§ï
+[0m   ¥»¨t²Î¤j³¡¤À²£¥Íµe­±ªº³¡¤À, ¦pªG¬O±±¨î´å¼Ðªº¨Ï¥Î switch
+[0m   ¦pªG¬O¥\¯à©ÊªºÁä, ¨Ï¥Î i_read ªº¤è¦¡
+[0m   ¨Ã¦b one_key µ²ºc¤W°µ§ó°Ê, ¥[¤JÅv­­¥H¤Î´y­z¤å
+[0m   ³o¼Ë¤@­Ó¥\¯à¥u»Ý­n¤@­Ó¨ç¦¡, ¦b¥ô¦ó¦a¤è¦pªG·Q­n¨Ï¥Î¨º­Ó¥\¯à
+[0m   ¥i¥Hª½±µ©I¥s, ¤£»Ý­n­«½Æªºµ{¦¡½X
+[0m   ¥t¥~®Ú¾Ú´y­z¤å, ¥i¥H§Ö³tªº«Ø¥ß¨D§Uµe­±,
+[0m   ¥i¥H¿ï¾Ü«ü¥O¨Ãª½±µ¦b¨D§Uµe­±°õ¦æ¤§
+[0m
+[0m10.±N©Ò¦³Ãö©ó¤ô²yªºµ{¦¡½X¿W¥ß¨ì msg.c ¤¤, ¤è«K§ä´M
+[0m
+[0m11.±N admin.c register.c §ï¦¨ SO ®æ¦¡
+[0m
+[0m12.§Y®É¤ô²y¦^ÅU(Ctrl-R) §ï¦¨ÂÂªº¯Q¾|¤ì»ôªº¼Ò¦¡,
+[0m   ¥i¥H«Ü§Öªº¤F¸Ñ¸Ó¨Ï¥ÎªÌ¬O§_¤w¸g¤U¯¸¤F
+[0m
+[0m13.­×§ï¨Ï¥ÎªÌµ²ºc, ±N¸ê°T¤Àªù§OÃþ, ¨Ã±N°ÊºA´å¼Ð¤Î¥ú´ÎÃC¦â¥[¤J
+[0m   ´î¤Ö io
+[0m
+[0m14.¦Û­q¤å³¹Ãþ§O
+[0m   ªO¥D¥i¥H­×§ï¤å³¹«eªºÃþ§O, ¤£¥²¥Ã»·³£¥u¦³ [¤½§i] [·s»D] [¤å¥ó] µ¥µ¥´X­Ó¿ï¶µ
+[0m
+[0m[46;1m  ¦p¦ó¦w¸Ë WD_hialan
+[0m¦pªG±z­ì¥»ªº¨t²Î¬O WD
+[0m0. ½ÐÃö¯¸¨Ã±N SHM, SEM ²MªÅ
+[0m1. ½Ð¥ý³Æ¤À­ì©l½X¥H¤Î BBS ®Ú¥Ø¿ý¤Uªº .PASSWDS
+[0m2. ½Ð¤U¸ü http://hialan.infor.org/Download/Hbbs/wd_030712_src_hialan_pack.tgz
+[0m3. µM«á±N·sªº src »\±¼­×§ï«á­«·s make
+[0m4. °õ¦æ src/util/fixtool/transpass
+[0m5. ­«·s¶}¯¸§Y¥i!!
+[0m
+[0m¦pªG¬O·s¬[¯¸:
+[0m0.½Ð¤U¸ü wd_030712_snap_hialan_pack.tgz, ¨Ã¤U¸ü³Ì·sªº src
+[0m1.¨Ï¥Î WD ªº¦w¸Ë¤è¦¡§Y¥i!!
+[0m
+[0m
+[0m[46;1m  WD_hialan ¨D§U¤Îµo®i
+[0m¦pªG¦³¥ô¦ó°ÝÃD, ½Ð¨ì telnet://infor.org ªº WD_hialan ¬ÝªO¸ß°Ý
+[0m                ©Î¬O mail µ¹§Ú i9020_tw@yahoo.com.tw
+[0m§Ú±N¾¨§Ö¦^µª§Aªº°ÝÃD
+[0m
+[0m                                        by hialan.nation@infor.org[0m
+
+--
+[36m   ¢~¢w¢w¢w¢w¢w¢w¢w¡E¢~ùù¢¡¢~ùÞ¢¡¢~  ¢¡¢~ùù¢¡¢~ùù¢¡¢~ùù¢¡¡E¢w¢w¢w¢w¢w¢w¢w¢¡[0m
+   [1;37;46m¢x «Ø ¤¤ ¸ê °T ¡ó ùàùùùâ  ùø  ùàùùùâùàùù  ùø  ùøùàùùùâ ¡ó ¶® °Ç ¥§ ®¦ ¢x[0m
+  [36m ¢¢¢w¢w¢w¢w¢w¢w¡E  ¢¢  ¢£  ùä  ¢¢  ¢£¢¢ùù¢£¢¢  ¢£¢¢  ¢£  ¡E¢w¢w¢w¢w¢w¢w¢£[0m
+     [1;37mOrigin[36m¡í[37mAthenaeum.twbbs.org [36m¡ó [37mFrom[36m¡í[37m61-229-98-52.HINET-IP.hi[0m
+
+

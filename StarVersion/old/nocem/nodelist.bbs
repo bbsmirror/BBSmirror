@@ -1,0 +1,11 @@
+# This is a sample nodelist.bbs
+# name          hostname & domainname                    full name
+#-------        ----------------------------------      ------------
+oscars		bbs.sbbs.idv.tw			IHAVE(8888)	銀河鐵道之戀
+star		bbs.sbbs.idv.tw			POST(119)	銀河News
+news		news.cs.nthu.edu.tw		POST(119)	清華資訊News
+fjunews		news.svdcc.fju.edu.tw		POST(119)	輔大news
+lhit		lhit.twbbs.org			POST(119)	龍崗豪情
+chu		sun16.cc.chu.edu.tw		POST(119)	News
+wdnews		news.wdbbs.net			POST(119)	WDNews
+sunset		bbs5.ee.sjsmit.edu.tw		IHAVE(7777)	夕陽星空下

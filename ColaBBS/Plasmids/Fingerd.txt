@@ -1,0 +1,14 @@
+
+  Fingerd for ColaBBS
+
+  這是個 Plasmid, 安裝方法為將 Fingerd.class 複製到 bin 目錄下,
+  在 Plasmid.INI 中加入 Fingerd
+  這個 Plasmid 的用途是提供利用 Finger Protocol (Port 79),
+  來 query 站上使用者, 或是列出全部使用者的功能.
+  如果想要知道使用後是什麼樣子, 可以在工作站或是 Windows 的命令列下面, 
+  執行 finger @bbs.cis.nctu.edu.tw 或是 finger SYSOP@bbs.cis.nctu.edu.tw 看看.
+  不過 Windows 內建的 finger 程式可能會有亂碼,
+  這是由於該程式不支援 8bits 碼的緣故.
+
+  使用時 finger @your address 會列出站上全部使用者
+  finger username@your address 會有 query 的功能

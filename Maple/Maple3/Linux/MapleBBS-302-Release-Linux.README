@@ -1,0 +1,7 @@
+因為 M3 只支援 Redhat-Linux.對玩 Slakware-Linux 的人有點不方便..
+所以改一下 Library 的路徑.讓大家方便...:)
+
+體積較大是因為 src 有兩份.可以把 src.old 砍掉...:D
+
+Jase H.Y. Chen
+jase@std1.mis.yzu.edu.tw

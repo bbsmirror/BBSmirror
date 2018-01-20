@@ -1,0 +1,19 @@
+backup.c.gz           備份帳號
+
+chk_dated_id.c.gz     刪除逾期未登錄的帳號
+
+rm_spam_mail.c.gz     刪除由 Spam_Mail 看板中所索引的使用者信箱垃圾信件
+
+check_bfavor.c.gz     檢查使用者家目錄中 不存在的我的最愛看板名稱
+
+chkpasswd.c.gz        .PASSWDS 檔的檢查與修復
+
+show_time_no.c.gz     取出 time_t 結果 轉換程時間索引值
+
+check_person.c.gz     秀出特殊權限程式
+
+ognizeboard.c.gz      .BOARDS 檔的檢查與修復
+
+check_size.c.gz       秀出 userec/fileheader/boardheader 的資料結構大小
+
+remove_put.c.gz       刪除使用者家目錄中的推薦記錄資料檔

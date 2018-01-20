@@ -1,0 +1,38 @@
+
+991110
+
+ColaBBS
+ 1. [修正] 內部架構修改.
+ 2. [修正] 刪除帳號問題.
+ 3. [變更] 發文者不得刪除已經被 g 或是 m 的文章.
+ 4. [修正] 轉進來的文章, 文章內顯示的時間不對.
+ 5. [修正] 文章轉寄可能會發生的 lock.
+ 
+ColaSMTPd
+ 1. [修正] 對於 MAIL FROM 時判斷 Sender 時的問題.
+ 2. [修正] 將判斷是否能夠存取, 移到 HELO/EHLO 時才擋掉.
+ 3. [新增] ColaSMTPd_MBOX_BOARD, 可以將文章 MAIL 上某個討論區.
+
+ACBoardManager
+ 1. [修正] 設定為不啟動後重新載入卻不會關掉的問題.
+ 
+IssueManager
+ 1. [修正] 設定為不啟動後重新載入卻不會關掉的問題.
+ 
+BoardExpire
+ 1. [修正] 刪除文章會少刪除一篇.
+ 
+LoginCounterBar
+ 1. [新增] 可以設定多少人為一單位.
+ 2. [新增] 將每天的統計寫到版面上的功能.
+ 3. [改良] 將輸出畫面的容量減少.
+ 4. [新增] 可以將以前的輸出寫到版面上.
+ 
+ReloadINILoginCounterBar
+ 1. [新增] 可以重新載入 LoginCounterBar 的設定.
+
+SendInternetMail
+ 1. [新增] 可以送 Internet 信件的 ActivePlasmid.
+ 
+SendInternetSpecialMail
+ 1. [新增] 可以送特殊 Internet 信件的 ActivePlasmid.

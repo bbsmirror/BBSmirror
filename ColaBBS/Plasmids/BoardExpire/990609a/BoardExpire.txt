@@ -1,0 +1,45 @@
+
+  BoardExpire for ColaBBS 990609a
+
+  自動將版面上過期文章刪除的 Plasmid.
+
+  安裝方法:
+  將 BoardExpire.rar 解到複製到 bin 目錄下, 然後在 Plasmid.INI 中,
+  加上一行 BoardExpire.BoardExpire 即可.
+  請注意, 解開後應該是在 bin 目錄下面的一個叫做 BoardExpire 的目錄中, 
+  跟以前散在 bin 目錄是不一樣的.
+
+  使用方法:
+  請將目錄中的 BoardExpire.INI 移到 bin 目錄裡面,
+  BoardExpire.INI 的設定為:
+  Enabled=1			是否啟動 BoardExpire 的功能
+  DefaultEnabled=0		沒有設定檔的版面, 內定是開啟 Expire 功能或是否, 0 關閉, 1 開啟
+  DefaultMethod=Number		設定是以時間為基準或是以數量為基準, Number 數量, Time 時間
+  DefaultArticleMax=5000	以數量為基準時, 在版面上面留下最多這麼多篇文章
+  DefaultArticleDay=50		以時間為基準時, 只留下最近幾天的文章
+  DefaultArticleMin=1000	以時間為基準時, 最少還要保留幾篇文章 (以防文章太少的板, 被砍光光了..:p)
+  RunHour=2			每天的什麼時候執行, 幾點
+  RunMinute=0  			每天的什麼時候執行, 幾分
+
+  然後在你想要啟動 Expire 的版面的目錄裡面, (在 boards\版面名稱)
+  建立一個 Expire.INI 檔案, (壓縮檔中也有範例), 內容是:
+  Enabled=1
+  Method=Number
+  ArticleMax=4000
+  ArticleDay=8
+  ArticleMin=1000
+  這裡的意義就比照上面的, 不過這是針對該版面的設定.
+
+  要注意的是, 如果沒有 Expire.INI 的版面, 要是 BoardExpire.INI 中的 DefaultEnabled=1,
+  那該版面依然會依照 Default 的設定執行, 所以為了避免誤殺, 
+  BoardExpire.INI 內還是 DefaultEnabled=0 比較好.
+
+  注意事項:
+  因為最近一堆期末考加上期末 project, 所以設定的介面暫時沒有時間寫,
+  大家就先湊合著 "找 bug" 吧.. :p
+
+  而且因為程式不保證沒有問題, 所以請大家安裝前先做好備份工作.
+
+
+                                                                                    WilliamWey 9900609
+                                                                               is85012@cis.nctu.edu.tw

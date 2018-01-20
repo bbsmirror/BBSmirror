@@ -1,0 +1,297 @@
+// ªÑ²¼Åo by dsyan 87.6.21
+
+#include "bbs.h"
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#define TOTAL_STOCK (1000)
+
+struct stock {
+	char name[TOTAL_STOCK][12];
+	char ud[21];
+	long price[TOTAL_STOCK];
+	unsigned int max_page;
+	unsigned int max;
+	unsigned int trans[TOTAL_STOCK];
+};
+
+static
+void
+attach_err (shmkey, name)
+	unsigned int shmkey;
+	char *name;
+{
+	fprintf (stderr, "[%s error] key = %x\n", name, shmkey);
+	exit (1);
+}
+
+static
+void *
+attach_shm (shmkey, shmsize)
+	unsigned int shmkey, shmsize;
+{
+	void *shmptr;
+	unsigned int shmid;
+	shmid = shmget (shmkey, shmsize, 0);
+	if (shmid < 0) {
+		shmid = shmget (shmkey, shmsize, IPC_CREAT | 0600);
+		if (shmid < 0)
+			attach_err (shmkey, "shmget");
+		shmptr = (void *) shmat (shmid, NULL, 0);
+		if (shmptr == (void *) -1)
+			attach_err (shmkey, "shmat");
+		memset (shmptr, 0, shmsize);
+	}
+	else {
+		shmptr = (void *) shmat (shmid, NULL, 0);
+		if (shmptr == (void *) -1)
+			attach_err (shmkey, "shmat");
+	}
+	return shmptr;
+}
+
+unsigned int
+p_stock ()
+{
+	char tmp[200], f_name[200];
+	unsigned int money;
+	unsigned int own[TOTAL_STOCK];
+	unsigned int page = 0;
+	unsigned int total = 0, total_global, total_user;
+	long st_total, st_price;
+	struct stock *stock;
+	FILE *stock_global_file, *stock_global_name;
+	FILE *stock_user_file, *stock_user_name, *stock_user_log;
+		
+	// if(strcmp("dsyan", cuser.userid))
+	//	return 1;
+	
+	more ("etc/game/stock_welcome", YEA);
+	showtitle ("ªÑ¥«¤j¦ë", BoardName);
+	setutmpmode (STOCK);
+
+	if (stock == NULL)
+		stock = (struct stock *) attach_shm (5000, sizeof (*stock));
+
+	sprintf (f_name, "home/%s/stock", cuser.userid);
+	
+	if (stock_user_file = fopen (f_name, "r"))
+		for (total = 0; total < TOTAL_STOCK; total++)
+			fscanf (stock_user_file, "%d\n", &own[total]);
+	else {
+		stock_user_file = fopen (f_name, "w");
+		for (total = 0; total < TOTAL_STOCK; total++) {
+			fprintf (stock_user_file, "%d\n", 0);
+			own[total] = 0;
+		}
+	}
+	fclose (stock_user_file);
+	
+	// Åª¸ê®ÆÀÉ
+	
+	if (stock_global_file = fopen ("etc/game/stock_now", "r")) {
+		long tmpp;
+		char tmpn[12];
+		total = 0;
+		total_global = 0;
+		fgets (tmp, 200, stock_global_file);
+		tmp[20] = 0;
+		if (strcmp (tmp, stock -> ud)) {
+			strcpy (stock -> ud, tmp);
+			if (stock_global_name = fopen ("etc/game/stock_name", "r")) {
+				while (fgets (stock -> name[total_global], 12, stock_global_name)) {
+					fgets (tmp, 12, stock_global_name);
+					move (8, 8);
+					prints ("%d <%s>", total_global, stock -> name[total_global]);
+					total_global++;
+				}
+				fclose (stock_global_name);
+			}
+			game_log (STOCK, "\n[41m§ó·s¸ê®Æ [42m%s [m", stock -> ud);
+			stock_global_name = fopen ("etc/game/stock_name", "w+");
+			while (fgets (tmp, 200, stock_global_file)) {
+				if (tmp[0] != '|' || tmp[1] < '0' || tmp[1] > '9')
+					continue;
+				tmp[12] = 0;
+				tmp[53] = 0;
+				total++;
+				tmpp = atof (tmp + 47) * 100;
+				move (10, 10);
+				prints ("tmpp = %d ", tmpp);
+				strcpy (tmpn, tmp + 1);
+				move (11, 11);
+				prints ("tmpn = <%s> ", tmpn);
+				for (total_user = 0; total_user < total_global; total_user++)
+					if (!strcmp (tmpn, stock -> name[total_user]))
+						break;
+				if (total_user == total_global) {
+					strcpy (stock -> name[total_user], tmpn);
+					fprintf (stock_global_name, "%s\n", tmpn);
+					total_global++;
+				}
+				stock -> price[total_user] = tmpp;
+			}
+			fclose (stock_global_name);
+			fclose (stock_global_file);
+			stock -> max = total;
+			stock -> max_page = total / 40;
+			if (stock -> max_page % 40)
+				stock -> max_page++;
+		}
+	}
+	while (-1) {
+		unsigned int i, r;
+		time_t now = time(NULL);
+		struct tm *ptime = localtime(&now);
+		// µe­±¥Dµ{¦¡
+		move (1, 0);
+		clrtobot ();
+		prints ("[37;1;46m ½s¸¹ [42m ªÑ ²¼ ¦W ºÙ [43m »ù ®æ"
+		" [45m «ù¦³±i¼Æ [m    [46;1m ½s¸¹ [42m ªÑ ²¼ ¦W ºÙ"
+		" [43m »ù ®æ [45m «ù¦³±i¼Æ [m");
+		for (i = 0; i < 20; i++) {
+			move (i + 2, 0);
+			r = page * 40 + i;
+			if (r + 1 <= stock -> max)
+				prints (" %3d)  %11s%5d.%02d %5d         ", r + 1, stock -> name[r], stock -> price[r] / 100, stock -> price[r] % 100, own[r]);
+			r = page * 40 + i + 20;
+			if (r + 1 <= stock -> max)
+				prints ("%3d)  %11s%5d.%02d %5d\n", r + 1, stock -> name[r], stock -> price[r] / 100, stock -> price[r] % 100, own[r]);
+		}
+		move (22, 0);
+		prints ("[44mn:¤U­¶ p:¤W­¶ b:¶R s:½æ v:¬Ý e:­× q:¸õ¥X ª÷:%-8d %2d/%2d %19s[m", 
+		cuser.money, page + 1, stock -> max_page, stock -> ud);
+		total = igetch ();
+		switch (total) {
+			case 'b':
+			case 'B':
+				now = time (0);
+				ptime = localtime (&now);
+				if (ptime -> tm_hour > 7 && ptime -> tm_hour < 19) {
+					move (23, 0);
+					pressanykey("¥æ©ö®É¶¡¬°¨C¤Ñ±ß¤W¤CÂI¨ì¹j¤Ñ¦­¤W¤KÂI..");
+					break;
+				}
+				move (23, 0);
+				prints ("­n¶R¨º®a??(1-%d) ", stock -> max);
+				getdata (23, 19, " ", tmp, 4, 1, 0);
+				total = atoi (tmp);
+				if (total < 1 || total > stock -> max) {
+					pressanykey("¿é¤J¿ù»~");
+					break;
+				}
+				st_price = stock -> price[total - 1] / 100;
+				if (st_price == 0) {
+					pressanykey("µLªkÁÊ¶R»ù®æµ¥©ó¹sªºªÑ²¼¡I");
+					break;
+				}
+				if (st_price >= 1000) {
+					pressanykey("ºî¦X«ü¼ÆµLªk¶R½æ¡I");
+					break;
+				}
+				st_price = stock -> price[total - 1] * 10;
+				st_total = cuser.money / (st_price * 10);
+				total_user = (unsigned int) st_total;
+				move (23, 0);
+				prints ("­n¶R´X±i¡H(0-%d) ", total_user);
+				getdata (23, 19, " ", tmp, 4, 1, 0);
+				total_global = atoi (tmp);
+				if (total_global > total_user || total_global < 1) {
+					pressanykey("¿é¤J¿ù»~");
+					break;
+				}
+				now = time (0);
+				st_total = total_global * stock -> price[total - 1] * 0.07;
+				sprintf (tmp, "[33;1m%s [36m%s[m ", Cdate (&now), cuser.userid);
+				game_log(STOCK, "\n%s [1;32m¶R¤F %s %d ±i.. [31m%d[m", tmp, stock -> name[total - 1], total_global, (unsigned int) st_total);
+				sprintf (f_name, "home/%s/stock_log", cuser.userid);
+				stock_user_log = fopen (f_name, "a+");
+				now = time (0);
+				st_total = total_global * st_price * 1.07;
+				fprintf(stock_user_log, "%s ¥H %f ªº»ù®æ¶R¤F %s %d ±i.. %d\n", Cdate (&now), (float) stock -> price[total - 1] / 100, stock -> name[total - 1], total_global, (unsigned int) st_total);
+				fclose(stock_user_log);
+				money = (unsigned int) st_total;
+				demoney (money);
+				own[total - 1] += total_global;
+				break;
+			
+			case 's':
+			case 'S':
+				now = time (0);
+				ptime = localtime (&now);
+				if (ptime -> tm_hour > 7 && ptime -> tm_hour < 19) {
+					move (23, 0);
+					pressanykey("¥æ©ö®É¶¡¬°¨C¤Ñ±ß¤W¤CÂI¨ì¹j¤Ñ¦­¤W¤KÂI..");
+					break;
+				}
+				move (23, 0);
+				prints ("­n½æ¨º®a??(1-%d) ", stock -> max);
+				getdata (23, 19, " ", tmp, 4, 1, 0);
+				total = atoi (tmp);
+				if (total < 1 || total > stock -> max || !own[total - 1]) {
+					pressanykey("¿é¤J¿ù»~");
+					break;
+				}
+				st_price = stock -> price[total - 1] * 10;
+				move (23, 0);
+				prints ("­n½æ´X±i??(0-%d) ", own[total - 1]);
+				getdata (23, 19, " ", tmp, 4, 1, 0);
+				total_global = atoi (tmp);
+				if (total_global > own[total - 1] || total_global <= 0) {
+					pressanykey("¿é¤J¿ù»~");
+					break;
+				}
+				now = time (0);
+				st_total = total_global * st_price * 0.07;
+				sprintf (tmp, "[33;1m%s [36m%s[m ", Cdate (&now), cuser.userid);
+				game_log(STOCK, "\n%s [1;31m½æ¤F %s %d ±i.. [32m%d[m", tmp, stock -> name[total - 1], total_global, (unsigned int) st_total);
+				sprintf (f_name, "/home/bbs/home/%s/stock_log", cuser.userid);
+				stock_user_log = fopen (f_name, "a+");
+				fprintf (stock_user_log, "%s ¥H %f ªº»ù®æ½æ¤F %s %d ±i.. %d\n", Cdate (&now), (float) stock -> price[total - 1] / 100, stock -> name[total - 1], total_global, (unsigned int) st_total);
+				fclose (stock_user_log);
+				st_total = total_global * st_price * 0.93;
+				money = (unsigned int) st_total;
+				inmoney (money);
+				own[total - 1] -= total_global;
+				break;
+			
+			case 'v':
+			case 'V':
+				sprintf (f_name, "home/%s/stock_log", cuser.userid);
+				more (f_name, YEA);
+				showtitle ("ªÑ¥«¤j¦ë", BoardName);
+				break;
+			
+			case 'e':
+			case 'E':
+				sprintf (f_name, "home/%s/stock_log", cuser.userid);
+				total_user = vedit (f_name, NA);
+				showtitle ("ªÑ¥«¤j¦ë", BoardName);
+				break;
+			
+			case 'p':
+			case 'P':
+				if (page)
+					page--;
+				break;
+		
+			case 'n':
+			case 'N':
+				if (page + 1 < stock -> max_page)
+					page++;
+				break;
+		
+			case 'q':
+			case 'Q':
+				sprintf (f_name, "home/%s/stock", cuser.userid);
+				stock_user_file = fopen (f_name, "w");
+				for (total = 0; total < TOTAL_STOCK; total++)
+					fprintf (stock_user_file, "%d\n", own[total]);
+				fclose (stock_user_file);
+				return 1;
+		
+			default:
+				break;
+			
+		}
+	}
+}

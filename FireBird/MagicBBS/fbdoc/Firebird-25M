@@ -1,0 +1,1549 @@
+
+µù¡G ¥H¤U¤å¥ó¤D½s§ï¦Û¤¤¥¿¸ê¤u Firebird BBS 2.5 ª©¤§¨Ï¥Î¤â¥U¡C
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                           ¥Ø       ¿ý
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  
+                     (¹s) «e¨¥
+
+                     (¤@) ¬[¯¸«eªº¦Ò¶q
+
+                          [1] µwÅéªº·Ç³Æ
+                          [2] ºô¸ô¬y¶qªº¦Ò¶q
+                          [3] ¨t²Î¦w¥þªº¦Ò¶q
+                          [4] ¨­¥÷½T»{ªº­«­n©Ê
+                          
+                     (¤G) ¦w¸Ë BBS µ{¦¡
+         
+                          [1] «Ø¥ß BBS ªº¬ÛÃö±b¸¹
+                          [2] ¨ú±o BBS µ{¦¡
+                          [3] ³]©w¤Î¦w¸Ë BBS µ{¦¡
+                          [4] ´ú¸Õ BBS µ{¦¡¤Î¿ù»~ªº±Æ°£
+                          [5] ¨ä¥Lª©¥» BBS ¤É¯Å¶·ª¾
+
+                     (¤T) ³]©w BBS ªº¬ÛÃöÀÉ®×  
+
+                          [1] ­×§ï¨t²Î³]©wÀÉ
+                          [2] ­×§ï BBS ªº¿ï³æ
+                          [3] ¶}ª©¤Î«Ø¥ßºëµØ°Ï
+                          [4] BBS ¥Ø¿ý¤UÀÉ®×»¡©ú
+
+                     (¥|) ¥~³¡¤u¨ãµ{¦¡¨Ï¥Î
+ 
+                          [1] Â²¤¶¦Û°Êµ{§Ç
+                          [2] ¤W¯¸¤H¼Æ²Î­p
+                          [3] ¤W¯¸¤H¦¸²Î­p
+                          [4] ¤W¯¸¦¸¼Æ, µoªí¤å³¹¦¸¼Æ, ¨Ï¥Î®É¶¡±Æ¦W
+                          [5] ¤Q¤j¼öªù¸ÜÃD²Î­p
+                          [6] °Q½×°Ï¨Ï¥Î²v²Î­p
+                          [7] Æ[¬Ý .PASSWDS ªºµ{¦¡ -- showuser.c
+                          [8] ¦Û°Ê login BBS ±b¸¹¦w¸Ë
+                          [9] BBSnet, Lynx, Archie client ,IRC..etc¦w¸Ë
+
+                     (¤­) ±H«Hµ¹ BBS ¯¸¤º¨Ï¥ÎªÌ¤Î E-mail Post ¦w¸Ë
+
+                          [1] ¨­¥÷½T»{«H³B²zªº¬yµ{
+                          [2] ¦p¦ó­×§ï¨t²Î¨Ï BBS ¯¸¤º User ¯à¦¬¨ì Intermail
+                          [3] E-mail post ¦w¸Ë¤Î¨Ï¥Î    
+
+                     (¤») Âà«Hµ{¦¡ INNBBSD ªº¦w¸Ë 
+                        
+                          [1] ¦w¸ËÂà«Hµ{¦¡
+                          [2] ³]©wÂà«H©Ò»Ýªº³]©wÀÉ
+                          [3] ¥Ó½ÐÂà«Hªº¤èªk
+                          [4] °Ñ¦Ò¤å¥ó [¤wª¾ News Server ¦Cªí]
+                          [5] °Ñ¦Ò¤å¥ó [tw.bbs.* ¦Cªí]                  
+                                        
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¹s ³¹  «e¨¥  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+
+    ¥»ª©¤D¤¤¥¿¸ê¤u Firebird BBS ªº¤@­Ó variant, ¥Ñ°¨¨Ó¦è¨È®È¥x¦P¾Ç·|¤§
+    ¤u§@¯¸ºÞ²z¤p²Õ¦¨­û©Ò½s§ï, ¬°ªÃ«ù GNU ³nÅé¶}µoºë¯«¦Ó¶}©ñµ¹¤j®a¦Û¥Ñ
+    «þ¨©¨Ï¥Î¡C
+
+    ¥»ª©§@ªÌªº­·®æ»P²ß©Ê¤]³\¸ò­ìª© Firebird BBS ªº§@ªÌ²¤¦³¤£¦P, ©T¤@¨Ç­ì
+    Firebird BBS ©Ò¾Ö¦³ªº¤p¥\¯à¨Ã¨S¦³³Q¯Ç¤J, ¥B¤S¼W¥[¤F¤@¨Ç­ìª© Firebird
+    BBS ©Ò¨S¦³ªº¥\¯à¡C ¤ñ¸û­«­nªº¤@ÂI¬O, §Ú­Ì¹Á¸Õ­×¥¿¤F¤@¨Ç¦s¦b©ó­ìª©
+    Firebird BBS ¤Wªº¤p¿ù»~¡C
+
+    ¥»ª©¶}©ñÅý¤j®a§ì¨ú, ¨ä¥Øªº¦b©ó§Æ±æ¯àÅý¦U Firebird ¨t¦Cªº¯¸¥x¤¬¬Û¥æ¬y, 
+    ¶°«ä¼s¯q, ¤@»ô¨Ó°Ñ»Pµo®i, ¨Ï Firebird BBS ¦b¬ãµo¤è­±°µ±o§ó¥[ªººÉµ½ºÉ¬ü¡C
+
+    ¥»ª©¦b GNU Public Licence ¤Uµo¦æ, ¦U¦ì¥i¥ô·N«þ¨©¤Î­×§ï¡C¦ý¬O§Ú­Ì¦³­Ó
+    ¤p¤pªº­n¨D, ´N¬O­Y±z¹ï¥¦§@¤F¤@¨Ç­×§ï, ©Î­×¥¿¿ù»~, ©Î²K¥[¥\¯à, ½Ð¦b
+    firebird ³s½uª©¤W post ¥X±z§ï¹Lªº¦a¤è, ¦nÅý¤j®a¤]¯à¤À¨É±zªº¦¨ªG¡C »P
+    ±z¤À¨Éªº§Ö¼Ö, ³Ó¹L¿W¦Û¾Ö¦³, ³o¬O¥»ª©µo¦æªº¥Øªº¡C
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¤@ ³¹  ¬[¯¸«eªº¦Ò¶q  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 
+ [1] µwÅéªº·Ç³Æ
+     
+     ¨¬°÷ªº°O¾ÐÅé¤Î SWAP ¬O¼vÅT¤W¯¸¤H¼Æ¤W­­ªºÃöÁä, µwºÐªº¤j¤p«h¼vÅT¨ì
+     ¦Uª©¤å³¹¯à«O¯d½g¼Æªº¦h¤Ö, ¦b¬[¯¸«e»Ý¿Å¶q©Ò»Ý°t³Æ¡C ¾ÚÆ[¹î, ¤@¥x
+     ¨ã¦³32MB °O¾ÐÅéªº Linux station ¦b BBS ¤H¼Æ¹F 50 ¤H¥ª¥k®É¶}©l·|
+     ¥Î SWAP¡C (Linux §@·~¨t²Î¦b°O¾ÐÅé¤£¨¬ªºª¬ªp¤U¤~·|¥Î SWAP)
+     
+     ¦]¬° BBS ªºÀÉ®×¦h¥H«H¥ó, °Q½×°Ï¤å³¹¬°¦h, ³o¨Ç³£¬O 1k ~ 2k ªº¤pÀÉ
+     ®×, ©Ò¥H¨t²ÎªºÀÉ®×µ²ºc¨C­Ó inode ¥H 1k ©Î 2k ¬°¨Î , ±z¥i¥H¤U df -i 
+     «ü¥OÆ[¹î¥Ø«e inode ªº¨Ï¥Îª¬ªp¡C inode ªº¤j¤p³q±`¬O¦b fdisk ®É¿ï¾Ü
+     ªº¡C
+
+ [2] ºô¸ô¬y¶qªº¦Ò¶q
+ 
+     ·í±zªº BBS¯¸¤½¶}µ¹¥~¬É¨Ï¥Î¥H«á¡A³q±`·|¹J¨ì¥H¤U³Â·Ð¡G
+      
+     ¦pªG¦³¤j¶q¨Ï¥ÎªÌ³z¹Lºô¸ô³s±µ±zªº BBS¡A·|¹ï±z­Ì·í¦aªººô¸ô³y¦¨¡u¦³
+     ÂI¤j¡A¤S¤£·|¤Ó¤j¡vªººô¸ô¥æ³q¶q¡C
+   
+     ==> ¹ïµ¦¡G²Î­pºô¸ô¥æ³q¬y¶q¡A¤F¸Ñ BBS¨t²Î¹ïºô¸ôªº¼vÅTµ{«×¡A¥H½Õ¾ã
+               BBSªººÞ²zµ¦²¤¡C
+   
+ [3] ¨t²Î¦w¥þªº¦Ò¶q
+
+     ¥Ñ©ó BBS¯¸¬O¤@¯ë crackerÁ»¿Ìªº¹ï¶H¤§¤@¡A¦]¦¹³]¥ß BBS¯¸¤§«á¡A®e©ö
+     Åý±zªº¤u§@¯¸¦¨¬°ÅãµÛªº¤J«I¥Ø¼Ð¡C
+   
+     ==> ¹ïµ¦¡G½Ð§ó¥[ª`·N±zªº¨t²Î¦w¥þ¡A¤×¨ä·í°õ¦æ¥~³¡µ{¦¡(gopher,lynx
+               tin,....etc)°È¥²½T©wµ{¦¡¬O§_¦³°õ¦æ¤Wªºº|¬}, ©ÎªÌ´M§ä­×
+               §ï¹L±M¬° BBS ¥Îªºª©¥»,¨Ã½Ð¶Ô©ó­×¸É§@·~¨t²Îªºº|¬}¡C
+   
+ [4] ¨­¥÷½T»{ªº­«­n©Ê
+
+     °£«D±zªº BBS¯¸¬O«Ê³¬¦¡ªº BBS¡]¤]´N¬O¨Ï¥ÎªÌ¥²¶·¸g¹LÄY®æªº¥Ó½Ðµ{§Ç
+     ¤~¯à¾Ö¦³±b¸¹¡^¡A§_«h½Ðª`·N°Î¦W¨Ï¥ÎªÌªº°ÝÃD¡C°Î¦W¨Ï¥ÎªÌªº¨¥³d°ÝÃD
+     ¤@ª½¬Oºô¸ô¤Wª§Ä³ªº½×ÂI¤§¤@¡A¦]¦¹½Ð±z¦b¶}¯¸¤§«e¦Ò¼{±zªº°µªk¡C
+   
+     ==> ¹ïµ¦¡G½T»{¨Ï¥ÎªÌ¨­¥÷¥H«á¤~µ¹¤©µoªí¤å³¹ªºÅv§Q¡A¦Ó¥B³W©w¨Ï¥ÎªÌ
+               ¨­¥÷¥u¯à³z¹L¨t²ÎºÞ²z­û¬d¸ß¡C¦p¦¹§Y¥i¾A«×«O»Ù¨Ï¥ÎªÌÁô¨p
+               Åv¡B¤S¥i¦bµo¥Í°ÝÃD®É°l¬d³d¥ôªºÂkÄÝ¡C
+
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¤G ³¹  ¦w¸Ë BBS µ{¦¡  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+
+ [1] «Ø¥ß BBS ªº¬ÛÃö±b¸¹
+     
+     ¦b¦w¸Ë BBS ¤§«e¡A½Ð±z¥ý¦b¨t²Î¤¤¥[¤J¥H¤U¤T¦ì¨Ï¥ÎªÌ¡A¦b /etc/passwd
+     ¤ºÀ³¸Ó¦p¤U©Ò¥Ü¡G¡]·s«Ø±b¸¹ªº¨BÆJ·|¦]¨t²Î¤£¦P¦Ó¦³©Ò®t²§¡A½Ð±z¦b«Ø
+     ¥ß±b¸¹¤§«e°Ñ¦Ò±zªº¨t²ÎºÞ²z¤â¥U¡C±Ä¥Î UID=9999 »P9990ªº­ì¦]¬O¬°¤F
+     Á×§K»P¤@¯ë¨Ï¥ÎªÌªº UID ²£¥Í½Ä¬ð¡^
+
+     ¤@¯ë«Ø¥ß·s±b¸¹ªº¨BÆJ¬O¦b /etc/passwd ¤¤¥[¤J¤U¤T¦æ¡AµM«á¦A¬° bbsadm ©M
+     bbsuser ³o¨â­Ó±b¸¹³]¦n±K½X, ¦Ó bbs ³o­Ó±b¸¹¤@¯ë¤W¬O¤£³]¥ô¦ó±K½Xªº: 
+
+       bbsadm::9990:99:BBS admin and developer:/home/bbsroot:/bin/csh
+       bbs::9999:99:BBS user:/home/bbs:/home/bbs/bin/bbsrf
+       bbsuser::9999:99:BBS user:/home/bbs:/bin/csh
+
+     ¨ä¤¤ bbsadm  ¬O¥Î¨Ó­×§ï /home/bbsadm/bbs_src ¤Uªº BBS µ{¦¡¡C
+          bbsuser ¸ò bbs ¾Ö¦³¬Û¦Pªº UID¡A¦ý¥¦ªº shell ¬O¤@¯ëªº shell¡A
+                  ¦Ó bbs ªº shell «h¬O bbsrf¡C ·í¨t²Î»Ý­n bbs ¥H¤@¯ëªº
+                  shell ¨Ó§@³B²z®É, «K»Ý­n¦³³o­Ó±b¸¹¤F¡C
+
+     ¦¹¥~, ¦b /etc/group ¤º³]©w bbs ªº group¡A¦p¤U©Ò¥Ü¡G
+
+     bbs:*:99:bbs,bbsuser,bbsadm
+
+     ¥H¤è«K±zºÞ²z¥Ø¿ýªºÅª¼gÅv­­¡C
+  
+     ¨Ã¦b /etc/shells ¤¤¥[¤J /home/bbs/bin/bbsrf ¡C
+   
+     ¥H¤W³£³]©w§¹¦¨«á,¦b /home «Ø¥ß bbsadm ©M bbs ¨â­Ó¥Ø¿ý, ¨Ã 
+     chown bbsadm.bbs bbsadm ; chown bbs.bbs bbs
+     ¦A¤À§O´À bbsroot bbsuser ³]©w±K½X¡C
+
+ [2] ¨ú±o BBS µ{¦¡
+     
+     ½Ð¥H bbsadm login ,¦A§ì¨ú BBS source , ¥»ª©ªº BBS source 
+     ¥i¥Ñ¥H¤U¦ì§}¨ú±o
+
+     ftp://MSIA.pine.ncu.edu.tw/pub/bbs/FirebirdBBS2.5M.tar.gz
+ 
+     ¨ú¦^«á,¸Ñ¶} FirebirdBBS 2.5M ªº­ì©lµ{¦¡¡A¥H¶i¦æ¦w¸Ëµ{§Ç¡C
+     ¸Ñ¶} FirebirdBBS2.5M.tar.gz ªº¤èªk:
+
+     tar zxvf FirebirdBBS2.5M.tar.gz
+
+     µ{¦¡¸Ñ¶}¤§«á¡A·|¦b§A©Ò¦b¥Ø¿ý©³¤U³y¥X bbs_src ¥Ø¿ý¡A¤º§t BBSªº­ì©l
+     µ{¦¡¡C
+      
+     (µù¡^¦pªG±zªº tar ¤£»{±o zxvf¡A½Ð§Q¥Î anonymous ftp ¦Ü
+          ftp.csie.nctu.edu.tw ¨ú¦^ /pub/GNU/gzip-1.2.4.tar»P 
+          /pub/GNU/tar-1.11.2.tar.gz¡A¨Ã¥B¦w¸Ë¦Ü±zªº¨t²Î¤W¡C
+
+ [3] ³]©w¤Î¦w¸Ë BBS 
+
+     1.¦Û°Ê³]©w¨t²ÎÀô¹Ò¤Î¶ñ¼g¥D­n BBS ¸ê®Æ
+   
+     ¦P¼Ë¥H bbsroot login , ¨ì bbs_src/ ¥Ø¿ý©³¤U°õ¦æ¥H¤U«ü¥O
+      
+      ( cd CONFIG ; ./configure )
+      
+     °õ¦æªº¹Lµ{À³Ãþ¦ü¥H¤Uµe­±¡G
+
+ ..................................
+   Please fill data for your BBS
+ ..................................
+Home directory of BBS --> [/home/bbs]                   ==> bbs ¥Ø¿ý©Ò¦b
+UID of BBS --> [9999]					==> bbs ªº¨t²Î User ID
+GID of BBS --> [99]					==> bbs ªº¨t²Î GID
+UID of BBS admin --> [9990]				==> bbsadm ªº¨t²Î UID
+The ID of your site --> [NoName]                        ==> ¶Q¯¸ªº­^¤å¥N¸¹
+The name of your site --> [Hibiscus Realm BBS]          ==> ¶Q¯¸¦WºÙ (¤¤¤å¥i)
+The domain name of your site --> [some.where.on.earth]  ==> ¶Q¯¸ domain name
+The ip address of your site --> [127.0.0.1]		==> ¶Q¯¸ ip address
+Maximum number of users --> [20236]			==> ³Ì¤j¨Ï¥Î¤H¼Æ
+Maximum number of boards --> [256]			==> ¶}ªO³Ì¤j¼Æ¥Ø
+Maximum number of on-line users --> [256]		==> ³Ì¤j¦P®É¤W½u¤H¼Æ
+Show idle time of BBS users ? --> [Y]			==> Åã¥Ü idle ®É¶¡
+........................................
+updating cache ./config.cache
+creating ./config.status
+creating Makefile
+creating config.h
+creating Install.sh
+
+........................................................................
+You may review the Makefile now. Then, type 'make' to build your system.
+........................................................................
+
+     ¦b³]©w¤@¨Ç¼Æ­È®É½Ð½T¤Á¦Ò¼{±zªºµwÅé³]³Æ¬O§_¨¬°÷¡C ¯S§O¬O³Ì¤j¦P®É¤W½u
+     ¤H¼Æ¡A¥¦¬O»P°O¾ÐÅéªº¤j¤p«D±`¦³Ãöªº¡C
+
+     µ{¦¡·|¦Û°Ê§PÂ_±z©Ò¥Îªº¨t²Î¡A¨Ã¥B¸ß°Ý±z©Ò¬[³]ªº BBS¤§°ò¥»¸ê®Æ¡A¥H
+     ³y¥X¥²­nªº Makefile ¡C ¶¶§Qªº¸Ü¡A±zÀ³¸Ó¥i¥H¦b bbs_src/ ¥Ø¿ý©³¤U§ä
+     ¨ì­è³y¥X¨Óªº Makefile¡C ±z¥i¥HÆ[¬Ý¦¹ÀÉªº³]©w¡A­Y¦³¥²­n¡A¥i¤â°Ê­×§ï
+     ¤§¡C
+
+     ¦b bbs_src/ ¤U¥ç¥i§ä¨ì config.h ³o­ÓÀÉ¡A¦b½sÄ¶µ{¦¡¤§«e±z¥ç¥i¹ï¥¦§@
+     ¤@¨Ç¤â°Êªº­×§ï¡C
+
+     ¦P¤@­Ó¥Ø¿ý¤U¥i§ä¨ì chat.h ³o­ÓÀÉ, ±z¥i¥H¦b¦¹§ó§ï chat room ªº port
+     number ©M¦W¦r¡C
+
+     2.½sÄ¶ BBS µ{¦¡
+     
+     ¦b bbs_src/ ¤U°õ¦æ¦p¤U«ü¥O  
+
+      make
+
+     ¶i¦æ½sÄ¶°Ê§@¡C¦pªG½sÄ¶¹Lµ{µL¿ù»~ªº¸Ü¡Abbs_src/ ¥Ø¿ý©³¤UÀ³¸Ó¤w¸g²£
+     ¥Í bbs, bbsrf, chatd ¥H¤Î thread ³o¥|­Ó°õ¦æÀÉ¡C¦pªG³o¥|­ÓÀÉ®×³£¤w
+     ²£¥Íªº¸Ü¡A¥Nªí BBS µ{¦¡ªº½sÄ¶¤w¸g§¹¦¨¡C
+
+     ¦pªG¦]¬°¥ô¦ó error¾É­P BBS µ{¦¡µLªk²£¥Íªº¸Ü, ½ÐÀË¬d¦w¸Ëµ{§Ç¬O§_¦³»~¡C
+     ­YµLªk¸Ñ¨M, ¥i±N§¹¾ã½sÄ¶¹Lµ{²£¥Íªº°T®§±i¶K¦Ü¦U¤j¯¸ firebird ª©©Î 
+     installbbs ª©¨D§U¡C  
+     
+     3.¦w¸Ë BBS µ{¦¡
+
+     ¥H root login , ¦b /home/bbsroot/bbs_src ¥Ø¿ý©³¤U°õ¦æ
+
+      make install
+      make installchatd
+      make installthread
+
+     §Y¥i¤j¥\§i¦¨¡C½ÐÄ~Äò´ú¸Õ±z­è¬[³]§¹¦¨ªº ¢Ð¢Ð¢á¯¸¡C
+
+ [4] ´ú¸Õ BBS µ{¦¡¤Î¿ù»~ªº±Æ°£
+     
+     1.´ú¸Õ¢Ð¢Ð¢á¨Ã¨ú±o SYSOP Åv§Q
+
+     Telnet ¨ì±zªº BBS ¥D¾÷¡AµM«á¥H bbs ·í username ¨Ó login , À³¥i¨£
+     ¨ì BBS ªº login µe­±¡C¦¹®É¡A·í BBSµ{¦¡­n¨D±z¿é¤J¥N¸¹®É¡A  ½Ð¿é¤J 
+     new¡A¥H«Kµù¥U¤@­Ó·s¨Ï¥ÎªÌ¡C¥Ñ©ó¦WºÙ¬° SYSOP ªº¨Ï¥ÎªÌ¾Ö¦³¤@¤ÁÅv§Q
+     ¡A¦]¦¹±z¥²¶·¥ýµù¥U¬° SYSOP¡A¨Ã¥B³]©w±K½X¡C½Ðª`·N¡GSYSOP ¥²»Ý§¹¥þ
+     ¤j¼g¡C
+
+     ±µ¤U¨Ó¡A½Ð¦A´À  guest µn°O±b¸¹¡A¦¹±b¸¹¬° BBSªº°ÑÆ[±b¸¹¡A¤£¶·¿é¤J
+     ±K½X§Y¥i¶i¤J BBS(µù¥U®ÉÀH«K¥´­Ó±K½X§Y¥i)¡C¦pªG±z¤£·Q´£¨Ñ guest±b
+     ¸¹¡A¥i¥H²¤¹L¦¹¨BÆJ¡A¨Ã°O±o§â guest ¥[¤J "¤£¥iµù¥U¤§ID" ªº¦W³æ¤º¡C
+     ¦pªG±z´£¨Ñ¤F guest  ±b¸¹¡A½Ð°Ñ¦Òµy«áªº¤å¥ó»¡©ú´À guest  ³]©w
+    ¡u«ê¨ì¦n³B¡vªºÅv­­¡C³q±`guest ±b¸¹¬O¥u¯à°ÑÆ[¤£¥iµo¨¥ªº¡A¦]¦¹³q±`
+     ¤£¨ã¦³µoªí¤å³¹©Î²á¤Ñªº¥\¯à¡C
+   
+     2.¿ù»~ªº±Æ°£
+   
+     ¦pªG¤Ñ¤£±q¤HÄ@¡Aµ{¦¡¤@Án¤£ÅT¦a´Nµ²§ô¤F¡A½Ð±z¥ý¥H bbsuser login¡A
+     ¦b/home/bbs ªº¥Ø¿ý©³¤U°õ¦æ¡u bin/bbs h localhost¡v¡A¬Ý¬Ý¯à¤£¯à°õ
+     ¦æ¡C¦pªG bbs¥i¥H°õ¦æªº¸Ü¡A¨ºÀ³¸Ó¬O  ~bbs/bin/bbsrf  ¥X¤F°ÝÃD¡A½Ð
+     ÀË¬dbbsrf µ{¦¡¤§ owner»P mode ¡A¦pªG±z¦Û¦æ¨Ï¥Î chroot ¦w¸Ë¿ï¶µªº
+     ¸Ü¡A½Ð½T©w owner¬° root ¥B mode ¬° 4755¡C
+   
+     ¦pªG¤£¬O³o­Ó±¡§Î¡A½Ð°õ¦æ ipcs «ü¥O¡A¬d¬Ý shared memoryªº¨Ï¥Î±¡§Î
+     »P owner¬O§_¥¿½T¡A¥¿±`ªº ownerÀ³¸Ó¬O bbs¡A¦pªG¤£¬Oªº¸Ü¡A½Ð§Q¥Î
+     ipcrm ²M°£¤§¡AµM«á­«·s°õ¦æ bbs¡C
+     ³q±`¥H¤W¿ù»~·|¦³ Error! shmat error! key = xxx. ªº°T®§.
+   
+     ¦A¤£¦æªº¸Ü¡A½ÐÀË¬d ~bbs/etc/menu.ini  »P ~bbs/etc/sysconf.ini ¬O
+     §_¦s¦b¡A¥H¤ÎÀÉ®×¤º®e¬O§_§¹¾ã¡C¦pªG§¹¾ãªº¸Ü¡A½Ð¸ÕµÛ§R°£
+      ~bbs/sysconf.img ÀÉ®×¡A¦A­«·s¶i¤J BBS´ú¸Õ¡C
+   
+     ¦pªGÁÙ¬O¤£¦æªº¸Ü¡A½Ð¸ÕµÛ²M°£¾ã­Ó BBS¨t²Î¡A­«·s¶}¾÷«á¦A¦w¸Ë´X¦¸¸Õ
+     ¸Õ¡C¦pªG¯uªº¨S¦³¿ìªk¡A½Ð¨ì tw.bbs.admin.installbbs  °Q½×°Ï¨D§U¡A
+     ©Î email µ¹¥»¨t²Îªºµo®i¤p²Õ SYSOP.bbs@MSIA.pine.ncu.edu.tw ¡C¦b¦¹
+     ¯S§O±ÀÂË²Ä¤@ºØ°µªk¡A¦]¬°³o¼Ë¤l¥i¥H¦bºô¸ô¤W¹J¨ì¸û¦h¨Ï¥Î FirebirdBBS
+     ¨t²ÎªººÞ²zªÌ¡A±o¨ì¥ß§Y¦^À³ªº¾÷·|¸û¤j¡C·íµM°Õ¡A¦b¨D§U¤§«e½Ð¸Ô­z±zªº
+     ¨t²Î¥­¥x¡B©Ò¥Îªº½sÄ¶¾¹¡A¥H¤Î¥X²{¿ù»~ªºª¬ªpµ¥¸ê°T¡A³o¼Ë¤l¤j®a¤~¯à
+     ®e©öÀ°±z§ä¥X¥i¯àµo¥Í°ÝÃDªº¦a¤è¡C
+
+ [5] ¨ä¥Lª©¥» BBS ¤É¯Å¶·ª¾
+    
+     ¥H¤U»¡©ú±q¦Uª©¥»¤É¯Å©Ò¶·¨BÆJ, ¸Ô²Ó BBS ¬ÛÃö³]©wÀÉ½Ð¨£²Ä¤T³¹»¡©ú¡C
+
+ ¡¸  ±q Phoenix  BBS 4.0 ª©¤É¯Å
+ ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 1. ¦b /home/bbs/etc «Ø¥ß¥Ø¿ý notepad_tmp ªº¥Ø¿ý(ª`·N owner ¬° bbs)
+
+ 2. ¦b /home/bbs/etc «Ø¥ßÀÉ®× junkboards  (¬O°O¿ý­þ¨Çª©¤£¦C¤J­pºâ Posts)
+
+ 3. ¦b /home/bbs/etc «Ø¥ßÀÉ®× autopost    (¨C¤é¦Û°Ê Post ¤å³¹)
+
+ 4. ¥H bbsroot login , °Ñ¦Ò [3] ­«·s½sÄ¶ BBS µ{¦¡,
+    µM«á°õ¦æ
+              make installbbsrf
+              make installbbs
+              make installchatd
+              make installthread 
+
+   ¥H¦w¸Ë BBS µ{¦¡
+
+ 5.¥H root login, ¦Ü bbs_src/local_utl  ¤U°õ¦æ PH4.sh , ·|¦Û°Ê¶i¦æ¨Ï¥Î
+   ªÌ¥Ø¿ý, ¦n¤Í¦W³æ, ¨Ï¥ÎªÌ¸ê®ÆÀÉªºÂà´«¡C¨Ï¥Î«e½Ð¥ýÀË¬d repass.c rehome.c 
+    refriend.c renotepad.c µ{¦¡¤¤ªº¥Ø¿ý¹ï¤£¹ï.
+   (BBS ¬[¦b /home/bbs ¥i§K)
+
+ 6.¦³ÃöÂà«Hµ{¦¡, FirebirdBBS ªºÂà«H§ï±Ä°O¿ý¦b¤@­ÓÀÉ«á°e¥X,©Ò¥H bbslink.c 
+   ­n­«·s make (ªþ¦b bbs_src/innbbsd ¤U) ¥t¥~ E-mail post ¤]¦³©Ò­×¥¿, ©Ò
+   ¥H°È¥²­«·s make bbspost (ªþ¦b bbs_src/innbbsd/innd ¤U), ¨Ã§â 
+   bbs_src/innbbsd/innd/mailpost «þ¨ì ~bbs/innd 
+
+ 7.°Ñ¦Ò ~bbroot/bbs_src/bbshome/etc ¤UªºÀÉ®×, ­×§ï BBS ªº³]©w¡C
+   ¸Ô²ÓÀÉ®×»¡©ú½Ð¨£²Ä¤T³¹¡C
+
+ ¡¸  ±q FireBird BBS 1.0 - 1.54 ª©¤É¯Å
+ ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+
+ 1.¦P Phoenix BBS 4.0 ªº¤èªk¡C¨£«e­± 1-7
+
+ ¡¸  ±q FireBird BBS 1.7- 2.0 ª©¤É¯Å
+ ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 
+ 1.«e­±ªº 4
+ 2.¥H root login, ¦Ü bbs_src/local_utl  ¤U°õ¦æ FB2.0.sh ,·|¦Û°Ê¶i¦æ¨Ï¥Î
+   ªÌ¥Ø¿ý, ¦n¤Í¦W³æ, ¨Ï¥ÎªÌ¸ê®ÆÀÉªºÂà´«¡C     ¨Ï¥Î«e½Ð¥ýÀË¬d rehome.c 
+   refriend.c renotepad.c µ{¦¡¤¤ªº¥Ø¿ý¹ï¤£¹ï.(BBS ¬[¦b /home/bbs ¥i§K)
+ 3.«e­±ªº 6-7
+
+ ¡¸  ±q FireBird BBS 2.3  ª©¤É¯Å
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 1.«e­±ªº 4
+ 2.¥H root login, ¦Ü bbs_src/local_utl  ¤U°õ¦æ FB2.3.sh ,·|¦Û°Ê¶i¦æ¨Ï¥Î
+   ªÌ¥Ø¿ý, ¨Ï¥ÎªÌ¸ê®ÆÀÉªºÂà´«¡C ¨Ï¥Î«e½Ð¥ýÀË¬d rehome.c renotepad.c 
+   µ{¦¡¤¤ªº¥Ø¿ý¹ï¤£¹ï.(BBS ¬[¦b /home/bbs ¥i§K)
+ 3.«e­±ªº 6-7
+
+ ¡¸  ±q FireBird BBS 2.5beta ª©¤É¯Å
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 1.«e­±ªº 4
+ 2.¥H root login, ¦Ü bbs_src/local_utl  ¤U°õ¦æ FB2.5b1.sh ,·|¦Û°Ê¶i¦æ¨Ï
+   ¥ÎªÌ¸ê®ÆÀÉªºÂà´«¡C ¨Ï¥Î«e½Ð¥ýÀË¬d renotepad.c µ{¦¡¤¤ªº¥Ø¿ý¹ï¤£¹ï.
+   (BBS ¬[¦b /home/bbs ¥i§K)
+ 3.«e­±ªº 6-7
+
+ ¡¸  ±q FireBird BBS 2.5fb ª©¤É¯Å
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 1.«e­±ªº 4
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¤T ³¹  ³]©w BBS ªº¬ÛÃöÀÉ®×  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+     
+     ¥H¤U¤¶²Ð¥D­nªº³]©wÀÉ, ¥H«K¨Ï¥ÎªÌ¬[¥X¤@­Ó²Å¦X¦Û¤v­n¨Dªº BBS
+
+ [1] ­×§ï¨t²Î³]©wÀÉ
+     
+     ­×§ï ~bbs/etc/sysconf.ini
+     
+     ¥H¤U¤À§O»¡©ú sysconf.ini ¤¤¿ï¶µªº·N¸q
+
+# comment
+
+BBSHOME         = "/home/bbs"        <--³]©w BBS ªº home directory
+BBSID           = "MSIA"             <--³]©w BBS ªº ID (³Ì¦n¤£­n»P§O¤H­«ÂÐ)
+BBSNAME         = "¤j¬õªáªº°ê«×"     <--³]©w BBS ªº¤¤¤å¯¸¦W
+BBSDOMAIN       = "MSIA.pine.ncu.edu.tw"    <--³]©w BBS ªº Domain Name
+BBSIP		= "140.115.210.77"          <--³]©w BBS ªº IP Address
+
+#SHOW_IDLE_TIME         = 1
+KEEP_DELETED_HEADER     = 0         <--³]©w°Q½×°Ï³Q¬å¤å³¹¬O§_«O¯d³Q¬å¼ÐÃD
+
+BCACHE_SHMKEY   = 7813              <--³o¨Ç¬O BBS ¦@¥Î°O¾ÐÅéªº shared memory
+UCACHE_SHMKEY   = 7912                 key. ¦pªG±z¦b¦P¤@¥x¾÷¾¹¬[¨â­Ó©Î¥H¤Wªº
+UTMP_SHMKEY     = 3785                 BBS ªº¸Ü, ½Ð°È¥²½T©w¥¦­Ì©Ò¥Îªº key 
+ACBOARD_SHMKEY  = 9013                 ¤£¯à­«ÂÐ!
+ISSUE_SHMKEY    = 5002
+GOODBYE_SHMKEY  = 5003
+
+EMAILFILE       = "etc/mailcheck"  <--¦pªG§â³o¦æ«e­±¥[¤W # ´N¤£±H¨­¥÷½T»{«H
+#NEWREGFILE     = "etc/newregister" <--¦pªG§â³o¦æ«e­± # ®³±¼´N¦³·s¤â¤T¤Ñ­­¨î
+
+PERM_BASIC      = 0x00001       <-- ¥H¤U¬°¤@¨ÇÅv­­ªº©w¸q, ±N¦b menu.ini 
+PERM_CHAT       = 0x00002           ¤¤¨Ï¥Î
+PERM_PAGE       = 0x00004
+........          ........
+
+PERM_SPECIAL6   = 0x8000000
+PERM_SPECIAL7   = 0x10000000
+PERM_SPECIAL8   = 0x20000000
+
+PERM_ESYSFILE  =  PERM_SYSOP,PERM_WELCOME,PERM_ACBOARD
+^^^^^^^^^^^^^^ ¾Ö¦³­×§ï³¡¥÷/¥þ³¡¨t²ÎÀÉªºÅv­­
+PERM_ADMENU    =  PERM_ACCOUNTS,PERM_OVOTE,PERM_SYSOP,PERM_OBOARDS,PERM_WELCOME,PERM_ACBOARD
+^^^^^^^^^^^^^^ ¥i¬Ý¨ì¨Ã¨Ï¥ÎºÞ²zªÌ¿ï³æ
+PERM_BLEVELS   =  PERM_SYSOP,PERM_OBOARDS
+PERM_UCLEAN    =  PERM_SYSOP,PERM_ACCOUNTS
+
+AUTOSET_PERM    = PERM_CHAT, PERM_PAGE, PERM_POST, PERM_LOGINOK
+^^^^^^^^^^^^^^ ³]©w¨­¥÷½T»{³q¹Lªº¨Ï¥ÎªÌ¥i±o¨ìªºÅv­­
+
+#include "etc/menu.ini"
+  
+     ª`·N!! ­×§ï§¹ sysconf.ini «á, ½Ð¦Ü BBS ¥D¿ï³æ«ö shift + '~' 
+     ©ÎªÌ¬å±¼ ~bbs/sysconf.img , ¥H«K§ó·s¨t²Î³]©w
+
+ [2] ­×§ï BBS ªº¿ï³æ
+
+     1. ¥[¤J­I´º: ¦b¨C­Ó¿ï³æ­I«á³£¦³¤@­Ó­I´º,¥H¥D¿ï³æ¬°¨Ò,¥¦ªº­I´º
+        ´N¬O¥Ñ screen ³o¦æ©Ò«ü©wªº S1_MAIN ©Ò¨M©w  
+              
+#---------------------------------------------------------------------
+%S1_MAIN
+                
+                   ³o¸Ì¬O­I´º    
+                   §Ú¬O¥i·Rªº­õ­õ!!
+                   §Ú¦n«Ó³á!!
+
+%
+#---------------------------------------------------------------------
+
+        ¦b %S1_MAIN »P % ¤¤ªº¤å¦r³£·|³Q·í¦¨­I´º¦L¥X.
+   
+     2. menu.ini ¤º¦U³]©wªº·N¸q (¥H¥D¿ï³æ¬°¨Ò)
+                   
+
+%menu TOPMENU
+screen       3, 0, S1_MAIN
+                   ^^^^^^^«ü©w¥Î¨º­Ó­I´º
+
+title        0, 0, "Åwªï¥úÁ{¾aÃä¯¸(Coba BBS)       "
+             ^^^^  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^³o¬O¨C­Ó¿ï³æ³£
+             ±ý¦L¥Xªº®y¼Ð                           ¦³ªº¼ÐÃD  
+
+!M_EGROUP    3, 0, 0,          "EGroup",    "E) ¤ÀÃþ°Q½×°Ï"
+             ^^^^  ^^¤£­­Åv­­¬Ò¥i¥Î
+             ±q (3,0) ¶}©l¦L
+                                    
+
+!M_MAIL      0, 0, PERM_BASIC, "Mail",      "M) ¨p¤H«H¥óªA°È"
+^^^^^^^            ^^^^^^^^^^­n¦³ BASIC Åv­­¤~¬Ýªº¨ì³o­Ó¿ï¶µ
+¸õ¨ì M_MAIL ¿ï³æ
+
+!M_TALK      0, 0, PERM_BASIC, "Talk",      "T) ¶i¤J²á¤Ñ¿ï³æ"
+             ^^^^(0,0)ªí±µµÛ¤W¦æ¦L
+
+#!M_INFO      0, 0, PERM_BASIC, "Info",     "I) ³]©w­Ó¤H¸ê®Æ"       
+^^^^^^^^³o¦æ«e¥[¤F­Ó # , ¥Nªí®³±¼³o¦æ
+
+     ¥H¤W¥uÂ²¤¶¤F¤j­P¤Wªº³]©w¤èªk, ¸Ô²Ó¥i¨Ï¥Îªº¥\¯à½Ð°Ñ¦Ò
+     ~bbsroot/bbs_src/bbshome/etc/menu.ini ªºÀÉ®×, ¹ï·Ó­×§ï±z
+     ²{¦b¨Ï¥Îªº menu.ini  
+     
+     ª`·N!! ­×§ï§¹ menu.ini «á, ½Ð¦Ü BBS ¥D¿ï³æ«ö shift + '~' 
+     ©ÎªÌ¬å±¼ ~bbs/sysconf.img , ¥H«K§ó·s¨t²Î³]©w
+ 
+ [3] ¶}ª©¤Î«Ø¥ßºëµØ°Ï
+
+     1. ¶}ª©¤Î¤ÀÃþ°Q½×°Ï
+     
+     ­è«Ø¦nªº BBS ¤°»ò°Q½×°Ï¤]¨S¦³, ¯¸ªø¥i¥Hµø¨Ï¥ÎªÌ»Ý­n¶}±Ò¨¬°÷ªº
+     °Q½×°Ï, ¦P®É¬°¤F BBS user §ä´M°Q½×°Ï¤è«K°_¨£,¥²»Ý±N¬ÛÃöªº°Q½×
+     °Ï¤ÀÃþ¦b¦P¤@°Q½×°Ï¸s²Õ¤¤(Group),°Q½×°Ï¸s²Õªº³]©w½Ð¨£ 
+     ~bbs/etc/menu.ini , ¥H¤U¬O°Ñ¦Òªº³]©w
+
+title        0, 0, "¤ÀÃþ°Q½×°Ï¿ï³æ"
+screen       3, 0, S_EGROUP
+@BoardsNew   11,25,0,   "New",          "N) ¾\Åª·s¤å³¹  New"
+@EGroups     0, 0, 0,   "0BBS",         "0) BBS ¨t²Î -- [¯¸¤º]"
+..(²¤)..     ..(²¤)..   ..(²¤)...       .......(²¤)...............
+@EGroups     0, 0, 0,   "6Sports",      "6) Åé¨|°·¨­ -- [¹B°Ê] [Â¾´Î]"
+@EGroups     0, 0, 0,   "7Talk",        "7) ª«²z±M·~ -- [¤¤°êª«²z¨ó·|]"
+@BoardsAll   0, 0, 0,   "Boards",       "B) ©Ò¦³°Q½×°Ï"
+!..          0, 0, 0,   "Exit",         "E) ¦^¨ì¥D¿ï³æ"
+%
+EGROUP0 = "0"
+.......   .....
+EGROUP6 = "rs"  <-- r s ¬°¤ÀÃþ½X, ¶}ª©®É·|¥Î¨ì, r »P s ¬Ò©w¸q¬° EGROUP6 
+EGROUP7 = "xf"
+EGROUPT = "*"
+
+     
+     ½Ð¯S§Oª`·N¤ÀÃþ¿ï³æªº 0) ±N·|¤À¨ì EGROUP0 , 6) ±N·|¤À¨ì EGROUP6... 
+     
+     ¶}±Ò·sª©ªº¤è¦¡¬O¨ì¥D¿ï³æ¤U¿ï A)¨t²ÎºÞ²z¥\¯àªí ªº N)¶}±Ò·sªº°Q½×°Ï,
+     ²Ä¤@­Ó«Ø¥ßªºª©¥²»Ý¬° sysop , ½Ð¦p¤U¿é¤J:
+
+     °Q½×°Ï¦WºÙ: sysop         <-- ¶ñ¤J°Q½×°Ïªº­^¤åª©¦W
+     
+     °Q½×°Ï»¡©ú: 0[¯¸¤º] ¡³ ¯¸°ÈºÞ²z°Ï
+                ^^°Q½×°Ï»¡©úªº²Ä¤@­Ó¦r¬°¤ÀÃþ½X(©w¸q©ó menu.ini), ¥H¦¹ 0
+                  ¬°¨Ò, ±N·|¤À¦Ü EGROUP0 ,¤]´N¬O 0) BBS ¨t²Î -- [¯¸¤º]     
+                  ¨ä¾l³¡¥÷ªº°Q½×°Ï»¡©ú½Ð«ö¦¹§Î¦¡¶ñ¼g, ¥H§K¨ì®Éª©­±±Æªº
+                  ¤£¦n¬Ý.
+
+     °Q½×°ÏºÞ²z­û: SYSOP        <-- «ü©w°Q½×°Ïªº BM
+     ¬O§_­­¨î¦s¨úÅv§Q (Y/N) ? [N]: n  <--«ü©w¥u¦³¬Y¨ÇÅv­­ªÌ¤~¯à¦s¨ú¦¹ª©
+     ¬O§_¥[¤J°Î¦Wª© (Y/N) ? [N]: n  <--¬O§_¬°°Î¦WªO
+
+            1. ¥»¯¸¨t²Î            system.faq
+            2. .......             ..........
+     
+           14.¨ä¥L                other.faq
+
+     ½Ð¿é¤J§Aªº¿ï¾Ü: 1       <-- ¿ï¾ÜºëµØ°Ï­n©ñ¨º ? ¥H«á¥i¦A½Õ¾ã¦ì¸m
+     ¤w¸g¸m¤JºëµØ°Ï.....
+
+     ·s°Q½×°Ï¦¨¥ß
+
+     2. «Ø¥ßºëµØ°Ï
+     
+     ¨Ï¥ÎªÌ¦b°Q½×°Ï«ö¤U "x" Áä«K·|¸õ¦Ü¸Ó°Q½×°ÏªººëµØ°Ï, ­n¹F¦¨¦¹¥\¯à
+     ¥²¶·­n¥¿½T³]©w ~bbs/0Announce/.Search ÀÉ®×¤º®e, ¥i¯àªº¤º®e¦p¤U:
+     
+        linux:        Linux
+        installbbs:   Linux/bbs
+        sysop:        sysop
+        ....          .......
+
+     ¨ä¤¤«_¸¹«e¥Nªí board name, «á­±ªº¥Nªí¹ï¬Mªº¥Ø¿ý¦W
+     ¨Ò¦p: ¦b installbbs ª©«ö¤U x ®É, FirebirdBBS ´N·|¥h§ä 
+     ~bbs/0Announce/Linux/bbs ¤UªººëµØ°Ï.... 
+       
+     ¥¿±`¶}ª©®É§Y·|¦Û°Ê¼g¤J¦¹ÀÉ,¥­±`µL»Ý¦Û¥[, ¦ý¦pªGºëµØ°Ï¥Ø¿ý¦³§ó°Ê
+     ®É, ½Ð°O±o­×§ï¦¹ÀÉ
+
+ [4] BBS ¥Ø¿ý¤UÀÉ®×»¡©ú
+
+     ¥H¤U»¡©ú¦b ~bbs/ ¥Ø¿ý¤U¦UÀÉ®×ªº¥\¯à, ½Ð¸Ô¥[¾\Åª¥H«K¯à§ó´x±±¶Q¯¸
+     ªº¥¿±`¹B§@:
+
+     Part I.¡¸¥D­n¸ê®ÆÀÉ®×¡¸
+  ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  1. BBS_HOME/.PASSWDS
+     ¦s©ñ¨C¦ì¨Ï¥ÎªÌªº°ò¥»¸ê®Æ¡A«Å§i struct userec¡C
+     ±ýÆ[¬Ý¦¹ÀÉ¤º®e, ½Ð°Ñ¦Ò²Ä¥|³¹ [7] ªº»¡©ú¡C
+  
+  2. BBS_HOME/.BOARDS
+     ¦s©ñ¦U­Ó°Q½×°Ïªº°ò¥»¸ê®Æ¡A«Å§i struct boardheader¡A¸Ì­±¦³¤@
+     ­Ó element .flag ¬O¥Î¨Ó¦s©ñ°Q½×°Ïªºª¬ªp¡A¥Ø«e¶È¶È¨Ï¥Î¦b§ë²¼
+     ªº¼Ð¥Ü¤W¡AÀ³§â°Î¦WªO¡B¤£¥i¥H Zap ªºªO°O¿ý¨ä¤¤¸û¨Î¡C
+  
+  3. BBS_HOME/Welcome Welcome.rec
+     ¶i¯¸«áªºÅwªïµe­±¡A©M°O¿ýÅª¨ú±¡ªp¡C¥iª½±µ¥Î½s¿è¾¹­×§ï Welcome
+     ªº¤º®e, ª`·N!!¥u¦³·í Welcome¦³§ó·s¹L®É, ¨Ï¥ÎªÌ¤~·|¬Ý¨ì¡C
+  
+  4. Welcome2
+     »P Welcome Ãþ¦ü, ¦ý¨C¦¸¶i¯¸³£·|¬Ý¨ì, ¥B¤¹³\¦³¦h­«µe­±, ¥H @login@
+     ©¼¦¹¹j¶}¡C
+
+  5. BBS_HOME/home/A-Z
+     ¦s¦³¦U­Ó¨Ï¥ÎªÌªº¥Ø¿ý¡C¨Ã¨Ì·Ó¨Ï¥ÎªÌ ID ªº²Ä¤@­Ó¦r¨Ó¤ÀÃþ±Æ©ñ: 
+     ¨Ò¦p: SmallPig ¨Ï¥ÎªÌªº¥Ø¿ý´N©ñ¦b BBS_HOME/home/S/SmallPig, 
+           wildwolf ¨Ï¥ÎªÌªº¥Ø¿ý´N©ñ¦b BBS_HOME/home/W/wildwolf¡C 
+
+  6. BBS_HOME/boards
+     ¸Ì­±¦s¦³¦U°Q½×°Ïªº directory¡C
+  
+  7. BBS_HOME/vote
+     ¸Ì­±°O¿ý¦U°Q½×°Ïªº§ë²¼±±¨îÀÉ¡A¥H¤Î°Q½×°ÏÂ²¤¶¡C
+
+  8. BBS_HOME/0Announce
+     ¸Ì­±°O¿ýºëµØ°Ï¸ê®Æ¡C
+  
+  9. BBS_HOME/etc
+     ¨t²Î±±¨îÀÉ®×¡C
+  
+  10.BBS_HOME/help
+     ¦U±±¨îÁä»¡©ú¤å¥óÀÉ®×¡C
+
+   Part II.¡¸¨Ï¥ÎªÌ¥Ø¿ý¡¸
+  ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  BBS_HOME/home/A-Z/USERID/*
+
+  1.friends      °O¿ý¦n¤Í¦W³æ¡A«Å§i struct friend ¡C
+  2.logout       ¨Ï¥ÎªÌ¦Û­qÂ÷¯¸µe­±¡C
+  3.maillist     ±H«Hµ¹¤@¸s¤H¦Cªí¡C¡]¥Ø«e¤w§R°£¡^
+  4.notes        ­Ó¤H³Æ§Ñ¿ý¡C
+  5.plans        ­Ó¤H»¡©úÀÉ¡C
+  6.signatures   Ã±¦WÀÉ¡C
+  7.mailcheck    ¨­¥÷½T»{¼È¦sÀÉ¡C
+  8.register     ¨­¥÷½T»{°O¿ýÀÉ¡C
+  
+  Part III.¡¸§ë²¼¥Ø¿ý¡¸
+  ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  BBS_HOME/vote/BOARDNAME/*
+
+  1.notes        °Q½×°Ï¤¶²Ð(³Æ§Ñ¿ý)¡C
+  2.noterec      °O¿ý°Q½×°ÏÅª¨ú±¡ªp¡C
+  3.control      §ë²¼±±¨îÀÉ¡C
+  4.desc.?????   §ë²¼´y­z¡C
+  5.flag.?????   ¨Ï¥ÎªÌ§ë²¼°O¿ý¡C
+  6.results      §ë²¼µ²ªG¡C
+  7.secnotes     ¯µ±K³Æ§Ñ¿ý¡C
+  
+  Part IV.¡¸¨t²Î±±¨îÀÉ®×¡¸
+  ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  BBS_HOME/etc/*
+
+  1. anonymous    °Î¦Wª©¦W³æ
+  2. autopost     ¨C¤é¨t²Î¦Û°Ê Post ¦Cªí¡C
+ 
+ (¨Ï¥Îªk¦p¤U: ¦b autopost ÀÉ¤¤¶ñ¤J¥H¤U¤º®e
+
+  /home/bbs/0Announce/bbslists/board1 bbslists °Q½×°Ï¨Ï¥Î²v(¹Ï)
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^^ ^^^^^^^^^^^^^^^^
+       ±ý¦Û°Ê±i¶KªºÀÉ®×¦W             ±i¶K¦Ü¦óª©  ±i¶K®É¥Îªº¼ÐÃD
+
+  ps. »Ý¯S§O»¡©ú, ¦Û°Ê±i¶Kªº­ì²z¬O·í¦³¨Ï¥ÎªÌ¤W¯¸®É, ¥hÀË¬d 
+      ~bbs/etc/checknotepad ¤º¦sªº®É¶¡, ¬O§_¶ZÂ÷¤W¦¸¦Û°Ê±i
+      ¶K¤w¸g¹L 24 ¤p®É, ¬O«K¦Û°Ê±i¶K, §_«h¤£°Ê§@¡C                     
+  )
+
+ 3. boardref     ¯¸ªø¶}ª©®É©Ò¥Îªº°Ñ¦Ò¤å¥ó¡C
+ 4. checknotepad °O¿ý¯d¨¥ªO»P¦Û°Ê Post ªº®É¶¡°O¿ý¡C
+ 5. f_fill       ¶ñ¼gµù¥U³æ¥¢±Ñªº mail ¤º®e¡C
+ 6. s_fill       ¶ñ¼gµù¥U³æ¦¨¥\ªº mail ¤º®e¡C
+ 7. firstlogin   ·s¤â¤W¸ô±N¾\Åªªº¤å¥ó¡C
+ 8. fmail        ¨­¥÷½T»{¥¢±Ñªº mail ¤º®e¡C
+ 9. smail        ¨­¥÷½T»{¦¨¥\ªº mail ¤º®e¡C
+10. goodbye      login ¤T¦¸¿ù»~ªºµe­±¡C
+11. issue        ¶i¯¸«eªºµe­±¡C
+12. junkboards   ¤£°O¤å³¹¼ÆªºªO¡C
+
+ (ª`·N!! ¥u­nª©¦W¦C¤J¦¹ÀÉ¤¤, BBS ¨Ï¥ÎªÌ¦b¦¹ª©µoªíªº¤å³¹§¡¤£¦C¤J­Ó¤H
+  ±i¶K¤å³¹¼Æ²Î­p,  ¾A¦X¥Î©óÄé¤ôªO©Î°Î¦Wª©µ¥¡C)  
+
+13. mailcheck    ¨­¥÷½T»{±H¥X«H¥óªº¤º®e¡C
+
+ (ª`·N!! ½Ð°È¥²­×§ï¦¹ÀÉ¤º®e, ¥H§K¨Ï¥ÎªÌ¦¬¨ì½T»{«HÁÙ²ö¦W¨ä§®)
+
+14. menu.ini     ¿ï³æ±±¨îÀÉ¡C
+
+ (¤@¨Ç»Ý­n¨Ï¥Î¥~³¡µ{¦¡ªº¿ï¶µ¦b¤@¶}©l¬O³Q # ²Å¸¹ mark °_¨Óªº¡C ­Õ­Y±z¤w¦w¸Ë
+  ¦n¬ÛÃö¥~³¡µ{¦¡, ¥i±N¨ä¦b menu.ini «e­±ªº # ¥h±¼, ¦sÀÉ«á§â ~/bbs/sysconf.img
+  ¬å°£, «h¸Ó¿ï¶µÀH«á´N·|¦b¿ï³æ¤¤¥X²{¤F¡C)
+
+15. sysconf.ini  ¨t²Î±±¨îÀÉ¡C
+16. newregister  µù¥U»¡©úÀÉ¡C
+17. movie        ¬¡°Ê¬ÝªO¡C
+
+ (¬¡°Ê¬Ýª©¤º©w¬° 5 ¦æ¤@­Óµe­±, 1-5 ¦æ¬°¬¡°Ê¬Ýª©²Ä 1 µe­±, 6-10 ¬°²Ä 2 ..
+  ¨Ì¦¹Ãþ±À¡Cª`·N!! ½Ð°È¥²±N¥¼º¡ 5 ¦æªºµe­±¸É¨¬ 5 ¦æ,¥H§Kµo¥Í¿ù»~¡C)
+
+18. notepad_tmp  ¨Ï¥ÎªÌ¯d¨¥¼È¦s³B¡C
+19. notepad      ¯d¨¥ªO¡C
+20. sysops       ¯¸ªø¦Cªí¡C
+
+ ( ½Ð¦b¦¹ÀÉ¤¤¥[¤J¯¸ªøªº ID ¤ÎÂ¾ºÙ, ¨Ò¦p:
+
+   wildwolf      ¨t²ÎºÞ²z
+   aci           ¯¸°ÈºÞ²z
+ 
+   ·í¨Ï¥ÎªÌ¦³«ØÄ³®É,«K¥i¦bÂ÷¯¸®É¿ï¾Ü¾A·íÂ¾°ÈªººÞ²zªÌ, ¯d«Hµ¹¥L¡C)
+
+21. user_full    µù¥U¤H¼Æ¤wº¡¡C
+22. loginfull    ¤W¯¸¤H¼Æ¤wº¡¡C
+23. register     ·s¨Ï¥ÎªÌµù¥U±b¸¹¤§»²§Uµe­±¡C
+24. logout       Â÷¯¸µe­±¡C
+
+ (Â÷¯¸µe­±¥i¨Ï¥Î¦hºØ, ¥u­n¥H @logout@ ¹j¶}§Y¥i, ¥i°Ñ¦Ò bbs_src/bbshome/etc
+  logout  ªº½d¨Ò¡C)
+
+  Part V.¡¸°Q½×°Ï¥Ø¿ý¡¸
+  ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  BBS_HOME/boards/BOARDNAME/*
+
+  .DIR         ¤å³¹¸ê®ÆÀÉ¡C
+  .DIGEST      ¤åºK¸ê®ÆÀÉ¡C
+  .THREAD      ¦P¼ÐÃD¼Ò¦¡¤å³¹¸ê®ÆÀÉ¡C
+  M.??????.A   ¤å³¹¡C
+
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¥| ³¹  ¥~³¡¤u¨ãµ{¦¡¨Ï¥Î  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+ 
+ ¥»³¹¥D­n¬O¤¶²Ð¦b ~bbsadm/bbs_src/local_utl ¤Uªºµ{¦¡, ³o¨Çµ{¦¡¦b¦w¸Ë
+ BBS µ{¦¡®É¨Ã¥¼¦w¸Ë, ¶Q¯¸¥i¥Hµø»Ý­n°Ñ¦Ò¥H¤U³¹¸`ªº»¡©ú¦w¸Ë³o¨Ç¥~³¡µ{¦¡¡C
+
+
+ [1] Â²¤¶¦Û°Êµ{§Ç
+ 
+     ¦b§¹¦¨°ò¥»ªº BBS ¬[³]¤§«á,´N­n¶}©l¦w¸Ë BBS µ{¦¡¥H¥~ªº¤@¨ÇÀ³¥Îµ{¦¡, 
+     ¦Ó³o¨ÇÀ³¥Îµ{¦¡¦³¨Ç¥i¯à 5 ¤ÀÄÁ´N­n¶]¤@¦¸, ¦³¨Ç¥i¯à¬O©w®É¨C¤Ñªº xx®É
+     xx¤À­n°õ¦æ, ³o¨Ç°Ê§@·íµM¤£¥i¯à¨C¦¸³£¥Ñ§Ú­Ì¦Û¤v¨Ó°µ, ©Ò¥H¤~»Ý­n¥Ñ¹q
+     ¸£©w®Éªº¬°§Ú­Ì°õ¦æ. ¥H¤U«K¬OÂ²³æªº¤¶²Ð°õ¦æ¦Û°Êµ{§Çªº¤èªk¡C
+
+     ¤@­Ó´y­z¦Û°Êµ{§ÇªºÀÉ¤º®e¥i¯à¬O³o¼Ëªº:
+
+0,30 8,9,10,11 * * * (/home/bbs/bin/account )
+^^^^ ^^^^^^^^^        ^^^^^^^^^^^^^^^^^^^^^
+xx¤À
+        xx ®É           
+                         °õ¦æ ?
+
+     §Ú­Ì¥ý§â¥L¼g¦b¤@­ÓÀÉ¸Ì,¥s cron.bbs , µM«á°õ¦æ
+          
+     crontab cron.bbs
+
+     ¦¹®É User «ü©wªº¦Û°Êµ{§Ç´N·|³Q¥[¤J¨t²Î¤¤¡C¦pªG§Ú­Ì·Q­n§ó§ï¦Û°Êµ{§Ç
+     ®É,¥i¥H¦A¥h­×§ï cron.bbs µM«á¦A°õ¦æ¤@¦¸ crontab cron.bbs §Y¥i¡C §A
+     ¥i¥H°õ¦æ crontab -l ½T»{¤@¤U¦Û°Êµ{§Ç¬O§_¤w¥[¤J? ¦ý­È±oª`·Nªº¬O, ½Ö
+     °õ¦æ crontab cron.bbs,¦Û°Êµ{§Ç´N·|¥[¤J½Öªº¦Û°Êµ{§Ç¤¤, ¥H«á¹q¸£¦Û°Ê
+     °õ¦æµ{¦¡®É, ¤]·|¥H¨º­Ó¤Hªº¨­¥÷¨Ó°õ¦æ¡C©Ò¥H¹³¥H¤U§Ú­Ì©Ò¤¶²ÐªºÀ³¥Îµ{
+     ¦¡³£­n¥Î bbs ªº¨­¥÷¨Ó°õ¦æ®É, ¦b¤U crontab cron.bbs®É, ´N¥²»Ý­n½T»{
+     ¦¹®É¬O¥H bbsuser ªº¨­¥÷¨Ó°õ¦æ¡C½Ð¯S§Oª`·N³oÂI¡C
+
+ [2] ¤W¯¸¤H¼Æ²Î­p
+
+     ½Ð¥ý½T©w¥ý«e¦w¸Ë BBS µ{¦¡®É, ¤w¸g­×§ï¹L bbs_src/Makefile §â 
+     -DINVISIBLE ®³±¼¤F, ¦pªGµL, ½Ð­×§ï Makefile «á­«·s make bbsrf¡C
+     ±µ¤U¨Ó½Ð¦Ü ~bbsadm/bbs_src/local_utl ¤U,­×§ï averun.c ªº 106 ¦æ, 
+     ±N¨ä§ï¬°¶Q¯¸ªº¤¤¤å¯¸¦W, ¦A¤U¦p¤U«ü¥O
+     
+      gcc -o averun averun.c
+     
+     §â averun «þ¨ì ~bbs/bin ¤U¨Ã¦b ~bbs/ ¤U«Ø¥ß cron.bbs ,¥[¤J¥H¤U¤º®e: 
+
+0,5,10,15,20,25,30,35,45,50,55 * * * * (/usr/bin/uptime >> /home/bbs/reclog/uptime.log)
+57 * * * * (/home/bbs/bin/averun /home/bbs/reclog/uptime.log;/bin/rm  /home/bbs/reclog/uptime.log)
+56 0 * * * (/bin/mv /home/bbs/0Announce/bbslist/today /home/bbs/0Announce/bbslist/yesterday; /bin/rm /home/bbs/reclog/ave.src)
+     
+     ¦A¨Ó¥Î bbsuser ªº¨­¥÷ login , «Ø /home/bbs/reclog ªº¥Ø¿ý,³o­Ó¥Ø¿ý
+     ¬O¥Î¨Ó¦s©ñ²Ö­p¥Îªº¸ê®Æ,¤§«á¦A¶i¤J BBS ªººëµØ°Ï,¦bºëµØ°Ï¥D¥Ø¿ý¶}¤@
+     ­Ó¥Ø¿ý¥s bbslists (¥Î g ¥\¯à),¦b bbslists ªº¥Ø¿ý¤§¤U«Ø¨â­ÓÀÉ®×,¤@
+     ­Ó¥s today(¤µ¤é¤W¯¸¤H¼Æ²Î­p), ¥t¤@­Ó¥s yesterday(¬Q¤é¤W¯¸¤H¼Æ²Î­p),
+     µM«áÂ÷¶} BBS, ¦b ~bbs/ ¥Ø¿ý¤U,¥Î bbsuser ¨­¥÷¤U 
+    
+      crontab cron.bbs
+    
+     ¥H«á¹q¸£´N·|¦Û°Ê§ó·s³o¨â­ÓÀÉªº¤º®e
+ 
+ [3] ¤W¯¸¤H¦¸²Î­p
+     
+     ½Ð¦Ü ~bbsadm/bbs_src/local_utl ¤U,­×§ï account.c 107  ¦æ¦³Ãö¯¸¦Wªº
+     ¤¤¤å³¡¥÷,µM«á¤U 
+     
+      gcc -o account account.c
+     
+     ¦A§â account copy ¨ì ~bbs/bin ¤U ,¦A¶i¤J BBS , ¦b bbslists ¥Ø¿ý¤U¶}
+     ¨â­ÓÀÉ, ¤@­Ó¥s countusr (¤µ¤é¤W¯¸¤H¦¸²Î­p), ¤@­Ó¥s countusr.last (¬Q¤é
+     ¤W¯¸¤H¦¸²Î­p),¤º®e¥ýªÅ¥Õ .µM«á­×§ï ~bbs/cron.bbs ªºÀÉ,¥[¤J¦p¤U¤º®e:
+
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * (/home/bbs/bin/account )
+0 0 * * * (/bin/mv /home/bbs/0Announce/bbslists/countusr /home/bbs/0Announce/bbslists/countusr.last)
+     
+     ¤§«á¦b ~bbs/ ¥Ø¿ý¤U, ¥H bbsuser ¨­¥÷¤U crontab cron.bbs ´N°µ§¹¤W¯¸
+     ¤H¼Æªº²Î­p¤F¡C
+ 
+ [4] ¤W¯¸¦¸¼Æ, µoªí¤å³¹¦¸¼Æ, ¨Ï¥Î®É¶¡±Æ¦W
+   
+     ½Ð¦Ü ~bbsadm/bbs_src/local_utl ¤U,°õ¦æ
+
+      gcc -o bbstop bbstop.c
+     
+     ¦A§â bbstop copy ¨ì ~bbs/bin ¤U,¦A¶i¤J BBS ,¦ÜºëµØ°Ï bbslists ¥Ø¿ý¤U
+     ¶}¥|­ÓÀÉ,¤À§O¬O toplogin (¤W¯¸¦¸¼Æ±Æ¦æ) ,toppost (post¦¸¼Æ±Æ¦æ)
+     ,topstay (¨Ï¥Î®É¶¡±Æ¦æ),topall ( Á`¿n¤À±Æ¦æ ),µM«á­×§ï ~bbs/cron.bbs ªº
+     ¤º®e,¥[¤J¦p¤U±Ô­z:
+           
+0 0 * * * (/home/bbs/bin/bbstop /home/bbs 50 1 > /home/bbs/0Announce/bbslists/toplogin)
+0 0 * * * (/home/bbs/bin/bbstop /home/bbs 50 2 > /home/bbs/0Announce/bbslists/toppost)
+0 0 * * * (/home/bbs/bin/bbstop /home/bbs 50 3 > /home/bbs/0Announce/bbslists/topstay)
+0 0 * * * (/home/bbs/bin/bbstop /home/bbs 50 4 > /home/bbs/0Announce/bbslists/topall)
+     
+     ¦b ~bbs/ ¥Ø¿ý¤U, ¥H bbsuser ¨­¥÷¤U crontab cron.bbs ¥H«á¹q¸£´N·|¦Û°Ê
+     §ó·s³o¥|­ÓÀÉªº¤º®e¡C
+
+ [5] ¤Q¤j¼öªù¸ÜÃD²Î­p
+
+     ½Ð¦Ü ~bbsadm/bbs_src/local_utl ¤U 
+     
+      gcc -o poststat poststat.c 
+     
+     ¦A§â poststat «þ¦Ü ~bbs/bin ,«Ø¥ß ~bbs/etc/posts ¥Ø¿ý(owner ¬°bbs)
+     ¶i¤J BBS , ¦b bbslists ¥Ø¿ý¤U¶}¥|­Ó·sÀÉ day , week , month , year 
+     ¤À§O¬O¥»¤é¤Q¤j¼öªù¸ÜÃD, ¥»©P¤Q¤j¼öªù¸ÜÃD....µM«á¥Î bbsuser ªº¨­¥÷
+     §â ~bbs/etc/posts ¤Uªº¹ï¬MÀÉ link¦Ü³o (§Y¦b ~bbs/etc/posts ¤U«ü¥O
+   
+     rm ~bbs/0Announce/bbslists/day;ln -s day ~bbs/0Announce/bbslists/day
+
+     ¨ä¾l¨Ì¦¹Ãþ±À¡C¦A­×§ï ~bbs/cron.bbs ¥[¤J¦p¤U±Ô­z: 
+
+      10 * * * * (/home/bbs/bin/poststat /home/bbs)
+
+     ¦b ~bbs/ ¥Ø¿ý¥H bbsuser ¨­¥÷¤U crontab cron.bbs,¤§«á¨C¤p®É·|°µ¤@¦¸
+     ²Î­p¡Cª`·N !! ¥u­n¬Yª©¦³³] Read or Post ­­¨î, ¨º­Óª©«K¤£¦C¤J²Î­p, 
+     ©Ò¥H¤@¯ëª©½Ð¤Å³] Read or Post ­­¨î¡C  
+ 
+ [6] °Q½×°Ï¨Ï¥Î²v²Î­p
+
+     ½Ð¦Ü ~bbsadm/bbs_src/local_utl ¥Ø¿ý¤U
+       
+     make usage
+            
+     §â usage «þ¦Ü ~bbs/bin ¤U, ¦A¶i¤J BBS , ¦bºëµØ°Ï bbslists ¥Ø¿ý¤U«Ø
+     ¨â­ÓÀÉ board1(¹Ïªí¦¡ªº°Q½×°Ï¨Ï¥Î²v²Î­p), board2(¤å¦r¦¡ªº°Q½×°Ï¨Ï¥Î
+     ²v²Î­p) ,¦A­×§ï ~bbs/cron.bbs ¥[¤J 
+             
+     15 * * * * (/home/bbs/bin/usage 0 ; /home/bbs/bin/usage 1)
+
+     ¦b ~bbs/ ¥Ø¿ý¥H bbsuser ¨­¥÷¤U crontab cron.bbs §Y¥i¡C
+ 
+ [7] Æ[¬Ý .PASSWDS ªºµ{¦¡ -- showuser.c
+
+     showuser.c ³o¤äµ{¦¡, ¥i¥H§â .PASSWDS ªº¸ê®Æ¦C¥X¨Ó, 
+     ¥ý¦Ü ~bbsadm/bbs_src  ¤U¦p¤U«ü¥O:
+
+     gcc -o local_utl/showuser local_utl/showuser.c
+
+     ¦A±N showuser «þ¦Ü ~bbs/bin ¤U, ¥u­n¤U¦p¤U«ü¥O
+    
+     showuser ~bbs/.PASSWDS i8 n12 r12 m30 u8
+    
+     §Y¥i¦C¥X¨Ï¥ÎªÌªº¦U¶µ¸ê®Æ, ¸Ô²Ó°Ñ¼Æ°õ¦æ showuser «K¦³»¡©ú¡C
+ 
+ [8] ¦Û°Ê login BBS ±b¸¹¦w¸Ë
+       
+     ¦p¦óÅý user ¤@ telnet ¹L¨Ó´N¦Û°Ê login bbs ©O ?­º¥ý§A¥²»Ý¦w¸Ë 
+     standalone-telnetd ->>³o­Ó telnetd Daemon , ³o­Ó Daemon ¨ú¥N­ì¥ýªº 
+     in.telnetd ºÞ²z ªº port 23 (telnet ©Ò¥Îªº port), ·í¦³¤H telnet¹L¨Ó
+     ®É, «K¦Û°Êfork ¤@­Ó child, µM«á¦Û°Ê login: bbs ,¨º§Ú­Ì­n«ç»ò¦w¸Ë³o
+     ¶µ¥\¯à©O? ­º¥ý¦pªG§A¬O¥Î linux ªº, ½Ð¦Ü¥H¤Uªº¦ì§}¨ú¦^µ¹ linux , 
+     complie ¦nªº telnetd.
+     
+     ftp://140.113.124.125/pub/bbs/telnetd_stmo.tgz
+    
+     ¦pªG¬O freebsd 
+    
+     ftp://ftp.ee.nctu.edu.tw/pub/BBS/telnetd-standalone-freebsd.tgz
+
+     ¦pªG¬O¨ä¥Lªº OS ½Ð¦Ü ~bbsadm/bbs_src/local_utl ¸Ñ¶} telnetd.tar.gz
+     
+     §ì¦^¨Ó«á,ÀH«K§ä­Ó¥Ø¿ý¸Ñ¶}, ¦pªG¬O freebsd ­n¦Û¤v make telnetd
+     , «D linux ªº¨Ï¥ÎªÌ½Ð²¤¹L step1    
+
+     step1: Linux ªº¨Ï¥ÎªÌ¸Ñ¶} telnetd_stmo.tgz «á, §â OS.list «þ¦Ü
+            /usr/local/etc ¤U, ³o­ÓÀÉ®×¤º®e¬O¤@°ï OS ªº¦WºÙ, ¥H«á·|
+            ¶Ã¼Æ¨ú¨ä¤¤¤º®e, ·í§O¤H telnet  ¹L¨Ó®É«KÅã¥Ü¨ä¤¤¤@ºØ OS ,
+            §O¤H´N·d¤£À´§A³o¥x­Ë©³¬O¤°»ò¤F ^_^
+
+     step2: §â telnetd «þ¦Ü /usr/sbin ¤U
+
+     step3: ­×§ï /etc/inetd.conf ´M§ä¥H¤Uªº¦r¦ê: 
+ 
+telnet  stream tcp nowait root /usr/sbin/tcpd  /usr/sbin/in.telnetd
+
+            §ï¦¨
+
+telnet1  stream tcp nowait root /usr/sbin/tcpd  /usr/sbin/in.telnetd
+
+     step4:  ­×§ï /etc/services ¦b³Ì«á¥[¤W
+
+telnet1      2000/tcp          # previous in.telnetd daemon 
+
+     step5:  ps aux |grep "inetd",§ä¥X inetd ªº PID
+             µM«á kill -HUP (PID) ´N¥i­«·s°_°Ê inetd (©Î­«¶}¾÷¤]¥i)
+
+     step6:  °õ¦æ telnetd 23 bbs 10
+                                 ^^ load ¤W­­
+             ¥H«á user telnet ¨ì§Aªº server «K·|¦Û°Ê login: bbs
+
+     ¦¹¥~, ¨Ï¥ÎªÌ telnet xxx.xxx.xxx.xxx 2000 «K·|¥X²{­ì¥ýªº login µe­±
+     ´N¥i login bbs ¥H¥~ªº±b¸¹¡C
+ 
+ [9] BBSnet, Lynx, Gopher client ,MJ..etc¦w¸Ë
+
+     1. BBSnet ¦w¸Ë
+     BBSnet ¥\¯à©w¸q©ó¨t²Î¥\¯à¿ï³æªº @ExecBBSNet , ³o­Ó¥\¯à¿ï¶µ¤º©w·|¥h
+     °õ¦æ ~bbs/bin/bbsnet.sh ,©Ò¥H¦pªG§A·QÅý§Aªº BBS ¦³¯à´£¨Ñ¨ä¥Lºô¸ô³s½u
+     ªº¥\¯àªº¸Ü,­º¥ý§A¥²»Ý¦³¤@­Ó¯à´£¨Ñ¿ï³æ¦¡³s¥Xªºµ{¦¡,¥Ø«e±`¥Îªº BBSnet
+     µ{¦¡¥i¥H±q¤U­±ªº¦ì§}±o¨ì
+    
+     ftp://140.113.124.125/pub/bbs/bbs-v1.8.tar.gz
+
+     §ì¦^¨Ó«á, ÀH«K§ä­Ó¥Ø¿ý¸Ñ¶},°Ñ·Ó¤ºªþ»¡©ú make bbs ¦A³]¦n³]©w, §â bbs 
+     «þ¦¨ /bin/bbsnet.sh §Y¥i§¹¦¨ BBSNet ¦w¸Ë¡C¤£¹L½Ðª`·N, ³s½u BBS ¾¨¶q
+     ¤£­n¦³³s¦Ü¨ä¥L BBS ªº¥\¯à,¥H«K°l¬d«H¥ó¨Ó·½ , ©Ò¥H¦w¸Ë¦¹¥\¯à«e½Ð°È¥²
+     ¥J²Ó¦Ò¼{, ¨Ã¥u¶}©ñ¦¹¥\¯àµ¹¨­¥÷½T»{³q¹Lªº¨Ï¥ÎªÌ¡C
+   
+     2. Lynx ªº¦w¸Ë
+     Lynx ¥\¯à©w¸q©óºô¸ô¥\¯à¿ï³æªº @WWW , ³o­Ó¥\¯à¿ï¶µ¤º©w·|¥h°õ¦æ 
+     ~bbs/bin/www.sh, ¥u­n¦b www.sh ¤¤°õ¦æ lynx §Y¥i¡C
+     (lynx ¬O¤@ºØ¥u¦³¤å¦r¤¶­±ªº WWW Browser)
+     (½Ð¯S§Oª`·N, lynx ¥²»Ý¥ý¸g­×§ï, ¤£¯àÅý¨Ï¥ÎªÌ¦³§ï½s¿è¾¹³]©wªº¿ï¶µ,
+      ¤]¤£¯àÅý¨Ï¥ÎªÌ¥i¥H¶i¤J shell,¥H§K¨t²Î³Q«I¤J, ¦pªG§A¹ï³o¤è­±¤£¼ô,
+      ½Ð¥ý¦ÜÂà«H installbbs ª©¸ß°Ý²M·¡¦A¦w¸Ë¦¹¥\¯à¡C)     
+
+     3. Archie Client ªº¦w¸Ë
+     Gopher ¥\¯à©w¸q©óºô¸ô¥\¯à¿ï³æªº @ExecArchie, ³o­Ó¥\¯à¿ï¶µ¤º©w·|¥h°õ
+     ¦æ ~bbs/bin/archie.sh, ¥u­n¦b archie.sh ¤¤°õ¦æ archie §Y¥i¡C
+     archie client µ{¦¡¥i¥H ftp://ftp.csie.nctu.edu.tw
+     /packages/networking/archie/archie-1.4.1.tar.gz
+     
+     4. IRC Client ªº¦w¸Ë
+     IRC ¥\¯à©w¸q©óºô¸ô¥\¯à¿ï³æªº @ExecIRC, ³o­Ó¥\¯à¿ï¶µ¤º©w·|¥h°õ¦æ 
+     ~bbs/bin/irc.sh, ¥u­n¦b irc.sh ¤¤°õ¦æ irc §Y¥i¡C
+     irc µ{¦¡¥i¥Hftp://MSIA.pine.ncu.edu.tw/pub/bbs/add-ons/ircii-2.8.tar.gz
+     ½Ð¦Û¦æ¾\Åª¤ºªþ»¡©ú¦w¸Ë¦Ü¶Q¯¸¨t²Î¤¤¡C
+
+     5. POP3D ªº¦w¸Ë
+     POP3D ¥i¥HÅý BBS ¨Ï¥ÎªÌ³q¹L POP3 Client (¦p Microsoft Exchange,
+     Netscape Mail, Eudora µ¥µ¥) Â÷½u¾\Åª¥L­Ì¦b BBS «H½c¤ºªº«H¥ó¡C
+     ½Ð¨ì ~bbsadm/local_utl °õ¦æ gcc -o bbspop3d bbspop3d.c , §â½s¥X¨Ó
+     ªº bbspop3d ©ñ¦b¾A·í¦a¤è (¦p /usr/local/bin) ¦A¥H root °õ¦æ¤§¡C
+     ³o­Óµ{¦¡¬O¤@­Ó daemon, ¥²»Ý¥H root ¨Ó°õ¦æ, ¤@¥¹°õ¦æ«á«K·|±`¾n¤F,
+     ¥i¦Ò¼{§â¥¦³]¦¨¶}¾÷®É¦Û°Ê°õ¦æ¡C
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+           ²Ä ¤­ ³¹  ±H«Hµ¹ BBS ¯¸¤º¨Ï¥ÎªÌ¤Î E-mail Post ¦w¸Ë  
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+  
+  ³o³¹©Ò­n¦w¸Ëªº¬O³ÌÃø³B²zªº sendmail ªº³]©w­×§ï, ¦]¬°¦U OS ¤Î sendmail
+  ªºª©¥»³£·|¦³©Ò®t²§, ©Ò¥H¥»³¹¥u¯à¤j²¤ªº»¡©ú¤@¯ë©Êªº¦w¸Ë¬yµ{, ¦pªG¦w¸Ë¦³
+  °ÝÃD, ½Ð±N§¹¾ã°h«H¤º®e, ¤Î ~bbs/bbslog ÀÉ®×¤ºªº°T®§±i¶K¦ÜÂà«Hinstallbbs
+  ª©¨D§U¡C
+ 
+ [1] ¨­¥÷½T»{«H³B²zªº¬yµ{
+ 
+     ¥»ª© FB 2.5M ¦b¨Ï¥ÎªÌµù¥U«á, «K·|¥H SYSOP.bbs ªº¨­¥÷µo¨­¥÷½T»{«Hµ¹¨Ï
+     ¥ÎªÌªº E-mail ¦ì§}³B, ·í¨Ï¥ÎªÌ¦¬¨ì«H¥ó«á, ª½±µ reply «H¥ó, ±N½T»{«H
+     ¦^±Hµ¹­ìµo«HªÌ SYSOP.bbs ,«K¥i³q¹L¨­¥÷½T»{¡C ¦pªG§Ú­Ì¸Ô²Óªº¸Ñ»¡¨ä¬y
+     µ{«h¬O¦p¤U©Ò¥Ü:
+
+     send:
+     =====
+     SYSOP.bbs mail to user -> sendmail (bbs) -> sendmail (user) -> user
+     
+     receive:
+     ========
+     user mail to SYSOP.bbs -> sendmail (user) -> sendmail (bbs) -> 
+     mail to SYSOP -> bbsmail -> mail2bbs -> SYSOP.bbs 
+    
+     ¤@¯ë¥¼­×§ï¹Lªº sendmail.cf ¨Ã¤£±µ¨ü¦¬«HªÌ¬° xxx.bbs ªº«¬¦¡, ©Ò¥H¥D
+     ­n­n§ó§ïªº´N¬O³o­Ó³¡¥÷¡C¥H¤U [2] «K»¡©ú¦p¦ó­×§ï, ½Ð¯S§Oª`·N!! ­×§ï
+     sendmail.cf ®É, ªÅ¥Õ»P TAB ¬O¤£¦PªºªF¦è(ÁöµM¬Ý°_¨Ó¦n¹³¤@¼Ë),  ½Ð¥J
+     ²Ó°Ñ¾\»¡©ú§ó§ï¡C
+ 
+ [2] ¦p¦ó­×§ï¨t²Î¨Ï BBS ¯¸¤º User ¯à¦¬¨ì Intermail                 
+
+     1.½Ð¥ý½T©w§A©Ò¥Îªº perl ª©¥» ( ¥´ perl -v ´Nª¾¹D¤F ^_^)¦pªG§A¥Îªº¬O 
+       5.001 ¥H¤W, ½Ð­×§ï ~bbsadm/bbs_src/mail2bbs/mailgate.pl ªº 102 , 
+       104 , 154 , 157 ¦æ , §â 
+       
+       xxx.bbs@sexboy.Dorm12.nctu.edu.tw        
+       
+       ³oºØdomain @ «e¥[¤W \ ÅÜ¦¨¦p 
+       
+       xxx.bbs\@sexboy.Dorm12.nctu.edu.tw
+       
+       ³o¬O¦]¬° 5.0 ª© perl §â @ µø¬°¯S®í¦r¤¸,©Ò¥H­n¦p¦¹­×§ï¡C
+
+     2.½Ð¦Ü ~bbsadm/bbs_src/mail2bbs ,¥ý­×§ï mail2bbs.c ¤º¦³Ãö Domain Name 
+       ªº³]©w,©M¤@¨Ç¬ÛÃö¸ô®|¦A­«·s complie mail2bbs.c , ¦A­×§ï mailgate.pl 
+       ¤¤ªº $from="?",$hostname="?", µ¥¸ò domain ¦³Ãöªº³¡¥÷.¤§«á§â mail2bbs 
+       , bbsmail , mailgate.pl ,rfc931.pl , copy ¦Ü ~bbs/bin ¤U¡C¥t¥~,½Ð­×§ï 
+       ~bbs/bin/bbsmail ²Ä¤@¦æ perl ªº¸ô®|(§ï¦¨¨t²Î perl ªº¸ô®|) , 
+       ¦A chmod 775 bbsmail . ¦¹¥~ *.pl ªº²Ä¤@¦æ perl ¸ô®|¤]½Ð°O±o­×§ï¡C 
+     
+     3.­×§ï /etc/sendmail.cf , 
+       ª`·N!!¤£­n°½Ãi...¨Ä¨Äªº¥Î keyin ªº,¤£­n¥Î copy ªº­n¤£µM­ì¥ý¬O TAB Áä
+       ªº³¡¥÷·|ÅÜ¦¨ space , ·|³y¦¨ unrecover error , mail2bbs ´N¸Ë¤£°_¨Ó¤F¡C
+
+       §ä´M¤U­±ªº¬q¸¨
+##################################################
+###   Local and Program Mailer specification   ###
+##################################################
+
+      ¨ä«á¥[¤J: 
+
+Mbbsmail, P=/usr/local/sendmail/bbs/bbsmail, F=lsSDFMuhP, S=10, R=20, 
+          A=bbsmail -d $u $s
+
+      §ä´M¤U­±ªº¬q¸¨      
+######################################
+###   Ruleset 0 -- Parse Address   ###
+######################################
+
+      ¨ä«á¥[¤J:
+
+S0
+R$+.bbs<@>$*    $#bbsmail $:$1  bbs mail gateway
+...
+# short circuit local delivery so forwarded email works
+R$+ < @ $=w . >         $: $1 < @ $2 @ $H >             first try hub
+R$+.bbs< $+ @ $+ >$*    $#bbsmail $: $1 bbs mail gateway
+R$+.bbs< $+ @ >$*       $#bbsmail $: $1 bbs mail gateway
+....
+......
+# everything else is a local name
+R$+.bbs                 $#bbsmail $:$1  bbs mail gateway
+        ^^^^^^^^^^^^^^^^              ^^
+      ª`·N: rule ¨âºÝ¥H TAB ¶¡¹j.¤]´N¬O»¡,¤@¦æ¦³¤T­ÓÄæ¦ì,¥Î¨â­Ó tab ¤À¹j,
+      ¨Ã¤£¬O¥Î space ¨Ó¤À¹j¡C
+      
+     4.´ú¸Õ§ï¦nªº sendmal.cf 
+        
+     °õ¦æ sendmail -C/etc/sendmail.cf -bt  
+       > 0 xxx.bbs
+       rewrite: ruleset  0   input: xxx . bbs
+       rewrite: ruleset 98   input: xxx . bbs
+       rewrite: ruleset 98 returns: xxx . bbs
+       rewrite: ruleset  0 returns: $# bbsmail $: xxx
+           
+     ­Y¤£·| refer ¨ì bbsmail, ¾ß¬d¬O§_¦p¤W©Ò¥Ü¥[¤J©ÒÄÝ rule,¨Ã½T¹ê¥H TAB
+     °Ï¹jÄæ¦ì¡C 
+ 
+     5.­«¶] sendmail.
+   
+     ­×§ï§¹ /etc/sendmail.cf «á, kill -9 (sendmail's pid)µM«á°õ¦æ 
+     sendmail -C/etc/sendmail -bd -q10m ¡C½Ð ps -ax ¬Ý¬Ý,¦pªG¦³¬Ý
+     ¨ì sendmail:accepting connections ´N¥Nªí§A mail2bbs ¤w¸g¸Ë¦n
+     ¤F!!»°§Ö±H¤@«Ê«Hµ¹ xxx.bbs@xxx.xxx.xxx.xxx ¬Ý¬Ý§a ^_^
+ 
+ [3] E-mail post ¦w¸Ë¤Î¨Ï¥Î    
+
+     E-mail post ªº¦w¸Ë¥u¬O§Q¥Î­ì¥ý sendmail ´N´£¨Ñªº forward «H¥ó¥\¯à,
+     ±N±Hµ¹ bbs ³o­Ó±b¸¹ªº«H¥ó, ¸gµ{¦¡³B²z«áÂà¶K¦Ü BBS ¯¸¤W¡C ¦w¸Ëªº¤è
+     ªk¦p¤U:
+     
+     1.¥ý¦Ü ~bbsadm/bbs_src/innbbsd/innd/ ¤U, ­×§ï bbspost.c 251 ¦æªº
+     ¤¤¤å¯¸¦W³¡¥÷, ¤Î²Ä 19 ¦æªº "bbs.h" §ï¦¨ "/home/bbsadm/bbs_src/bbs.h",
+     ²Ä 20 ¦æªº "innbbsdconf.h" §ï¦¨ "../innbbsdconf.h" , µM«á¤U
+
+      gcc -o bbspost bbspost.c ~bbsadm/bbs_src/record.c
+     
+     2.±N bbspost ¤Î¥Ø¿ý¤Uªº mailpost copy ¨ì ~bbs/innd ¤U, ¨Ã­×§ï mailpost
+     ªº²Ä¤@¦æªº perl path , §ï¦¨¨t²Î perl ªº¸ô®|,¨Ã chmod 755 mailpost
+
+     3.¦b ~bbs/ ¤U½s¿è .forward ÀÉ¤º®e, ¥[¤J¦p¤U¤º®e:
+
+       "| /home/bbs/innd/mailpost /home/bbs"
+     
+     ½Ðª`·N!!Âù¤Þ¸¹ªº³¡¥÷¤]­n¼g¤JÀÉ®×¤¤
+   
+    4. ½T©w¤w¦b /etc/shells ¤¤¥[¤W /home/bbs/bin/bbsrf
+
+    5. ¼g¤@½g´ú¸Õ¥Îªº mail ¥s email_test, ÀÉÀY¤@¶}©l¬O
+
+       #name: user-id
+       #password: user-password
+       #board: board-name
+       #title: article-tile
+       #localpost:           <---¦pªG¦³¥[³o¦æ¦¹½g¤å³¹«K¤£Âà«H¥X¥h
+       (ªÅ¤@¦æ)
+       ...............
+       ...............
+
+       µM«á mail bbs@your-domain-name < email_test ¬Ý¬Ý E-mail post ¬O§_¥¿±`
+   
+    6. ÀË¬d ~bbs/bbslog , ¬Ý¬Ý¬O§_¤º®e¹³ 
+
+       post to /home/bbs/boards/board-name/M.820143515.A 
+       ...........................................   
+       
+       ´N§¹¦¨ E-mail Post ¦w¸Ë¤F !!          
+
+
+    (ª`: ¦b ~bbsadm/samples ¥Ø¿ý¤U¦³­×§ï¦nªº sendmail.cf ÀÉ¨Ñ°Ñ¦Ò³á!!)
+
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+                      ²Ä ¤» ³¹  Âà«Hµ{¦¡ INNBBSD ªº¦w¸Ë   
+¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w
+
+ Âà«Hµ{¦¡ªº³]©w·|ÀH¶Q¯¸©Ò»ÝªºÂà«H¤è¦¡¦Ó¦³©Ò¤£¦P, ¦b¦¹³¹¥uÂ²¤¶¦p¦ó¦w¸Ë
+ INNBBSD ³o®MÂà«Hµ{¦¡, ¨Ã¥u¤¶²Ð client Åª¨ú§ì«H¤è¦¡ªºÂà«H³]©w, ¨ä¾lªº
+ ³]©w½Ð°Ñ¦Ò ~bbsadm/bbs_src/innbbsd/README  ªº»¡©ú¡C
+
+ [1] ¦w¸ËÂà«Hµ{¦¡
+     
+     1.½Ð¦Ü ~bbsadm/bbs_src/innbbsd ¤U, ­×§ï Makefile ¤¤ªº 
+
+     ADMINUSER=SYSOP.bbs@sexboy.Dorm12.nctu.edu.tw <-- ºÞ²zªÌªº E-mail
+     BBSHOME= /home/bbs/
+     BBS_SRC= /home/bbsadm/bbs_src
+
+     2.±N ~bbsadm/bbs_src/innbbsd/innd ¤U©Ò¦³ªº .o ÀÉ¬å±¼
+     
+     3.¦b ~bbsadm/bbs_src/innbbsd ¤U make «ü¥O, ¦A¨Ì¥X²{°T®§«ü¥ÜÄ~Äò
+   
+     4.±N½sÄ¶¦nªº ctlinnbbsd , innbbsd , bbsnnrp , bbslink «þ¨ì
+     ~bbs/innd ¤U,§Y§¹¦¨µ{¦¡³¡¥÷ªº¦w¸Ë¡C
+ 
+ [2] ³]©wÂà«H©Ò»Ýªº³]©wÀÉ
+
+     1.¦b ~bbs/innd «Ø¥ß¦p¤Uªº´X­ÓÀÉ®× (³Ì¦n¨Ï¥Î vi ¨Ó°µ)
+
+[ bbsname.bbs ]
+
+JCPP  <--- »P§A¦b BBS_HOME/etc/sysconf.ini ¤¤¼gªº BBSID ¦P 
+
+[ nodelist.bbs  ]
+
+csie            news.csie.nctu.edu.tw         POST(119)  Csie
+JCPP            sexboy.Dorm12.nctu.edu.tw     IHAVE(7777) Coba BBS
+^^^^            ^^^^^^^^^^^^^^^^^^^^^^^^^
+ Âà«H¥Îªº ID,¤£­n¸ò§O¤H­«ÂÐ   §Aªº BBS domain
+    
+     ³o­ÓÀÉ®×´y­z¤F News Server ªº Domain »P News Server ªº¥N¸¹ªº¹ï¬Mªí,
+     ¨Ò¦p: news.csie.nctu.edu.tw -> csie 
+     ¦Ó POST(119)   ¥Nªí¨Ï¥Î nnrp access ªº¤è¦¡(¸ò tin «Ü¹³)
+        IHAVE(7777) «h¥Nªí¶Q¯¸¨Ï¥Î port 7777 ªº innbbsd ¨Ó¦¬«H
+     ¨ä¤¤ BBSID ½Ð¤£­n¸ò§O¯¸¬Û¦P, ¥H§K·|¦³«H¥ó¦^¬yªº»~§P¡C
+
+[ newsfeeds.bbs ]
+
+tw.bbs.test             test               csie 
+
+     ½Ð«ö·Ó [5] ªº°Ñ¦Ò¤å¥ó, ±N§A·QÂàªº News group ¼g¦b²Ä¤@Äæ,¦Ó²Ä¤GÄæ
+     ¼gªº¬O­nÂà¶i¶Q¯¸ªº¨º­Óª©¦W(½Ð¥ý«Ø¥ß¦n), ¦Ó²Ä¤TÄæ«h¬O¼g©ú³o­Ó News
+     group ¬O±q¨º­Ó News Server Âà¶i, ¥H«á°e«H®É«K·|°e¨ì¨º¡C
+
+[ csie.active ]
+
+tw.bbs.test                           0000000000 0000000001 y
+
+     ¦Ó csie.active  «h¬O©w¸q­n±q¨º­Ó News Server §ì¨º¨Ç groups, ¹ï©ó¨C
+     ­Ó News Server  ³£­n«Ø¥ß¤@­Ó¹ï¬Mªº active File (¨Ò¦p: ¥H¤W¥u¦³±q
+     csie §ì, ©Ò¥H¥u»Ý¦³¤@­Ó active file , ÀÉ¦W«h¦Û©w)¡C 
+     «á­±¨â­Ó 0000000000 «h¬O active number , ¥H«á·|ÀHµÛ¨C¦¸§ì«H°Ê§@¦Ó
+     §ó·s¡C¤]´N¬O°O¿ý§ì«H§ì¨ì¨º¤F !!
+
+     2. ¼g¦n³o¨ÇÀÉ®×«á,¥H bbsuser ¨­¥÷¦b ~bbs/innd ¤U°õ¦æ innbbsd , 
+     ¦A°õ¦æ ctlinnbbsd reload (­«Åª³]©wÀÉ)
+
+     3.²{¦b´ú¸Õ§ì«H, ¥H bbsuser ¨­¥÷¦b ~bbs/innd ¤U¥´
+     
+     bbsnnrp news.csie.nctu.edu.tw csie.active
+             ^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^^^^^^^
+            ¨ì¨º­Ó News Server §ì  ¹ï¬Mªº active File
+     
+     ¦A¶i¤J BBS Æ[¬Ý«H¥ó¬O§_Âà¤J¡C
+
+     4.²{¦b´ú¸Õ°e«H, ¥H bbsuser ¨­¥÷¦b ~bbs/innd ¤U¥´
+     
+     bbslink -v /home/bbs
+     
+     Æ[¬Ý°e«H¹Lµ{¬O§_¦³ error , ¦A setenv NNTPSERVER=news.cise.nctu.edu.tw
+     ¥Î tin -r ³s¦Ü News Server ªº tw.bbs.test °Q½×°Ï, ÀË¬d«H¥ó¬O§_°e¥X !! 
+ 
+     5.Âà«Hµ{¦¡«D±`±Ó·P,½Ð¤Å¥Î bbsuser ¥H¥~ªº¨­¥÷¨Ó¶] innbbsd , bbsnnrp ,
+     bbslink ...,etc ¤§Ãþªºµ{¦¡, ·|³y¦¨ BBS ¨t²ÎµLªk¥¿±`¹B§@¡C
+
+     6.¥»ªO(FB 2.5) µ{¦¡, ±N©Ò¦³±ý°e¥Xªº«H¥ó¥ý²Î¤@©ñ¤J¤@°O¿ýÀÉ, ·í°õ¦æ
+     bbslink ®É, «K¥i§K°£³v¨B·j´M°Q½×°Ï´M§ä·s«H¥óªº³Â·Ð,©Ò¥H¦pªG¶Q¯¸¤§
+     «e¤w¦³¸Ë¹L innbbsd ,½Ð°È¥²§ï¥Î FB 2.5 packages ¤¤ªþªº innbbsd µ{¦¡¡C  
+
+     7.Âà«H°e«H§¡¥¿±`«á, ¥i±N bbsnnrp & bbslink ªº°Ê§@¥[¤J¦Û°Êµ{§Ç¤¤
+
+ [3] ¥Ó½ÐÂà«Hªº¤èªk
+
+     ¤£½×¬O¥Î¥D°Ê§ì«H©Î¬O¥Ñ¤W´å News Server Áý«H, ¬Ò¥HÂ÷¶Q¯¸³Ìªñªº News
+     Server  ¬°¨Î. ¥H¤WªºÂà«H½d¨Ò¬Ò¥H¥æ¤j¸ê¤uªº News Server ¬°¨Ò, ¤£¹L¦]
+     ¬°³o¥x load «Ü­«, «ØÄ³¥t´M§O¥x¡C·í¶Q¯¸©Ò­nÂà¶iªº News groups «Ü¦h®É,
+     «ØÄ³§ï±Ä server  feed ªº¤è¦¡, ¤£­n¥Î bbsnnrp §ì«H¡C¥Ó½ÐÂà«H¥i¥H°Ñ¦Ò 
+     [4] ,  ª½±µ mail µ¹ºÞ²zªÌ¥Ó½Ð¡C
+ 
+ [4] °Ñ¦Ò¤å¥ó [¤wª¾ News Server ¦Cªí]
+
+     News server °Ñ¦Òªí
+     ¢w¢w¢w¢w¢w¢w¢w¢w¢w
+
+    ¤Uªí¬O TANet ¤W±`¨£ªº News ¦øªA¾¹¡A¦pªG­n¥[¤J³s½uÂà«Hªº¸Ü¡A
+    ¥i¥H´Nªñ»P¤§Ápµ¸¡C
+
+        [¥x¥_]
+          ¥x¤j­p¤¤ News Server    ckhuang@netnews.ntu.edu.tw
+          ¬F¤j­p¤¤ News Server    andrew@news.nccu.edu.tw
+          ¤j¦P¸ê¤u News Server    ¯µ±K±¡¤H¸ê°T¯¸ Gary
+
+        [®ç¶é]
+          ¤¤¥¡¸êºÞ News Server    wolfy@im.mgt.ncu.edu.tw
+          ¤¤¥¿²z¤u News Server    yuan@cs.ccit.edu.tw
+
+        [·s¦Ë]
+          ¥æ¤j¸ê¤u News Server    mfchen@csie.nctu.edu.tw
+          ¥æ¤j¸ê¬ì News Server    gis83504@cis.nctu.edu.tw
+          ¥æ¤j¹q¤l News Server    pcyu@alab.ee.nctu.edu.tw
+          ¥æ¤j¹q¤l News Server    ljh@phillies.EE.NCTU.edu.tw
+          ²M¤j¹q¾÷ News Server    gamin@news.ee.nthu.edu.tw
+          ²M¤j¼Æ¾Ç News Server    @mathnet.math.nthu.edu.tw
+          ²M¤j¸ê¬ì News Server    news@news.cs.nthu.edu.tw
+
+        [¥x¤¤]
+          ¤¤¿³¤j¾Ç News Server    cslee@netcentral.nchu.edu.tw
+
+        [¥x«n]
+          ¦¨¤j¸ê°T©Ò News Server  ¦¨¤j¸ê°T©Ò_BBS juru
+
+ [5] °Ñ¦Ò¤å¥ó [tw.bbs.* ¦Cªí]                  
+     
+     ±`¨£ News group ¦Cªí
+    ¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢
+
+    »`¶°¤@¯ë BBS ±`¨£ªººô¸ô½×¾Â°Q½×°Ï tw.bbs.* / tw.* / cna.*  ¾ã²z¦p¤U¡A
+    ¦pªG±N¨Ó¦³·sªº News group ¦¨¥ß¡A±z¥i¥H¥Î rtin ³s¨ì News Server ¬Ý¬Ý¡A
+    ÀH®É§ó·s¸ê®Æ¡C
+
+    ¡½  tw.bbs.*
+
+tw.bbs.admin                   tw.bbs.* ªººÞ²z¤Îµo®iªº¨Æ°È
+tw.bbs.admin.installbbs        BBS¦w¸Ë¹Lµ{°Q½×°Ï
+tw.bbs.aiesec                  ¸gÀÙ°ÓºÞ·|
+tw.bbs.alumni                  ®Õ¤ÍÁp½Ë
+tw.bbs.alumni.chengkung        ¦¨¥\¤¤¾Ç®Õ¤Í·|
+tw.bbs.alumni.chien-kuo-hs     ¨Fºz¾m«È
+tw.bbs.alumni.chingmei         ´º¬ü¤k¤¤®Õ¤Í·|
+tw.bbs.alumni.chungli          ¤¤Ãc°ª¤¤®Õ¤Í·|
+tw.bbs.alumni.cy               ¤j±M«C¦~Áp½Ë·|
+tw.bbs.alumni.hchs             ·s¦Ë°ª¤¤®Õ¤Í·|
+tw.bbs.alumni.hsntnu           °ê¥ß»OÆW®v¤jªþ¤¤®Õ¤Í·|
+tw.bbs.alumni.kavalan          Äõ¤Í·|ªO
+tw.bbs.alumni.keeshs           »A±^·Ï«B -- °ò¤¤°ò¤kªº°Q½×¤Ñ¦a
+tw.bbs.alumni.kshs             ªQÀÜ°a«È--°ª¶¯¤¤¾Ç®Õ¤Í°Q½×°Ï
+tw.bbs.alumni.stdm             ¹D©ú¤¤¾Ç
+tw.bbs.alumni.sungshan         ªQ¤s°ª¤¤
+tw.bbs.alumni.tfg              ¥_¤@¤k¤¤®Õ¤Í·|
+tw.bbs.alumni.tfhs             ¦Ë¶é¹C¤l--¥x«n¤@¤¤®Õ¤Í°Q½×°Ï
+tw.bbs.alumni.tfshs            ¥x¤¤¤@¤¤®Õ¤Íª©
+tw.bbs.alumni.tssh-ccgsh       ¥x«n¤G¤¤¤Î®a»ô¤k¤¤®Õ¤ÍªO 
+tw.bbs.alumni.viator           ¶Ç»¡¤¤ªº¥j³ù--½Ã¹D¤¤¾Ç
+tw.bbs.alumni.wuling           ªZ³®°ª¤¤®Õ¤Í·|
+tw.bbs.announce                TANet BBS ­«­n¤½§i [Moderated]
+tw.bbs.answers                 ±`¨£°ÝÃD¸Ñµª·J¾ã [Moderated]
+tw.bbs.campus                  ®Õ»Ú¸ê°T¥æ¬y
+tw.bbs.campus.activity         ¬¡°Ê¹w§i»P³ø¾É
+tw.bbs.campus.advancededu      ²`³y, ¯d¾Ç¤Î¦UºØ¶i­×ºÞ¹D¥æ¬y
+tw.bbs.campus.education        ±Ð¨| -- ¦Ê¦~¤j­p
+tw.bbs.campus.graduate         ¬ã¨s¥Í¬¡
+tw.bbs.campus.job              ¦U¦æ¦U·~(¥´¤u»PÂ¾·~)
+tw.bbs.campus.ltc              À­ªF°Ó±M
+tw.bbs.campus.nccu             ¬F¤j®Õ¶é°Q½×°Ï
+tw.bbs.campus.nchu             ¤¤¿³¤j¾Ç®Õ¶é½×¾Â
+tw.bbs.campus.ncku             ¦¨¥\¤j¾Ç®Õ¶é¸ê°T
+tw.bbs.campus.nctu             ¥æ¤j®Õ¶é°Q½×°Ï
+tw.bbs.campus.ncu              ¤¤¥¡¤j¾Ç®Õ¶é¸ê°T
+tw.bbs.campus.nthu             ²M¤j®Õ¶é°Q½×°Ï
+tw.bbs.campus.ntu              »O¤j®Õ¶é°Q½×°Ï
+tw.bbs.campus.pu               ÀR©y¤j¾Ç®Õª©
+tw.bbs.comp.386bsd             386BSD/NetBSD/BSDI §Þ³N¥æ¬y
+tw.bbs.comp.cad                CAD ¹q¸£»²§U³]­p
+tw.bbs.comp.chinese            ¤¤¤å¸ê°T¼Ð·Ç¤Î§Þ³N
+tw.bbs.comp.database           ¸ê®Æ®w³]­p»PÀ³¥Î
+tw.bbs.comp.dos                DOS °Q½×°Ï
+tw.bbs.comp.graphics           ¹q¸£¹Ï¾Ç»PµêÀÀ¹ê¹Ò
+tw.bbs.comp.hacker             ³nÅé¯}¸Ñ§Þ³N°Q½×
+tw.bbs.comp.hardware           µwÅé¦w¸Ë¡B¨Ï¥Î
+tw.bbs.comp.hardware.cdrom     ­pºâ¾÷µwÅé: CD-ROM
+tw.bbs.comp.hardware.comm      ­pºâ¾÷µwÅé: ¹q¸£³q°TµwÅé°Q½×
+tw.bbs.comp.hardware.cpu       ­pºâ¾÷µwÅé: CPU  (& FPU)
+tw.bbs.comp.hardware.misc      ­pºâ¾÷µwÅé: ¨ä¥L¹q¸£µwÅé¸ÜÃD
+tw.bbs.comp.hardware.network   ­pºâ¾÷µwÅé: ¹q¸£ºô¸ôµwÅé°Q½×
+tw.bbs.comp.hardware.storage   ­pºâ¾÷µwÅé: Àx¦s¸Ë¸m
+tw.bbs.comp.hardware.systems   ­pºâ¾÷µwÅé: ¤@¯ë¹q¸£µwÅé°Q½×
+tw.bbs.comp.irc                IRC ÀW¹D -- ªÅ¤¤ºô¸ô¥æ¬y
+tw.bbs.comp.lang.fortran       FORTRAN ¨Ï¥ÎªÌ¶é¦a
+tw.bbs.comp.language           ¹q¸£»y¨¥¡Bµ{¦¡°Q½×
+tw.bbs.comp.linux              Linux §Þ³N¥æ¬y
+tw.bbs.comp.mac                ³Áª÷¶ð°Q½×°Ï
+tw.bbs.comp.midi               MIDI °Q½×
+tw.bbs.comp.modem              ¼Æ¾Ú¾÷ªº³q°T¥@¬É
+tw.bbs.comp.mswindows          MS Windows µøµ¡¨t²Î
+tw.bbs.comp.mswindows.nt       MS Windows NT °Q½×°Ï
+tw.bbs.comp.mswindows.win95    Win95 °Q½×°Ï
+tw.bbs.comp.multimedia         ¦h´CÅé·sÁÍ¶Õ
+tw.bbs.comp.network            ºô¸ô§Þ³N¥æ¬y
+tw.bbs.comp.novell             Novell §Þ³N¥æ¬y
+tw.bbs.comp.oop                ª«¥ó¾É¦Vµ{¦¡¼¶¼g°Q½×
+tw.bbs.comp.os.nextstep        NextSTEP °Q½×°Ï
+tw.bbs.comp.os2                OS/2 §Þ³N¥æ¬y
+tw.bbs.comp.security           ¨t²Î»Pµ{¦¡«O¥þ¤ß±o¥æ¬y
+tw.bbs.comp.shareware          ¤½¥Î³nÅé¸ê°T¥æ¬y
+tw.bbs.comp.software           ³nÅé¦w¸Ë¡B¨Ï¥Î
+tw.bbs.comp.sources            ¤À¨É±zªºµ{¦¡
+tw.bbs.comp.tex                TeX/LaTeX/CTeX ¨Ï¥Î
+tw.bbs.comp.unix               Unix §Þ³N¥æ¬y
+tw.bbs.comp.virus              ¹q¸£±þ¤â -- ¹q¸£¬Éªº¤j¼Ä
+tw.bbs.comp.winsock            Winsock°Q½×°Ï
+tw.bbs.comp.www                ¥þ²y¸ê°Tºô(WWW) °Q½×°Ï
+tw.bbs.comp.xwindow            X-Windows §Þ³N¥æ¬y
+tw.bbs.config                  Configuration of the TANet BBS Board hierarchy
+tw.bbs.csbbs                   Client/Server BBS
+tw.bbs.csbbs.pbbs              PowerBBS °Q½×°Ï
+tw.bbs.edu.computer-science    ¹q¸£¤Hªº¨¯»Ä»P­W¤ô
+tw.bbs.edu.normal              ®v½d±Ð¨|¸ê°T¥æ¬y¤Î°Q½×
+tw.bbs.forsale                 ¸õ°D¥«³õ
+tw.bbs.forsale.computer        ¹q¸£³]³Æ¸õ°D¥«³õ
+tw.bbs.forsale.house           ©Ð¦a²£¸ê°T
+tw.bbs.general                 ¤@¯ë¨Æ¶µ
+tw.bbs.help                    ·s¤â¨D§U
+tw.bbs.lang.chinese            ¤¤¤å±Ð«Ç
+tw.bbs.lang.english            ­^¤å±Ð«Ç
+tw.bbs.lang.japanese           ¤é¤å°Q½×°Ï
+tw.bbs.lang.spanish            ¼ö±¡©Ô¤B±Ú
+tw.bbs.lists                   TANet BBS ¬ÛÃö²Î­p¤Î¦Cªí [Moderated]
+tw.bbs.literal.article         µu¤å¡Bºqµü
+tw.bbs.literal.asciiart        ASCII code ¹Ï®×
+tw.bbs.literal.book            ¦n®Ñ¤¶²Ð¡EÅª®Ñ¤ß±o
+tw.bbs.literal.emprisenovel    ªZ«L¤p»¡
+tw.bbs.literal.lyrics          ºqºqµüµü
+tw.bbs.literal.mystery         ±À²z¤å¾Ç
+tw.bbs.literal.poem            ¸Öµüºq½á
+tw.bbs.literal.story           ³Ð§@µoªí¡Bµu¤åºqµüºK¿ý
+tw.bbs.music.chinese           °ê¼ÖªO
+tw.bbs.music.classical         ¥j¨å­µ¼Ö°Q½×°Ï
+tw.bbs.music.heavy_metal       ­«ª÷ÄÝ ­Ñ¼Ö³¡
+tw.bbs.music.japan             ¤é¥»¬y¦æ­µ¼Ö
+tw.bbs.music.pop               ¬y¦æ­µ¼Ö°Q½×°Ï
+tw.bbs.music.rocknroll         ·nºu­µ¼Ö°Q½×°Ï
+tw.bbs.netnews                 ¡¨Usenet NewsÀ³¥Î¤Î§Þ³N­±°Q½×¡ª
+tw.bbs.newgroups               ·s«H°Ï°Q½×
+tw.bbs.org.cie                 ¤¤¤u·|
+tw.bbs.rec.art                 ¤H¤åÃÀ³N -- ¯uµ½¬üªº°l¨D
+tw.bbs.rec.audiophile          ­µÅT½×¾Â
+tw.bbs.rec.beautysalon         ¬ü®e«O¾i°Q½×°Ï
+tw.bbs.rec.bridge              ¾ôµP©º¾Ô¤ß±o
+tw.bbs.rec.car                 ·R¨®±Úªº¤Ñ°ó
+tw.bbs.rec.chess               ´ÑÃÀ¥æ¬y°Ï
+tw.bbs.rec.comic               º©µe¡E°Êµe¡E¥d³q¡E¼Ò«¬
+tw.bbs.rec.cuteness            ¥i·R¤§ºÛ
+tw.bbs.rec.dance               »RÁÐ¤Ñ¦a
+tw.bbs.rec.drama               À¸¼@ À¸¦±
+tw.bbs.rec.entertainment       ¥ð¶¢®T¼Ö
+tw.bbs.rec.flower              ªá¥c¶éÃÀ¡Eªá»y
+tw.bbs.rec.foodstuff           ¤Ñ¤U¬ü¨ý ºÉ¦b¨ä¤¤
+tw.bbs.rec.guitar              ¦N¥L°Q½×°Ï
+tw.bbs.rec.harmonica           ¤fµ^°Q½×°Ï
+tw.bbs.rec.instrument          ¼Ö¾¹ºt«µ
+tw.bbs.rec.japan-idol          °¸¹³ÇU¦v«æ«K
+tw.bbs.rec.marvel              °­¸Ü³s½g
+tw.bbs.rec.mj                  ¤¤°ê°êºé -- ³Â±N
+tw.bbs.rec.model               ¼Ò«¬ÃÀ³N
+tw.bbs.rec.motorcycle          ­·¤õ½ü
+tw.bbs.rec.movie               ¹q¼v¥@¬É
+tw.bbs.rec.mud                 ºô¸ô¦a¤U«°¤å¦r«_ÀI¹CÀ¸
+tw.bbs.rec.palmardrama         ´x¤¤°®©[¡Ð¥¬³UÀ¸
+tw.bbs.rec.pcgame              ¹q¸£¹CÀ¸
+tw.bbs.rec.pet                 Ãdª«¢w§ÚªºÄ_¨©
+tw.bbs.rec.photo               Äá¼v§Þ³N
+tw.bbs.rec.radio               ¼s¼½, µL½u¹q°Q½×°Ï
+tw.bbs.rec.rail                ÅK¹D¬ã¨s°Q½×°Ï
+tw.bbs.rec.scouting            ¤@¤éµ£­x¡E¤@¥@µ£­x
+tw.bbs.rec.stamp               ¶°¶l¡B¶°¥d¡B¦UÃþ»`ÂÃ
+tw.bbs.rec.startrek            ¤HÃþªº²×·¥ÃäÃ¦
+tw.bbs.rec.tea                 «~¯ú­»
+tw.bbs.rec.travel              ®ü¤Ñ¹CÂÜ
+tw.bbs.rec.tv                  ¹qµø¼v¶°¡E½Ãµø¡E¿ý¼v±a
+tw.bbs.rec.tv.x-files          ¢æÀÉ®×°Q½×°Ï
+tw.bbs.rec.video               ¼v­µµøÅ¥
+tw.bbs.rec.videogame           ¹qµø¹C¼Ö¾¹¥æ¬y¶é¦a
+tw.bbs.rec.weapon              ¦yºÝªZ¾¹§Þ³N¥æ¬y
+tw.bbs.rec.wine                ¾J±¡®É¨è¡E½Õ°s
+tw.bbs.sci.astrology           ©R²z¡E¬P®y¡E©Ê®æ
+tw.bbs.sci.astronomy           ¤Ñ¤åª¾ÃÑ
+tw.bbs.sci.biology             ¥Íª«
+tw.bbs.sci.chemistry           ¤Æ¾Ç
+tw.bbs.sci.destiny-prediction  ©R²zºë·L
+tw.bbs.sci.economics           ¸gÀÙ¾Ç°Q½×°Ï
+tw.bbs.sci.electronics         ¹q¤l¹q¾÷
+tw.bbs.sci.finance             §ë¸ê²z°]¹ê°È
+tw.bbs.sci.history             ¾ú¥v¶é¦a
+tw.bbs.sci.law                 ªk«ß°Q½×°Ï
+tw.bbs.sci.math                ¼Æ¾Ç
+tw.bbs.sci.mba                 ¸g¶T¤j¶Õ¡@©ñ²´¤Ñ¤U
+tw.bbs.sci.mechanics           ¤O¾Ç
+tw.bbs.sci.medicine            ÂåÀø«O°·
+tw.bbs.sci.philosophy          ­õ¾Ç°Q½×°Ï
+tw.bbs.sci.physics             ª«²z
+tw.bbs.sci.psychology          ¤ß²z¾Ç
+tw.bbs.sci.sex                 °·±dªº©Ê
+tw.bbs.soc.birds               ­¸¦Ð»aªÆ
+tw.bbs.soc.changhua            ¥b½u¤§ÅÊ
+tw.bbs.soc.charity             ·Oµ½¨Æ·~°ÊºA
+tw.bbs.soc.chiayi              ¤~¤l¹Å¤H°Q½×°Ï
+tw.bbs.soc.green-earth         Àô«O»P¥ÍºA
+tw.bbs.soc.hakka               «È®a¤å¤Æ°Q½×°Ï
+tw.bbs.soc.handicapped         ´Ý¤Í¤ßÁn
+tw.bbs.soc.hsinchu             ·s¦Ë­·¤g¥Á±¡»P¦a¤è¤å¤Æ
+tw.bbs.soc.hualien             ÏwÄi­·±¡
+tw.bbs.soc.i-lan               Äõ¶§­·¤g¥Á±¡»P¦a¤è¤å¤Æ
+tw.bbs.soc.japan               ¤é¥»­·¤g¤å¤Æµó
+tw.bbs.soc.kaohsiung           °ª¶¯
+tw.bbs.soc.keelung             «B³£±¡Ãh -- ÄÝ©ó°ò¶©ªº°Q½×¤Ñ¦a
+tw.bbs.soc.malaysia            ¤j°¨¾Ç³N¨¥½×ªO
+tw.bbs.soc.media               ´C¤¶, ¤å¤Æ»PªÀ·|
+tw.bbs.soc.motss               ¦P©Ê¤§·R -- ¦P©ÊÅÊ°Q½×°Ï
+tw.bbs.soc.overseas            ¤Ñ²P¹C¤l / ¹C¤l¶m
+tw.bbs.soc.pingtung            ·¦ªL­·±¡
+tw.bbs.soc.politics            ¬Fªv°Q½×°Ï
+tw.bbs.soc.politics.dpp        ¥Á¥D¶i¨BÄÒ°Q½×°Ï
+tw.bbs.soc.politics.kmt        °ê¥ÁÄÒ°Q½×°Ï
+tw.bbs.soc.politics.np         ·sÄÒ°Q½×°Ï
+tw.bbs.soc.religion            ©v±Ð»P¤ßÆF¥@¬É
+tw.bbs.soc.religion.buddhism   buddhism
+tw.bbs.soc.socialwelfare       ªÀ·|¤½¯q--ÃöÃh®z¶Õ¹ÎÅé
+tw.bbs.soc.society             ªÀ·|ªO(¤½¦@Ä³ÃD°Q½×) (Moderated)
+tw.bbs.soc.tai-tung            ¬â«°°O¨Æ--¥xªF
+tw.bbs.soc.taichung            »O¤¤
+tw.bbs.soc.tainan              ¨ª®r­·±¡
+tw.bbs.soc.taipei              ¥x¥_Âøµ¶
+tw.bbs.soc.taiwanese           »OÆW¤å¤Æ°Q½×°Ï
+tw.bbs.soc.tayal               ­ì¦í¥Á¤å¤Æ°Q½×¶é¦a
+tw.bbs.soc.transport           ¥xÆW¥æ³q
+tw.bbs.soc.tzuchi              ·OÀÙ¤j±M«C¦~Áp½Ë·| Tsuchi
+tw.bbs.sports                  ¦UÃþ¹B°Ê
+tw.bbs.sports.baseball         Â¾´Î°Êª«¶é
+tw.bbs.sports.baseball.bears   Â¾´Î«T°êºµ­Ñ¼Ö³¡
+tw.bbs.sports.baseball.dragons Â¾´Î¨ý¥þÀs­Ñ¼Ö³¡
+tw.bbs.sports.baseball.eagles  Â¾´Î®É³øÆN­Ñ¼Ö³¡
+tw.bbs.sports.baseball.elephants  Â¾´Î¥S§Ì¶H­Ñ¼Ö³¡
+tw.bbs.sports.baseball.lions   Â¾´Î²Î¤@·à­Ñ¼Ö³¡
+tw.bbs.sports.baseball.tigers  Â¾´Î¤T°Óªê­Ñ¼Ö³¡
+tw.bbs.sports.basketball       Äx²y¥@¬É
+tw.bbs.sports.fishing          ³¨³½°Q½×°Ï
+tw.bbs.sports.kongfu           ®ð¥\¡B®±³Nµ¥¶Ç²Î¾i¥Í°·¨­¤§¹D
+tw.bbs.sports.mountain         ¤s -- ¥@¬É¤§¯á
+tw.bbs.sports.soccer           ¨¬²y¤Ñ¦a
+tw.bbs.sports.swimming         ®ö¸Ì¥ÕÀÜ¥ô§Ú¦æ
+tw.bbs.sports.tennis           ºô²y
+tw.bbs.sports.volleyball       ±Æ²y
+tw.bbs.talk                    ½Í¤Ñ»¡¦a¡E¸Ü¥j¹D¤µ
+tw.bbs.talk.boy-girl           ¨k«Ä»P¤k¥Í
+tw.bbs.talk.feeling            ·P©Ê®É¶¡¡E¤ß±¡¬G¨Æ
+tw.bbs.talk.friends            ¤H¥Í¦ó³B¤£¬Û³{
+tw.bbs.talk.joke               ¯º¸Ü¡E¸£µ¬«æÂàÅs
+tw.bbs.talk.ladytalk           ¤p¤k¤lªº¨p©Ð¸Ü
+tw.bbs.talk.love               ·R»PÅÊ¡E·P±¡¥@¬Éªº±´°Q
+tw.bbs.talk.mentalk            ¨k¤lº~ªº¤ßÁn
+tw.bbs.talk.newscast           ¦UÃþ¬¡°Ê¹êªpÂà¼½
+tw.bbs.talk.notepad            »Ä²¢­W»¶¯d¨¥ª©
+tw.bbs.test                    ´ú¸Õ±M¥Î
+tw.bbs.udnie                   Áp¦X¸ê°T±Ð¨|
+
+
+    ¡½  tw.*
+
+
+tw.announce                             [¥xÆW¦a°Ï¤½§i]        
+tw.announce.archie                      [¥xÆW¦a°Ï¤½§i] NCU Archie Announcements
+tw.cad                                  [¹q¸£»²§U³]­p]        
+tw.cam                                  [¹q¸£»²§U»s³y]        
+tw.comp.atmca                           ¤¤µØ¥Á°ê«D¦P¨B³q°T¨ó·|        
+tw.comp.bbs                             [¹q¤l§G§iÄæ¨t²Î]        
+tw.comp.chinese                         [¤¤¤å¹q¸£¤Æ°Q½×]        
+tw.comp.dos                             [DOS]        
+tw.comp.mac                             [MAC]        
+tw.comp.sources.wanted                  [Program Source Wanted]      
+tw.comp.unix                            [UNIX]        
+tw.conference                           [¥xÆW¦a°Ï¾Ç³N·|Ä³]        
+tw.digest                               [»OÆW¦a°Ïµu¤å¤p»¡¤Î¤åºK]        
+tw.environment                          [»OÆWÀô«O°ÝÃD] Environmental news, 
+                                        hazardous waste, forests.   
+tw.fido.big5-modem                      fido Modem §Þ³N°Q½×°Ï      
+tw.fido.chinese                         fido °ê»ÚµØ¤H¥æ¬y°Ï       
+tw.fido.medicine                        fido Âå¾Ç°Q½×°Ï       
+tw.info-sharing                         [¸gÅç»P¸ê°T¥æ¬y]        
+tw.lib-automation                       [¹Ï®ÑÀ]¦Û°Ê¤Æ]        
+tw.misc                                 [¨ä¥¦]        
+tw.nsc.emc                              °ê¬ì·|¹qºÏ¬Û®e­p¹º«Ç NSC 
+                                        Electro-Magnetic Compatibility 
+                                        Program Office   
+tw.pc-game                              [PC ¹q¸£¹CÀ¸]       
+tw.seminar                              [»OÆW¦a°Ï¬ã°Q·|]        
+tw.talk                                 [¥xÆW¦a°Ï·N¨£¥æ¬y]        
+tw.tanet                                [¥xÆW¾Ç³Nºô¸ô]        
+tw.tanet.general                        [¥xÆW¾Ç³Nºô¸ô]        
+tw.tanet.tech_news                      [¥xÆW¾Ç³Nºô¸ô]        
+tw.test                                 [´ú¸Õ]        
+tw.uuserv.radio                         ¡´ ¼s¼½ÀW¹D       
+tw.wanted                               [¨D°â, ¨Dª¾, ¨D§U, ¨Dª« ....]    
+
+
+    ¡½  tw.*
+
+
+cna.today                               ¤¤¥¡ªÀ - ¤µ¤éºK­n·s»Dºî¦X      
+cna.politics.domestic                   ¤¤¥¡ªÀ - °ê¤º¬Fªv      
+cna.politics.foreign                    ¤¤¥¡ªÀ - °ê¥~¬Fªv      
+cna.politics.mainland                   ¤¤¥¡ªÀ - ¤j³°¬Fªv      
+cna.congress.domestic                   ¤¤¥¡ªÀ - °ê¤º°ê·|      
+cna.congress.foreign                    ¤¤¥¡ªÀ - °ê¥~°ê·|      
+cna.overseas.domestic                   ¤¤¥¡ªÀ - °ê¤º¥~¥æ¹´°È      
+cna.overseas.foreign                    ¤¤¥¡ªÀ - °ê¥~¥~¥æ¹´°È      
+cna.overseas.mainland                   ¤¤¥¡ªÀ - ¤j³°¥~¥æ¹´°È      
+cna.military.domestic                   ¤¤¥¡ªÀ - °ê¤º­x¨Æ      
+cna.military.foreign                    ¤¤¥¡ªÀ - °ê¥~­x¨Æ      
+cna.military.mainland                   ¤¤¥¡ªÀ - ¤j³°­x¨Æ      
+cna.economics.domestic                  ¤¤¥¡ªÀ - °ê¤º°]¸g      
+cna.economics.foreign                   ¤¤¥¡ªÀ - °ê¥~°]¸g      
+cna.economics.mainland                  ¤¤¥¡ªÀ - ¤j³°°]¸g      
+cna.economics.lists                     ¤¤¥¡ªÀ - °]¸g¼Æ¾Ú      
+cna.finance.domestic                    ¤¤¥¡ªÀ - °ê¤ºª÷¿Ä      
+cna.finance.foreign                     ¤¤¥¡ªÀ - °ê¥~ª÷¿Ä      
+cna.finance.mainland                    ¤¤¥¡ªÀ - ¤j³°ª÷¿Ä      
+cna.finance.lists                       ¤¤¥¡ªÀ - ª÷¿Ä¼Æ¾Ú      
+cna.stock.domestic                      ¤¤¥¡ªÀ - °ê¤ºµý¨é      
+cna.stock.foreign                       ¤¤¥¡ªÀ - °ê¥~µý¨é      
+cna.stock.mainland                      ¤¤¥¡ªÀ - ¤j³°µý¨é      
+cna.stock.lists                         ¤¤¥¡ªÀ - µý¨é¼Æ¾Ú      
+cna.business.domestic                   ¤¤¥¡ªÀ - °ê¤º¶T©ö°Ó±¡      
+cna.business.foreign                    ¤¤¥¡ªÀ - °ê¥~¶T©ö°Ó±¡      
+cna.business.mainland                   ¤¤¥¡ªÀ - ¤j³°¶T©ö°Ó±¡      
+cna.business.lists                      ¤¤¥¡ªÀ - ¶T©ö°Ó±¡¼Æ¾Ú      
+cna.agriculture.domestic                ¤¤¥¡ªÀ - °ê¤º¹Aº®¤uÄq      
+cna.agriculture.foreign                 ¤¤¥¡ªÀ - °ê¥~¹Aº®¤uÄq      
+cna.agriculture.mainland                ¤¤¥¡ªÀ - ¤j³°¹Aº®¤uÄq      
+cna.transport.domestic                  ¤¤¥¡ªÀ - °ê¤º¥æ³q¶l¹q      
+cna.transport.foreign                   ¤¤¥¡ªÀ - °ê¥~¥æ³q¶l¹q      
+cna.transport.mainland                  ¤¤¥¡ªÀ - ¤j³°¥æ³q¶l¹q      
+cna.tech.domestic                       ¤¤¥¡ªÀ - °ê¤º¬ì§Þ      
+cna.tech.foreign                        ¤¤¥¡ªÀ - °ê¥~¬ì§Þ      
+cna.tech.mainland                       ¤¤¥¡ªÀ - ¤j³°¬ì§Þ      
+cna.judiciary.domestic                  ¤¤¥¡ªÀ - °ê¤º¥qªkÄµ¬FªÀ·|      
+cna.judiciary.foreign                   ¤¤¥¡ªÀ - °ê¥~¥qªkÄµ¬FªÀ·|      
+cna.judiciary.mainland                  ¤¤¥¡ªÀ - ¤j³°¥qªkÄµ¬FªÀ·|      
+cna.health-n-welfare.domestic           ¤¤¥¡ªÀ - °ê¤ºÂåÃÄÀô«OªÀ·|ºÖ§Q      
+cna.health-n-welfare.foreign            ¤¤¥¡ªÀ - °ê¥~ÂåÃÄÀô«OªÀ·|ºÖ§Q      
+cna.health-n-welfare.mainland           ¤¤¥¡ªÀ - ¤j³°ÂåÃÄÀô«OªÀ·|ºÖ§Q      
+cna.religion.domestic                   ¤¤¥¡ªÀ - °ê¤ºªÀ¹Î©v±Ð      
+cna.religion.foreign                    ¤¤¥¡ªÀ - °ê¥~ªÀ¹Î©v±Ð      
+cna.religion.mainland                   ¤¤¥¡ªÀ - ¤j³°ªÀ¹Î©v±Ð      
+cna.edu.domestic                        ¤¤¥¡ªÀ - °ê¤º±Ð¨|¤å¤Æ      
+cna.edu.foreign                         ¤¤¥¡ªÀ - °ê¥~±Ð¨|¤å¤Æ      
+cna.edu.mainland                        ¤¤¥¡ªÀ - ¤j³°±Ð¨|¤å¤Æ      
+cna.rec.domestic                        ¤¤¥¡ªÀ - °ê¤ºÅé¨|¼vÃÀ¥ð¶¢      
+cna.rec.foreign                         ¤¤¥¡ªÀ - °ê¥~Åé¨|¼vÃÀ¥ð¶¢      
+cna.rec.mainland                        ¤¤¥¡ªÀ - ¤j³°Åé¨|¼vÃÀ¥ð¶¢      
+cna.local.government                    ¤¤¥¡ªÀ - ¦a¤è¬F©²      
+cna.local.congress                      ¤¤¥¡ªÀ - ¦a¤èÄ³·|      
+cna.weather                             ¤¤¥¡ªÀ - ®ð¶H      
+cna.misc.xx                             ¤¤¥¡ªÀ - ½s¿è¤½¹q      
+cna.misc.zz                             ¤¤¥¡ªÀ - ¹q¶Ç½Z      
+cna.misc.yy                             ¤¤¥¡ªÀ - «Ê³¬¸s¤å½Z      
+
+

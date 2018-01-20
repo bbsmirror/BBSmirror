@@ -1,0 +1,14 @@
+
+  可以顯示系統部分的資訊
+
+  安裝方法是把 SysInfo.class 複製到 bin 目錄下面,
+  然後在 ActivePlasmid.INI 中加入一行
+ 
+  SysInfo
+
+  然後於 MENU.INI 中你想要放的地方加入
+
+  SysInfo = "S)系統資訊"   "@RunPlasmid@SysInfo"    "Basic"
+
+
+                                       WilliamWey 990503

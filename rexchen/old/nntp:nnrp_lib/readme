@@ -1,0 +1,42 @@
+ 作者  rexchen.bbs@bbs.tku.edu.tw (小旭旭), 信區: installbbs
+ 標題  轉信程式 nntp/nnrp lib
+ 時間  淡江大學 BBS (Tue Jul 10 01:59:33 2001)
+ 轉信
+PigHeadPark!wnews!chu_news!ctu-gate!news.nctu!news!tkunews!news.tku!TKU
+
+
+程式碼取得位置
+http://mars.tku.edu.tw/~rexchen/nntp.tar.gz
+
+這個 lib 是我設計來給新的 bbs 系統使用的轉信程式.
+
+他可以簡單的跟 bbs 結合使用, 不過他可沒有如 innbbsd 一樣有眾多功能.
+
+這個 lib 主要設計來取信和送信而已.
+
+src/nntp/sample 裡面有 bbs 文章的 sample 和 batch file 的 sample
+
+要使用這個 lib 請修改 nntp.h 裡面相關設定.
+
+一些設定檔
+
+server.conf ( 定義 server host , active file )
+newsfeeds.conf ( 定義轉信得 group 和 board )
+????.active ( 為 active file )
+
+build 的方式
+
+請各位勤勞點, 到 src/lib 下各目錄 打個 make 吧
+
+本版本支援 cancel msg
+
+使用方式
+送出部份如同原有的文章送出 ( 請在 bbs 定義一個 cancel board ,
+文章上面 , 多一個 Control 的欄位)
+收取部份他會建立一個 cancel.list ( 如何 expire 就看各位決定 )
+
+目前尚未支援 auth 部份, 將來的版本可能會支援.
+
+
+--
+※ 來源:‧蛋捲廣場 bbs.tku.edu.tw‧[FROM: news.tku.edu.tw]

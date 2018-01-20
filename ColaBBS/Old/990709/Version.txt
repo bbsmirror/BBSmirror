@@ -1,0 +1,31 @@
+
+990709
+
+ColaBBS
+1. [修正] 上站來源看起來比較正常了.
+2. [新增] 可以設定登入後要顯示哪些檔案給使用者看.
+3. [修正] 隱身時被看不到隱身的人 query 會顯示不在站上.
+4. [新增] MENU.INI 提供新的指令(ViewFile)可以觀看某個檔案.
+5. [內部] 可以傳參數給 Plasmid.
+6. [修正] 進版畫面更改為如把內容清光後儲存, 就不會顯示.
+7. [內部] 空白 id 的問題.
+8. [修正] 沒有信件卻顯示有信件的功能.
+9. [新增] 討論區列表可以按 v 設定為全部讀過, V 設定為皆未讀過.
+
+HappyBirthdayList
+1. 列出今天生日的人, 可以配合登入後的畫面來使用.
+
+WeatherReport
+1. 列出明天的天氣, 可以配合登入後的畫面來使用.
+
+Fingerd
+1. query 隱身的人會說不在站上.
+
+EditEverywhere
+1. 可以傳要編輯的檔案名稱進去.
+
+ReloadINIMenu, ReloadINIMessages, ReloadINILoginView
+1. 可以線上重新載入 MENU.INI, Messages.INI 和 LoginView.INI
+
+TopUserList
+1. 整理目前站上最多 login 數和 post 數的清單, 可以配合登入後的畫面來使用.

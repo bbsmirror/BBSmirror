@@ -1,0 +1,6 @@
+# cd /usr/local
+# wget ftp://ftp.ats.idv.tw/pub/Atlantis/Linux/joe2.8_redhat.tar.gz
+# tar xfvz joe2.8_redhat.tar.gz
+# cd joe ; make ; make install
+  (it may have some errors, all about directories, if directory doesn't exist,
+   build them or the filename not a directory, remove and rebuild dir.)

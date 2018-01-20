@@ -1,0 +1,97 @@
+bbs 線上遊戲─天地暗棋!!
+
+即象棋的暗棋..
+包括下列幾個檔案..
+dark.c 主程式
+dark.i 棋盤..(最好最好不要亂動)
+dark.help help畫面
+
+安裝步驟提示：
+
+1.改modes.h
+
+#define DARKCHESS       xx  /* xx是一個前面沒用過的數字 */
+......
+
+#ifdef  _MODES_C_
+static char *ModeTypeTable[] =
+{
+  ...
+  "天地暗棋"                    /* DARKCHESS */
+};
+
+2.在 struct.h struct user_info() 加入 uschar turn;
+  (若已有就不用了..)
+
+3.改talk.c (下列各程式片斷未照順序排列)
+
+    if (c == 'y')
+!     switch(uin->turn)
+!     {
+!      case 0:
+!       sprintf(save_page_requestor, "%s (%s)", uin->userid, uin->username);
+!       do_talk(msgsock);
+!       break;
+!      case 1:
+!       sprintf(save_page_requestor, "%s (%s)", uin->userid, uin->username);
+!       dark(msgsock, uin, 1);
+!       break;
+!     }
+    else
+    {
+      switch (c)
+      {
+      case 'a':
+        pressanykey("【回音】我現在很忙，請等一會兒再 call 我，好嗎？");
+
+.............
+
+if (buf[0] == 'f' || buf[0] == 'F')
+ {
+     if (!getdata(b_lines, 0, "不能 talk 的原因：", genbuf, 60, DOECHO,0))
+       strcpy(genbuf, "不告訴你咧 !! ^o^");
+     write(a, genbuf, 60);
+   }
+
+!  if (buf[0] == 'y')
+!   switch(currutmp->turn) {
+!    case 0:
+!     do_talk(a);
+!     break;
+!    case 1:
+!     dark(a, uip, 0);
+!     break;
+!   }
+
+............
+
+  prints("對方來自 [%s]，共上站 %d 次，文章 %d 篇\n",
+    uip->from, xuser.numlogins, xuser.numposts);
+  showplans(uip->userid);
+  show_last_call_in();
+
+!  sprintf(genbuf, "你想跟 %s %s嗎？請選擇(Y/N/A/B/C/D/E/F)[Y] ",
+!   page_requestor,currutmp->turn?"下暗棋":"聊天");
+
+.............
+
+      showplans(uin->userid);
+!     getdata(2, 0, "要找對方 y)談天 d)下暗棋 (y/d/n)? [N] ", genbuf, 4, 
+!        LCECHO, 0);
+!    if (*genbuf!='y' && *genbuf!='d') return;
+
++    if (*genbuf=='d') uin->turn=1;
+
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0)
+
+...............
+
+4.改 Makefile
+
+5.make all; newbbs
+
+6.clear shm
+
+
+2000/05/09 第一版

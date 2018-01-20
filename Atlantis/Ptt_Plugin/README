@@ -1,0 +1,7 @@
+[chicken.tar.gz 批踢踢養小雞]
+chicken/
+  chickens/                 小雞相關圖檔                   (--> ascii/)
+  chicken.c                 小雞主程式 (測試版)            (--> src/so/)
+
+附註 : 所有單檔 (XXXX.c.gz) 的程式 請直接於 src/so 下解開 並適度修改 Makefile
+       所有 DSO 都需變更 src/include/menu.h 使之正確呼叫

@@ -1,0 +1,35 @@
+[中   文]
+
+	為服務各位使用者, 從 19990530-SNAP 開始, 每一個 snapshot 都會有一個 
+	"lite package", 檔案名稱為 3.0-yyyymmdd-SNAP_lite.tar.gz 這個壓縮檔裡
+	面包含了最簡潔的內容, 只有完整的程式碼, library, document, 等. 檔案大
+	小只有原來的四分之一, 但已經可以架設一個功能完整的 BBS 站台.
+
+	在使用 lite package 時, 在 configure 時請加上參數 "--enable-lite"
+
+	ex:
+		% ./configure --enable-lite
+
+	這樣即會啟動 lite package 專用的設定
+
+
+[English]
+
+	From the SNAP version "19990530-SNAP", FPUG start to produce a
+	"lite package" with every snapshot for those who need. Name of 
+	the file will be 3.0-yyyymmdd-SNAP_lite.tar.gz. The file size
+	will be approximately 1/4 of the full version.
+
+	The lite version will only include those necessary source code,
+	library and documents. However it is enough for starting a new
+	site without any redundancy.
+
+	To enable using the "lite package", the following parmater will
+	be needed for "configure" at the beginning of the setup.
+
+	$ ./configure --enable-lite
+
+	This will enable all the necessary setup for the lite package
+
+
+$Id: LITE_PACKAGE,v 1.1 2000/01/15 01:45:22 edwardc Exp $

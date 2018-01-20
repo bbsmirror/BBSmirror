@@ -1,0 +1,10 @@
+
+  這個工具可以幫忙設定 ColaBBS_Service 產生的服務為自動啟動,
+  並且可以設定該服務在關閉後多久自動啟動,
+  
+  使用方法:
+  ColaBBS_ServiceTool 服務名稱 啟動方式 是否自動重新啟動
+
+  例如:
+  ColaBBS_ServiceTool ColaBBS AUTO TRUE
+  

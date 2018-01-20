@@ -1,0 +1,10 @@
+
+991010
+
+ColaBBS
+ 1. [修正] 內部架構修改.
+ 2. [修正] 修正 CronTab 執行時間錯誤的問題.
+ 3. [修正] 修正目前轉信系統遇到某極少數奇怪文章會出問題的造成轉信停止的問題.
+ 4. [移除] 系統內建的 ChatRoom.
+ 5. [移除] 系統內建的 BADIP, 還有後來的 IPAllow/IPDeny, 改為 IPAccess.INI.
+ 6. [移除] 系統內建的 SMTPd(ColaMail).

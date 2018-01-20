@@ -1,0 +1,560 @@
+This file contains a list, in reverse chronologocal order.
+$Id: ChangeLog,v 1.10 2002/09/08 02:35:14 edwardc Exp $
+
+
+3.1-20020908-SNAP (beta quality release)
+
+# RELEASE NOTE: 3.1 branch is some different (and bad difference) with 3.0 branch,
+# but we frozen 3.0 branch development due to it's messed up by some reason.
+#
+# so, 3.1 branch is stable and unstable. please report problem as you can, we'll
+# fix the problem as we can.
+
+ * 使用新的 flock() 函數解決 Solaris 平台下的問題
+
+ * 將主題模式功能 (thread) 採用 .so 動態聯結方式
+
+ * 修正在 ctrl+r 回信, 以及群組寄信及站長公告, 在選簽名檔的畫面按 Q 不能放棄的 bug
+
+ * 修正讓 guest 無法刪除與修改由 guest 發表的文章
+
+ * 加入版本, 作業系統訊息進 bbsd 內 (使用 bbsd -v)
+ 
+ * 使用 f_exlock() 與 f_unlock() 來代替 flock()
+
+ * 修正 bbstop 程式會將空白 .PASSWDS 欄位也計算進去
+
+ * 預設改為打開暗碼認證, 也就是可以同時用暗碼認證方式
+
+ * 修正"沒通過認証的人可以寄信..."
+
+ * configure 從 configure.inf 檔讀取預設值, 重新 configure 不需要重新輸入資料
+
+ * improve 編輯文章時斷線寄回保留部份 (sparc doesnt work well yet)
+
+ * fix 密碼輸入錯誤時，紀錄時間不正確
+
+ * add 離職版主自動取消版主權限
+
+ * 修改讓版面文章編號可以允許五位數數字
+
+ * 其他修正及文件修改
+
+3.0-RELEASE	 (released on 2001-02-02) 
+                                                                                
+ * 新增介紹人功能
+                                                                                
+ * 不可註冊 ID 功能修改，可用萬用字元
+                                                                                
+ * 解決 bbspop3d buffer overflow 問題
+                                                                                
+ * 所有討論區模式下不再顯示已刪除的板 (設定於 functions.h #define NO_DELETED_BOARD)
+                                                                                
+ * talk 呼叫程式修正，解決在呼叫時，被呼叫方先行離線，
+   呼叫者會當掉的問題
+                                                                                
+ * 限制文章行數，以免遭有心人惡意灌爆硬碟
+                                                                                
+ * 改善 Solaris 下的安裝問題
+
+ * 修正訊息紀錄自己的訊息過長
+
+ * 其他修正以及文件修改
+
+20001212-BETA (some beta quality source)
+
+	* 修正 birthday.c 遇到月底無法正確判斷明日壽星的問題
+
+	* 增加對 OpenBSD 以及其他 BSD Family 的相容度
+
+	* 修正精華區新增文章, 取消後會產生錯誤 entry 的問題
+
+	* 修正當 "絲路" 路徑太長時, 會造成斷線的問題
+
+	* 修正聊天室壞人功能失效的問題
+
+	* 將 NoCeM for innbbsd 更新至 0.67 版
+
+	* 將原本呼叫外部程式的主題模式 (ctrl+T) 改成使用 .so 呼叫
+
+	* 修正程式中一些用到 system() 的部分改用現成函數代替
+
+	* 增加可用的 big-endian -> little-endian 轉換程式 for upgrade tool
+	  (from ANFORNEE.bbs@redbbs.cc.ntut.edu.tw)
+
+	* 修正在 FreeBSD -CURRENT 底下, innbbsd 編譯不起來的問題
+
+	* 修正在某些版本的 FreeBSD 中, innbbsd 無法正確執行的問題
+
+	* 大幅的修正文件以及加入 8.11.1 版本的 sendmail.cf 範例檔 for FreeBSD
+
+   ** 新增一些小功能: 下線功能, 新使用者註冊時可填寫其介紹人, 建立下線制度
+	  (beta quality)
+
+20000726-SNAP
+
+	* 修正 0220/0311 版無法在 Solaris 下執行的問題
+
+	* 修正 innbbsd 的問題, 並把原來的 bbsnnrp antispam patch 移除, 
+	  原先的 black.list 已經取消, 如欲繼續使用可在 util/innbbsd/Makefile
+	  的 OPT = 後加上 -DANTISPAM 
+
+	* 預設使用 NoCeM-innbbsd 0.66 版, 並加入目前常見的 Issuer, 且預
+	  設接受其 NCM Notify
+	
+	* 修正被版主deny掉的user依然可以由其他版或自己信箱中把信弄到版上
+	  (by Ghostrider)
+
+	* 暫時移除呼叫逾時機制
+
+	* 修改了 mail2bbs mailing list module 的部分功能, 改用 maillist
+	  這個帳號來接發信件至 mailing list
+
+	* 修正在空精華區目錄按 Ctrl+C 想要轉貼文章時造成斷線的錯誤
+
+	* 修正 horoscope/birthday 兩個程式在某些平台下會有 SIGSEG 的錯誤
+
+	* 將 in.zbbsd 與 telnetd 從 source tree 中移除
+
+	* 文件及範例的修正
+
+20000311-SNAP
+
+    * 修正 0220 板 edit.c 於 RedHat/Slackware 下發表文章時的問題
+                                                                                
+    * 修正沒有活動看板會無法登入 BBS 卡在半路中的問題
+                                                                                
+    * 新增呼叫逾時機制, 使用者再呼叫某位使用者聊天時, 系統將計時
+      30 秒, 時間到時則取消呼叫, 避免無限制呼叫的情形
+                                                                                
+    * 許多設定檔及紀錄檔已經被搬移至 etc/ 或 log/ 請依照以下說明搬移或重新
+      編譯程式
+                                                                                
+        設定檔
+                                                                                
+        ~bbs/.badname 搬移至 ~bbs/etc/bad_id
+        ~bbs/.bademail 搬移至 ~bbs/etc/bademail
+                                                                                
+        紀錄檔
+                                                                                
+        ~bbs/logins.bad 搬移至 ~bbs/log
+        ~bbs/usage_board 搬移至 ~bbs/log
+                                                                                
+        請重新編譯 util/local_util/usage.c util/local_utl/averun.c
+                                                                                
+    * 文件及範例的修正
+
+20000220-SNAP
+
+	* 修正 Y2K 顯示的問題 (於 1231 板之變動)
+
+	* mail2bbs 增強, 於 shared memory 中搜尋使用者, 大量減少 I/O 用量.
+
+	* 檔案目錄結構改變, 將 bbs 與 bbssrc 位置合併.
+
+		使用 CVS 來存取 Repo. 或升級使用者可能需要做一些改變
+                                                                                
+        1. 將原本的 fb3src 目錄搬移或刪除
+                                                                                
+        2. 重新 checkout fb3src module
+		   % cvs -z 9 co fb3src (或是以 bbs 取代 fb3src, 則 checkout 出來的
+		   目錄名稱將是 bbs 而不是 fb3src, 反之亦然)
+                                                                                
+        3. 執行 fb3src/bbssrc/configure, 重新 configure
+           並將 BBS Home 指向原本 BBS 的目錄
+                                                                                
+        4. make update, 以及更新其他相關的程式, 如 innbbsd, mail2bbs ..
+
+		5. mv ~bbs/reclog ~bbs/log，將 reclog 目錄名稱換成 log
+
+	* 修正 RedHat Linux 編譯有錯誤的問題
+
+	* 修正 mail2bbs 編譯有錯誤的問題
+
+	* 更換 NoCeM 版本到 0.63
+
+	* DLM (Dynamic Loadable Module, .SO) 支援. 可將功能包成 .so, 利用動
+	  態連結方式呼叫
+
+	* 文件大幅更動, 以符合目前目錄結構之用法, 目前只需單一目錄即可安裝 FB3
+
+19991231-SNAP
+	* Millennium Edition (only cvs tag, not release version)
+	  ChangeLog is listed above as 0219
+
+19991203-SNAP
+
+	* 將多重上站次數由固定的五次更改成設定於原先被忽略的 MULTI_LOGINS
+	  參數中 (在 include/bbs.h 中)
+
+	* 修正使用暗碼認證時將 e-mail 位址寫入認證資訊中
+
+	* 修正當系統找不到 0Announce/bbslist/countusr 會無法上站的問題
+
+	* 修正標題太長無法使用相同主題
+
+	* 修正若打開新手三天限制這三天內還會問是否寄註冊信
+
+	* 修正 bbsnnrp 當設定抓取的文章篇數大於程式定義的最大篇數將會導致 SIGSEG
+	  錯誤 (by csthf99@alumni.ust.hk) 並將大部份程式中的 gets() 改成更安全的
+	  fgets()
+
+	* 修正砍文摘檔並不會把 .DIGEST 與 G.*.A 的 entry 給砍掉的問題
+
+	* 修正 bbsnnrp 的 killspam 裡面, only 指令無效的問題
+
+	* 修正 bbsd 對於不可上站位址檔案相容問題的修正
+
+	* 修正精華區標題錯誤的問題 (adopt from bbs2www 1.33, only@china.com)
+
+	* 改善 bbsd 對於 signal 的處理
+
+	* 取消版本更新通知訊息
+
+	* 新增常見的 FAQ 問題及文件修正
+
+19991003-SNAP
+
+	* 修正網際傳呼的程式. 並加入 0951 的使用
+
+	* 將主畫面下方 banner 最大上線人數加至四位數
+
+	* 修正 bbsd log 方面, 捨棄 syslog 不用, 自行紀錄至 ~bbs/reclog/bbsd.log
+	  原先的 bbsd.pid 只紀錄目前的 bbsd parent process id
+
+	* 修正 bbsd 有時會將全站使用者踢下站的問題
+
+	* 修改將站長功能放入 admintool.c, 並可在 src/Makefile 設定可以在
+	  bbsd binary 中加入站長功能, 這樣有站長功能跟沒有站長功能的 bbsd
+	  可以分開 port 跑.
+
+	* 修正使用者列表會有不足行的問題
+
+	* 加入 innbbsd 對 NoCeM 的 patch (詳見 util/innbbsd/README.nocem)
+
+	* 加入一個小功能, 可在輸入使用者帳號之前，要求使用者按下 ctrl+c
+	  鍵以確認使用者不是用程式上站 (MUD 常見功能, 詳見 include/functions.h,
+	  預設關閉)
+
+	* 其他小 bug 與文件修正
+
+19990827-SNAP (also have GB version)
+
+	* 本版加入預設使用 Virtual Terminal BBSD, 取代舊有的 telnetd, in.zbbsd
+
+	* 修正許多在 Solaris 7/Sparc 下面的問題
+
+	* 修正版主使用 "B" 砍信有時會造成斷線的問題
+
+	* 修正 "顯示星座" define 的問題
+
+	* 新增幾個函數用來取代 system("rm -fr ..");
+
+	* 修正可以用 "NEW" 上站的問題
+
+	* 修正使用者硬是 new 不可註冊的 id 時, 該 id 還會寫入 .PASSWDS 檔的問題
+
+	* 文件大幅修改, 以符合 bbsd 的使用方法
+
+	* 其他林林總總的小 patch
+
+19990727-alphav2
+
+	* 修正 expire.c 使用與舊版相容的 expire.ctl 檔
+
+	* 增加聊天記錄回復的功能.
+
+	* 修正幾個 FB3 新增的 user define 無作用的問題, 並刪除數個 define flag
+
+	* 整理 util/local_utl 底下的程式碼, 並修改 Makefile
+
+	* junk board (不計算 post 數的板) 改由宣告在 config.h 中的 JUNKBOARDS 判斷
+
+	* 新增版主信箱加大至 120 封上限
+
+	* 修正 prints() 的問題, 並加入判斷活動看板來源的部份, 偵測到檔案有
+	  "--\n" 以後的內容將忽略, 不足行數部份用空行補足
+
+	* 修正系統尋人列表有時無作用的問題
+
+	* 文件, 設定檔範例部份增修
+
+   ** 本版為 FB 3.0 系列第二個正式 release 的測試版本
+
+19990708-SNAP (also have GB-code version)
+
+	* 修正了訊息瀏覽器按鍵無作用的問題
+
+	* 新增版主功能(BMfunc): "相關主題", 按下 B 之後可選擇相關主題, 即可對
+	  該板上符合關鍵字之文章做處理 (刪除, 保留, 文摘, 放入精華區 .. 等)
+
+	* 修正 configure, 可順利辨識 Solaris 7 (Solaris 2.7), 並修改在 Solaris
+	  下 compile 的問題
+
+	* 把 SHMKEY 的設定從 sysconf.ini 中移至 bbs.h
+
+	* 新增一個 C 寫成的 expirepost 程式取代原先的 perl 程式 (porting from
+	  Maple 2.36 by Highthawk)
+
+	* 0Announce/usermanual 更新 (by Biboman)
+
+	* 修改一下 brdshm 的結構, 用來紀錄系統尋人列表的更動時間, 用來加速
+	  上站反應 (請 ipcrm -M 30000)
+
+19990701-SNAP
+
+	* 修正了 0624-SNAP 轉貼, 砍信, 系統自動發表文章等問題
+
+	* 修正了 util/gopherd 在 FreeBSD/RedHat 下的問題 (by wildwolf)
+
+	* 新增 util/upgrade 升級工具的一些功能, 目前可以轉換 2.5 CCU 板的好友
+	  名單與看板設定 (其他版本 comming soon ..)
+
+	* 修正一些小問題
+
+	* 文件更新 (by biboman)
+
+19990624-SNAP
+
+	* 修正了 make install 會出現錯誤訊息的問題
+
+	* 修正了 bbspost.c 會使 .PASSWDS 爆掉的問題 (與 off_t 無關)
+
+	* 修正 bbsnnrp 要求不反查 DNS 仍關不掉的問題
+
+	* 拿掉 sysconf.ini 中 site info, 原先的 email_domain(), bbs_ip(), 
+	  bbs_name() 不再從 sysconf.ini 要資料, 直接從系統 define 的變數給
+
+	* 改進一些 file i/o 的程式碼, 變得比較有效率些
+
+19990614-SNAP
+
+	* 活動看板新的機制, 且加大寬度, 解決殘影, 詳情請見 doc/Admin_Manual
+
+	* 修正 bbspost 會使 FreeBSD .PASSWDS 爆掉的問題 (所有程式已經檢查過, 
+	  均已解決)
+
+	* 修正只有 ctrl+z 傳的訊息才會被紀錄的 bug
+
+	* 拿掉 bbsadm 的機制, 安裝 bbs 不需要 bbsadm 帳號 (只需 bbs, bbsuser)
+
+	* in.zbbsd for RedHat 6.0 (by wildwolf)
+
+	* in.zbbsd 修正, 可接受有設定密碼的 bbs 帳號
+
+	* saveline() enhanced, 解決訊息殘影問題 (by Sonny in 0610-SNAP)
+
+19990610-SNAP
+
+	* 修正了 mail2bbs 嚴重的問題, 會把使用者的 .DIR 砍掉 (report by Biboman)
+
+	* 修正了廣撥(含站長廣撥, 好友廣撥), 訊息紀錄會亂掉的 bug
+
+	* 修正了修改計劃檔會不更新的 bug (又稱 "鳥問題" )
+	
+	* bbspost (a part of innbbsd) 的問題修正
+
+	* configure 會自動偵測需要的 library, 並載入使用
+
+	* 使用者可以到 UserDefines 下設定是否顯示星座與是否預設使用隨機簽名檔
+
+19990606-SNAP
+
+	* 修正了 talk 的問題, 問題發生的機率應該變小了 (by Sonny)
+
+	* 加入 mail-list module for mail2bbs (測試中), 請修改 util/mail2bbs/
+	  mail2bbs.h 來打開此選項
+
+	* 修正聊天室不會顯示 nick 與預設聊天代號是 main 的問題
+
+	* 文件的修改與補齊
+
+19990602-SNAP
+
+	* 修正了在 RedHat/Slackware 底下, libBBS 有問題的情況. (感謝 stevel)
+
+	* 修正認證的問題
+
+	* 新增可在站上修改 ~bbs/NOLOGIN 檔案 (by skyo)
+
+	* 新增使用者星座由性別決定顏色
+	
+19990530-SNAP
+
+	* 新增 Maple 2.x 的密碼檔轉換程式, 可把 Maple 2.x 的密碼檔轉成 Firebird 
+	  3.0 的格式
+
+	* 修正 innbbsd 的一些問題 (doesn't follow RFC 977 as well)
+
+	* 修正當在 query 正在註冊的使用者時, 會被踢出去的問題
+
+	* 加入訊息紀錄會紀錄自己送出的訊息功能, 可至 include/functions.h 
+	  開啟或關閉 (預設開啟)
+
+19990526-SNAP
+
+	* 修正在 alpha v1 的一些錯誤
+
+	* 修改使用者文件
+
+	* 新增不可於 60 秒內重覆上站為預設功能, 可至 include/functions.h
+	  開啟或關閉
+
+19990523-alpha	(first alpha release of 3.0 branch)
+
+	本版為 3.0 系列第一個正式 release 的 alpha 測試版本
+
+19990518-SNAP
+
+	* 修復 RedHat 無法順利 compile 的問題
+
+	* 其他一些小修正
+
+19990516-SNAP
+
+	* chat/talk 問題最終修正 
+
+	* email 認證修復
+
+	* fingerd 使用 setuid/chroot 許多問題以改善
+
+	* 紀念日功能修正, 並修改紀念日清單格式
+
+	* 文件與設定檔範例整理
+
+	* 新增取消回復訊息為 ctrl+c (optional) 請至 functions.h 打開
+	  #define MSG_CANCLE_BY_CTRL_C
+
+19990513-SNAP
+
+	* Firebird BBS 文件的新增, 翻譯以及修改
+
+	* talk/chat 問題修正 (talk 尚有問題)
+
+	* 一些在 RedHat 底下編譯有問題的修正
+
+	* mail2bbs e-mail 認證失敗問題修正 (尚未測試)
+
+	* minor bug patch/enhancement
+
+	* 新增紀念日功能, 可編輯紀念日清單, 並會在狀態列顯示今日的紀念日
+
+19990509-SNAP
+
+	* 新增相同作者刪除功能, 按 B 可選擇相同主題或相同作者
+
+	* innbbsd/mail2bbs bug fix.
+
+	* 在 configure 時可以改變/指定 default board (by Sonny)
+
+	* 調整使用者權限時, 中文和 define 對照 (by skyo)
+
+	* 使用者文件更新 (by biboman)
+
+	* 其他 minior bug fix.
+
+19990506-SNAP
+
+	* mail2bbs 加入 rexchen 的 antispam 機制
+	
+	* innbbsd patch apply
+
+	* minior bug fixed
+
+	* 修正 ve 無法編譯的問題 (by skyo)
+
+	* util/upgrade 目前已經可以支援 non-x86 -> x86 translation
+	  (但尚未支援 x86 -> non-x86 )
+
+19990503-SNAP
+
+	* 修改暗碼認證的漏洞 (mail2bbs)
+
+	* 修改 in.zbbsd
+
+	* 修改進站畫面以及選單檔 menu.ini (by skyo)
+
+	* 修改 libBBS 一些函數
+
+19990501-SNAP
+
+	* add COPYRIGHT
+
+	* 精華區的 "整理" 改成 "作者", 紀錄該篇文章的 owner
+
+    * util/fingerd 已經修復, 並修改 SHM KEY
+
+	* minor bug fixed.
+
+19990429-SNAP
+
+	* 新增"網路傳呼"程式, 可傳呼 0940, 0941, 0943, 0945, 0946, 0947, 
+	  0948, 0949 等摳機, 使用說明在 doc/bbcall 裡面
+
+	* 修改了一些小地方
+
+	* SHM KEY 預設值更動, 由 30xxx 開頭
+
+19990427-SNAP
+
+	* util/upgrade 新增 2.5 (CCU) 板轉換部份, 密碼檔轉換已完成, 但是其他
+	  像看板轉換等尚未完成
+
+	* 修復無法開啟投票, 編輯備忘錄, 編輯暫存檔等 bug (漏了 ~bbs/bm 與
+	  ~bbs/vote)
+
+	* 精華區連線選項精簡化 (by skyo);  新增檔案或目錄時不再詢問檔名
+	  , 由程式亂數設定.
+
+19990426-SNAP
+
+	* configure 會偵測 sendmail 的 path, 且定義在 include/config.h
+	  來取代本來寫死在裡面的 /usr/lib/sendmail
+
+	* 暗碼認證 impelmented, 測試中, 可從 include/function.h 裡面的 
+	  CODE_VALID 來打開或關閉
+
+19990425-SNAP
+
+	* 加入升級工具 util/upgrade, 目前只有 2.66M , 2.62M to 3.0 
+	  的密碼檔轉換工具. 測試中
+
+	* 修正會沒有 boards/ 無法發表文章的 bug
+
+	* 修正一些小 bug
+
+19990424-SNAP
+
+	補了 bbshome/tmp 原本 new 帳號會斷線的問題以解決, make install
+	時會自動建立 ~bbs/home/[A-Z] ~bbs/mail/[A-Z]
+
+	修正了 MD5 編碼會無法登入的問題, MD5 測試過應該可以正常如 DES 使用
+	無誤了
+
+	innbbsd 加入 antispam enhanced bbsnnrp, 使用請見 
+	util/innbbsd/README.antispam
+
+19990423-SNAP
+
+	訊息瀏覽器 implemented.
+
+	innbbsd (util/innbbsd) 與 mail2bbs (util/mail2bbs) 已經整理好了
+	mail2bbs 新增了判斷是否過期 (註冊信一天即失效). 因此註冊信的 Subject
+	也有點更動.
+
+	innbbsd 與 mail2bbs 只需進去該目錄, 打 make 應該就可以自動編譯完成(要先
+	有 configure 過, 會去更新到那兩個目錄的 Makefile)
+
+19990422-SNAP
+
+    一口氣把 "隨機簽名檔" 與 "聊天紀錄" 等功能 merge 進, 這些功能當然
+    也可以在 include/functions.h 中開啟或關閉
+
+19990421-SNAP
+
+    此板終於把 MD5 完整的 implement 好了, 但是還沒經過測試 :)
+    ENCPASSLEN 紀錄的是編碼後字串長度, MD5 是 34, DES 是 13, 詳見 src/pass.c
+
+    在次強調一點, 請不要混用 DES 與 MD5 當做編碼方式, 一旦混用, 可能會把
+    你的 .PASSWDS 給毀了, 一來編碼出的密碼根本不同, 二來在 include/struct.h
+    中給的欄位大小也不同, 請特別注意!

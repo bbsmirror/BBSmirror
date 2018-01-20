@@ -1,0 +1,31 @@
+        innbbsd 由 skhuang@csie.nctu.edu.tw 編寫
+        本程式 NoCeM-innbbsd 只是 patch
+
+        本程式感謝 clcheng@CCCA.NCTU.edu.tw 及 stevel@bbs.ee.ntu.edu.tw
+        提供寶貴意見.
+
+        NoCeM 之設定檔在 ~bbs/innd/ncmperm.bbs, 格式為 "Issuer Type Perm"
+        各欄位 *必須* 使用 tab 隔開. 第一次載入時程式會自動產生設定檔.
+
+        *目前* 由 nocem@newsgate.nctu.edu.tw (clcheng) 以及
+        news.civil.ncku.edu.tw (leeym) 於 tw.bbs.admin 發送 NoCeM Notice
+        測試穩定後另外連署開專用 newsgroup.
+
+        如願接收某一名 Issuer 的 ncm-notice, 請將最後一欄 no 從改為 yes
+        然後 ctlinnbbsd reload 重新載入資料即可.
+        *請勿* 使用 ve 編輯 ncmperm.bbs , 因為 ve 會將 tab 全部轉為 space
+
+        本程式需配合 pgp5 使用, 安裝 NoCeM-innbbsd-patch 前
+        請先安裝 pgp5
+
+        pgp5 的中文文件可在底下幾處找到.
+        http://bbs.ee.ntu.edu.tw/boards/BSD/4/62.html
+        http://www.sinica.edu.tw/cc/netsrv/dawei/pgp5.0/
+
+        NoCeM 資料請參考 http://www.cm.org
+        及 benjamin.bbs@com.neto.net (clcheng) 所寫的三篇說明文件.
+
+--
+ Yen-Ming Lee [李彥明]          | mailto:leeym@civil.ncku.edu.tw
+ +886-6-2757755 ext 51697       | http://www.civil.ncku.edu.tw/~leeym/
+ Computer Center, 88B, Civil Engineering, NCKU, Tainan, Taiwan.

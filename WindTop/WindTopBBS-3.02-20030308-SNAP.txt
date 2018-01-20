@@ -1,0 +1,30 @@
+發信人: visor.bbs@bbs.yzu.edu.tw (搭啦滴答啦~~~~~~~~~, 信區: installbbs
+標  題: [公告]WindTopBBS-3.02-20030308-SNAP                            
+發信站: 元智大學風之塔 (Sat Mar  8 19:32:40 2003)
+轉信站: cis_nctu!news.cis.nctu!ctu-peer!ctu-gate!news.nctu!news.ncu!news.yzu!b
+來  源: bbs.yzu.edu.tw                                                        
+
+         網頁資訊
+   http://windtop.yzu.edu.tw/~visor/
+   http://windtop.yzu.edu.tw/~windtop/
+
+         安裝版本
+   http://windtop.yzu.edu.tw/~visor/Windtop/WindTopBBS-3.02-20030308-SNAP.tgz
+   ports/outta-port/windtop                                                  
+
+         WindTopMessager 中文版
+   http://windtop.yzu.edu.tw/~visor/WindTopMessager.exe
+
+   最新更新版本: WindTop BBS-20030308  MD5 : 0bb3844bc5a1bd2898d5a6284037118f
+   最新程式文件: WindTop BBS-20000706                                        
+   最新FAQ 文件: WindTop BBS FAQ (整理中)
+
+◎[新增] 跳出式選單
+
+
+--
+※ Origin: 元智大學 風之塔 <bbs.yzu.edu.tw> 
+※ From  : 61-226-244-90.HINET-IP.hinet.net 
+
+
+

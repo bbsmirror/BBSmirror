@@ -1,0 +1,106 @@
+# 檢查 innbbsd 是否正常
+22 * * * * /bbs/innd/inn.sh > /dev/null
+
+# 執行轉信，並檢查是否正常，回報站務人員
+25 * * * * /bbs/innd/nnrp.post.sh > /dev/null
+45 * * * * /bbs/innd/guestbook.post.sh > /dev/null
+
+# 送信程式
+5,20,35,50 * * * * /bbs/innd/bbslink /bbs >> /dev/null
+
+# 每天執行 admin(board) check
+10 5 * * * /bbs/bin/admin > /dev/null
+
+# 每天更新精華區排名
+9 5 * * * /bbs/bin/mandex > /bbs/log/mandex.log
+
+# 系統報告
+0 * * * * bin/account > /dev/null
+
+# 每小時熱門話題統計
+0 * * * * bin/poststat /bbs > /dev/null
+
+# 每小時使用者排行榜
+10 * * * * /bbs/bin/toplogin 100 /bbs/etc/toplogin
+11 * * * * /bbs/bin/toptime 100 /bbs/etc/toptime
+12 * * * * /bbs/bin/toppost 100 /bbs/etc/toppost
+13 * * * * /bbs/bin/topgold 100 /bbs/etc/topgold
+14 * * * * /bbs/bin/topmoney 100 /bbs/etc/topmoney
+15 * * * * /bbs/bin/toplimit 100 /bbs/etc/toplimit
+16 * * * * /bbs/bin/topquery 40 /bbs/etc/topquery
+17 * * * * /bbs/bin/topmsg 40 /bbs/etc/topmsg
+18 * * * * /bbs/bin/topboard 50 /bbs/etc/topboard
+19 * * * * /bbs/bin/toprpg 7 100 /bbs/etc/toprpg
+20 * * * * /bbs/bin/topfive
+21 * * * * /bbs/bin/bm_check
+
+# 每天更新生日、性別、星座、年齡統計
+10 5 * * * /bbs/bin/birth >> /dev/null
+11 5 * * * /bbs/bin/sexcount >> /dev/null
+12 5 * * * /bbs/bin/horoscope >> /dev/null
+13 5 * * * /bbs/bin/yearsold >> /dev/null
+14 5 * * * /bbs/bin/gnp > /dev/null
+
+# 每小時複製看板資料 to HTTP
+5 * * * * cp -f /bbs/.BOARDS /bbs/.BOARDS.HTTP
+
+# 每天徵收一點點稅金
+14 4 * * * /bbs/bin/allgoldexpire -g > /bbs/log/allgoldexpire.log
+
+# 每天刪除討論區舊信
+44 4 * * * /bbs/bin/expire2 ALL DEL > /bbs/log/expire.log
+
+# 每天刪除個人文章舊信
+44 4 * * * /bbs/bin/allpostexpire > /dev/null
+
+# 每天刪除檔案 size 太大 的記錄檔
+# 19 4 * * * find /bbs/log -size +1000k -exec rm -rf {} \;
+
+# 每天賭盤開票
+30 0,12 * * * /bbs/bin/openticket
+
+# 每天更新天氣預報
+31 0,12 * * * /bbs/bin/weather.sh
+
+# 每天更新電腦硬體報價單
+# 32 0,12 * * * /bbs/bin/123.sh
+
+# 每天更新股市資料
+# 0 9,10,11,12,13,14 * * * /bbs/bin/stock.sh
+30 15 * * * /bbs/bin/stock2.sh
+
+# 每天重新外掛聊天室
+15 4 * * * bin/xchatd
+
+# 每天檢查是否需要重新記錄看板使用率 (problem)
+# 7 5 * * * /bbs/bin/reusboard.sh > /dev/null
+
+# 備份資料
+2 6 1,5,10,15,20,25 * * tar zcf backup/etc_day`date +\%d`.tgz etc
+2 6 1,5,10,15,20,25 * * tar zcf backup/home_day`date  +\%d`.tgz home
+4 * * * * cp -f .PASSWDS backup/passwds_`date +\%H`
+5 6 * * * cp -f .PASSWDS .PASSWDS.yes
+6 6 * * * cp -f .PASSWDS backup/passwds_`date +\%m%d`
+5 6 * * * cp -f .BOARDS .BOARDS.yes
+6 6 * * * tar zcf backup/boards_day`date +\%d`.tgz .BOARDS
+
+# 每週發薪水給板主
+30 5 * * Mon /bbs/bin/BM_money +g > etc/BM_money
+
+# 每個月更新月曆表格
+5 0 1 * * rm -f /bbs/usboard > /dev/null
+6 0 1 * * rm -f /bbs/dlog > /dev/null
+7 0 1 * * rm -f /bbs/logins.bad > /dev/null
+32 5 1 * * /bbs/bin/cal.script > /bbs/etc/NEWS/cal.now
+
+# 每個月清除轉信記錄檔
+#33 5 1 * * /bbs/innd/mkhistory.sh > /dev/null
+33 5 * * 1 /bbs/innd/mkhistory.sh > /dev/null
+
+# 無用資料定時清除
+44 5 * * * find /bbs/tmp -size +900k -exec rm -f {}\;
+#40 5 * * 0 find /bbs/home -size 0 -exec rm -f {} \;
+#40 5 * * 0 find /bbs/boards -size 0 -exec rm -f {} \;
+#40 5 * * 0 find /bbs/man -size 0 -exec rm -f {} \;
+#30 5 * * 3 /usr/bin/find /bbs/boards/ \! -ctime 3 \( -name .DIR.\* \) | xargs rm -f
+#30 5 * * 3 /usr/bin/find /bbs/man/ \! -ctime 3 \( -name .DIR.\*  \) | xargs rm -f
