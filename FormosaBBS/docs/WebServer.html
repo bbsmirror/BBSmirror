@@ -1,0 +1,314 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Formosa Web Server</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT SIZE=7><P ALIGN="CENTER">Formosa Web Server</P></FONT></b>
+
+<FONT SIZE="6"><B><P>使用者分份確認</p></B></FONT>
+<P>身分確認的方法，採用cookie來告知server，需要兩個參數，Name表使用者id，Password表使用者密碼。使用JavaScript的範例如下:<BR>
+document.cookie= "Name="+loginname;<BR>
+document.cookie= "Password="+loginpasswd;<BR>
+</p>
+<FONT SIZE=6><b><P>系統內定使用之html檔案</P></B></FONT>
+<TABLE BORDER="1" >
+<TR>
+	<TD>ErrorCommand.html</TD>
+	<TD>Browser送過來的指令無法判斷的時候，就送出這個html。</TD>
+</TR>
+<TR>
+	<TD>FileNotFound.html</TD>
+	<TD>所要的檔案不存在的話，就送出這個檔案。</TD>
+</TR>
+<TR>
+	<TD>PostSucceed.html</TD>
+	<TD>張貼佈告成功。</TD>
+</TR>
+<TR>
+	<TD>PostError.html</TD>
+	<TD>張貼佈告失敗。</TD>
+</TR>
+<TR>
+    <TD>FaxSucceed.html</TD>
+    <TD>發送傳真成功</TD>
+</TR>
+<TR>
+    <TD>FaxError.html</TD>
+    <TD>發送傳真失敗</TD>
+</TR>
+</TABLE>
+
+<FONT SIZE="6"><P><B>URL通用變數</B></p></FONT>
+<FONT SIZE="-1">After version 1.0.7<BR></FONT>
+<B>Expire=</B>
+<TABLE BORDER="1">
+<TR>
+	<TD>0</TD>
+	<TD>不預設Expire Time</TD>
+</TR>
+<TR>
+	<TD>1</TD>
+	<TD>設定為Expire 讓該Page不會被Cache住，以達到即時的需求</TD>
+</TR>
+</TABLE>
+ 
+<FONT SIZE="6"><P><B>迴圈</B></p></FONT>
+&lt;BBS_FOR Para="" Start="1" End="10"&gt;<BR>
+&lt;BBS_FOR_END&gt;<BR>
+EX:<BR>
+&lt;BBS_FOR Para="I" Start="" End=""&gt;<BR>
+Web Page Data <FONT COLOR="#FF0000">%I</FONT><BR>
+&lt;BBS_FOR_END&gt;<BR>
+
+<FONT SIZE="6"><P><B>通用變數</B></p></FONT>
+<TABLE BORDER="1" >
+<TR>
+	<TD>%MAILNUM%</TD>
+	<TD>信件數量</TD>
+</TR>
+</TABLE>
+ 
+ 
+<B><FONT  SIZE=6><P>列出進站公告</P></FONT>
+<P>&lt;BBS_Announce&gt;</P></B>
+<P>代入bbs進站公告</P>
+
+<B><FONT  SIZE=6><P>列出個人FAX</P></FONT>
+<P>&lt;BBS_FaxList_Read boardhtml="..." before="..." after="..." new="..." old="..." number="..."&gt;</P></B>
+<P>這封FAX是否已經讀過，已讀過會套入<FONT COLOR="#FF0000">old</FONT>，未讀過會套入<FONT COLOR="#FF0000">new</FONT>。</P>
+<B><P>&lt;BBS_FaxList_Num boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>列出個人FAX編號。</P>
+<B><P>&lt;BBS_FaxList_Sender boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>寄信人。</P>
+<B><P>&lt;BBS_FaxList_Date boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>日期。</P>
+<B><P>&lt;BBS_FaxList_Subject boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>標題。</P>
+
+<B><FONT  SIZE=6><P>閱讀個人FAX</P></B></FONT>
+<P>使用以下四個tag時，送過來的url需為如下的格式</P>
+<FONT COLOR="#0000ff"><P>fax.html</FONT>?ReadFax=<FONT COLOR="#0000ff">Faxnum</P>
+<P>fax.htm</FONT>為描述佈告內容的html。</P>
+<P>ex.A HREF="fax.html?ReadFax=20/[Last|Next]"</P>
+<p>表示讀取第20封信件，套用readmail.html。</p>
+<B><P>&lt;BBS_FaxGet_Sender&gt;</P>
+<P>&lt;BBS_FaxGet_Date&gt;</P>
+<P>&lt;BBS_FaxGet_Subject&gt;</P>
+<P>&lt;BBS_FaxGet_Content&gt;</P></B>
+<P>Fax內容之後會加入以下的資訊</P>
+<FONT FACE="Verdana"><P>&lt;form name="ReadFax"&gt;</P>
+<P>&lt;Input type="hidden" Name="number" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+</FONT>
+
+<B><FONT  SIZE=6><P>列出個人語音留言</P></FONT>
+<P>&lt;BBS_VoiceList_Read boardhtml="..." before="..." after="..." new="..." old="..." number="..."&gt;</P></B>
+<P>這封語音留言是否已經讀過，已讀過會套入<FONT COLOR="#FF0000">old</FONT>，未讀過會套入<FONT COLOR="#FF0000">new</FONT>。</P>
+<B><P>&lt;BBS_VoiceList_Num boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>列出個人FAX編號。</P>
+<B><P>&lt;BBS_VoiceList_Sender boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>寄信人。</P>
+<B><P>&lt;BBS_VoiceList_Date boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>日期。</P>
+<B><P>&lt;BBS_VoiceList_Subject boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>標題。</P>
+
+<B><FONT  SIZE=6><P>閱讀個人語音留言<P></B></FONT>
+<P>使用以下四個tag時，送過來的url需為如下的格式</P>
+<FONT COLOR="#0000ff"><P>voice.html</FONT>?ReadVoice=<FONT COLOR="#0000ff">Faxnum</P>
+<P>voice.htm</FONT>為描述佈告內容的html。</P>
+<P>ex.A HREF="voice.html?ReadVoice=20/[Last|Next]"</P>
+<p>表示讀取第20封信件，套用voice.html。</p>
+<B><P>&lt;BBS_VoiceGet_Sender&gt;</P>
+<P>&lt;BBS_VoiceGet_Date&gt;</P>
+<P>&lt;BBS_VoiceGet_Subject&gt;</P>
+<P>&lt;BBS_VoiceGet_Content&gt;</P></B>
+
+<P>留言內容之後會加入以下的資訊</P>
+<FONT FACE="Verdana"><P>&lt;form name="ReadVoice"&gt;</P>
+<P>&lt;Input type="hidden" Name="number" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+</FONT>
+
+
+
+<B><FONT  SIZE=6><P>列出個人信件</P></FONT>
+<P>&lt;BBS_MailList_Read boardhtml="..." before="..." after="..." new="..." old="..." number="..."&gt;</P></B>
+<P>這封信件是否已經讀過，已讀過會套入<FONT COLOR="#FF0000">old</FONT>，未讀過會套入<FONT COLOR="#FF0000">new</FONT>。</P>
+<B><P>&lt;BBS_MailList_Num boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>列出個人信件編號。</P>
+<B><P>&lt;BBS_ MailList_Sender boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>寄信人。</P>
+<B><P>&lt;BBS_ MailList_Date boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>日期。</P>
+<B><P>&lt;BBS_ MailList_Subject boardhtml="..." before="..." after="..." number="..."&gt;</P></B>
+<P>標題。</P>
+
+<B><FONT  SIZE=6><P>閱讀個人信件</P></B></FONT>
+<P>使用以下四個tag時，送過來的url需為如下的格式</P>
+<FONT COLOR="#0000ff"><P>readmail.html</FONT>&amp;ReadMail=<FONT COLOR="#0000ff">Mailnum</P>
+<P>readmail.htm</FONT>為描述佈告內容的html。</P>
+<P>ex.A HREF="readmail.html?ReadMail=20/[Last|Next]"</P>
+<p>表示讀取第20封信件，套用readmail.html。</p>
+<B><P>&lt;BBS_MailGet_Sender&gt;</P>
+<P>&lt;BBS_MailGet_Date&gt;</P>
+<P>&lt;BBS_MailGet_Subject&gt;</P>
+<P>&lt;BBS_MailGet_Content&gt;</P></B>
+
+<P>Mail內容之後會加入以下的資訊</P>
+<FONT FACE="Verdana"><P>&lt;form name="ReadMail"&gt;</P>
+<P>&lt;Input type="hidden" Name="number" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+</FONT>
+
+
+<B><FONT  SIZE=6><P>列出分類佈告選單</P></FONT>
+<P>&lt;BBS_BoardList_E-name[id] boardhtml="..." before="..." after="..."&gt;</P></B></FONT>
+
+<P>類別<FONT COLOR="#FF0000">id</FONT> 之英文版名，套上<FONT COLOR="#FF0000">boardhtml</FONT>之hyperlink，在每行之前加上<FONT COLOR="#FF0000">before</FONT>，每行之後加上<FONT COLOR="#FF0000">after</FONT>，每個參數均可以留空白。</P>
+
+<B><P>&lt;BBS_BoardList_C-name[id] boardhtml="..." before="..." after="..."&gt;</P></B>
+<P>類別<FONT COLOR="#FF0000">id</FONT> 之中文版名。</P>
+
+<B><P>&lt;BBS_BoardList_BM-name[id] boardhtml="..." before="..." after="..."&gt;</P></B>
+<P>類別<FONT COLOR="#FF0000">id</FONT> 之版主姓名。</P>
+
+<B><FONT  SIZE=6><P>列出佈告標題</P></B></font>
+<P>使用以下四個tag時，連接到使用該tag的hyperlink，需要包含以下資訊</P>
+<FONT FACE="Verdana" SIZE=3>
+<P>A HREF="title.html?<FONT COLOR="#ff0000">BoardName</FONT>=Announce[&amp;<FONT COLOR="#ff0000">start</FONT>=val&amp;<FONT COLOR="#ff0000">end</FONT>=val&amp;<FONT  COLOR="#ff0000">defnum</FONT>=val&amp;<FONT COLOR="#ff0000">direction</font>=val]"&gt;</P>
+
+<P>假設title.html為包含&lt;BBS_Head_Num&gt;的html，BoardName代表的是所代入的版名，如果之後的參數省略，則傳回最近defnum個標題，如果有指定的話，則以start和end所指的值為範圍。</P>
+<P>Defnum為當你沒有指定start, end 的值得時候，便以最後defnum篇佈告，內定為40篇。</P>
+<P>direction為指定以遞增或是遞減的順序列出佈告，如果val為1則為遞增，val為-1則遞減，內定為遞減。</P>
+<P>要讓自動產生的hyperlink加上defnum的參數的話，可以在列出分類佈告選單的html中，使用如下的tag: </P>
+<P>&lt;BBS_BoardList_E-name[1] boardhtml="head.html<FONT COLOR="#ff0000">?defnum=10?direction=1</FONT>" before="" after=""&gt;</P>
+<P>以上範例指定秀出最後10篇佈告，以遞增的方式排列。</P>
+<B><P>&lt;BBS_Head_Num boardhtml="..." before="..." after="..."&gt;</P></B></FONT>
+
+<P>以下form會接在&lt;BBS_Head_Num&gt;之後</P>
+<P>start表佈告起始編號，end表佈告結束編號</P>
+<FONT FACE="Verdana"><P>&lt;form name="PostNum"&gt;</P>
+<P>&lt;input type="hidden" name="boardname" value="..."&gt;</P>
+<P>&lt;Input type="hide" Name="start" value="..."&gt;</P>
+<P>&lt;Input type="hide" Name="end" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+
+<B><P>&lt;BBS_Head_Sender boardhtml="..." before="..." after="..."&gt;</P>
+<P>&lt;BBS_Head_Date boardhtml="..." before="..." after="..."&gt;</P>
+<P>&lt;BBS_Head_Title boardhtml="..." before="..." after="..."&gt;</P>
+</B>
+<B><FONT  SIZE=6><P>閱讀佈告內容</P></B></FONT>
+<P>使用以下四個tag時，送過來的url需為如下的格式</P>
+<FONT COLOR="#0000ff"><P>post.html</FONT>&amp;ReadPost=[<FONT COLOR="#0000ff">BoardName</FONT>]/[<FONT COLOR="#0000ff">Postnum</FONT>]</P>
+<FONT COLOR="#0000ff"><P>post.htm</FONT>為描述佈告內容的html。</P>
+<P>ex.&lt;A HREF="post.html?ReadPost=sysop/20&amp;[Last|Next]"&gt;</P>
+
+<B><P>&lt;BBS_Post_Sender&gt;</P>
+<P>&lt;BBS_Post_Date&gt;</P>
+<P>&lt;BBS_Post_Subject&gt;</P>
+<P>&lt;BBS_Post_Content&gt;</P>
+<p>&lt;BBS_Post_Num&gt;</p>
+<p>&lt;BBS_Post_NextNum&gt;</p>
+<p>&lt;BBS_Post_LastNum&gt;</p>
+<p>&lt;BBS_Post_Boardname&gt;</p></B></FONT>
+
+<P>Post內容之後會加入以下的資訊</P>
+<FONT FACE="Verdana"><P>&lt;form name="ReadPost"&gt;</P>
+<P>&lt;Input type="hidden" name="boardname" value="..."&gt;</P>
+<P>&lt;Input type="hidden" Name="number" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+</FONT>
+
+<B><FONT  SIZE=6><P>列出精華區標題</P></FONT>
+<P>&lt;BBS_Trea_Num boardhtml="..." treahtml="..." before="..." after="..."&gt;</P></B></FONT>
+
+<P>以下form會接在&lt;BBS_Trea_Num&gt;之後</P>
+<P>start表佈告起始編號，end表佈告結束編號</P>
+<FONT FACE="Verdana"><P>&lt;form name="PostNum"&gt;</P>
+<P>&lt;input type="hidden" name="boardname" value="..."&gt;</P>
+<P>&lt;Input type="hide" Name="treatitle" value="..."&gt;</P>
+<P>&lt;/form&gt;</P>
+
+<B><P>&lt;BBS_Trea_Sender boardhtml="..." treahtml="..." before="..." after="..."&gt;</P>
+<P>&lt;BBS_Trea_Date boardhtml="..." treahtml="..." before="..." after="..."&gt;</P>
+<P>&lt;BBS_Trea_Title boardhtml="..." treahtml="..." before="..." after="..."&gt;</P>
+</B>
+<P>在&lt;BBS_Trea&gt;中如果有加hyperlink，會再hyperlink中加入如下的資資訊</P>
+<P>trea.html&amp;ReadTrea=[BoardName]/[num]/[num]/...</P>
+<P>post.html&amp;ReadTrea=[BoardName]/[num]/[num]/.../[Postnum]</P>
+<P>ex.A HREF="post.html?ReadTrea=sysop/20&amp;Last"&gt;</P>
+<FONT FACE="Verdana"><P>&lt;form name="ReadTrea"&gt;</P>
+<P>&lt;input type="hidden" name="boardname" value="..."&gt;</P>
+<P>&lt;Input type="hidden" Name="number" value="..."&gt;</P>
+<P>&lt;/form&gt;</P></FONT>
+
+<B><FONT  SIZE=6><P>張貼佈告</P></B></FONT>
+<P>以form的方式submit給server以下幾項資訊，設定<FONT COLOR="#ff0000">FORM ACTION = "/postput"</FONT>就會把資料貼到版面上。身分確認方式根據cookie送過來的帳號密碼判斷。</P>
+
+<TABLE BORDER CELLSPACING=2 BORDERCOLOR="#008000" CELLPADDING=1 WIDTH=169>
+<TR><TD WIDTH="55%" VALIGN="TOP">
+<P>BOARD</TD>
+<TD WIDTH="45%" VALIGN="TOP">
+<P ALIGN="CENTER">版面</FONT></TD>
+</TR>
+<TR><TD WIDTH="55%" VALIGN="TOP">
+<P>SUBJECT</TD>
+<TD WIDTH="45%" VALIGN="TOP">
+<P ALIGN="CENTER">標題</FONT></TD>
+</TR>
+<TR><TD WIDTH="55%" VALIGN="TOP">
+<P>SIGN</TD>
+<TD WIDTH="45%" VALIGN="TOP">
+<P ALIGN="CENTER">簽名檔</FONT></TD>
+</TR>
+<TR><TD WIDTH="55%" VALIGN="TOP">
+<P>CONTENT</TD>
+<TD WIDTH="45%" VALIGN="TOP">
+<P ALIGN="CENTER">佈告內容</FONT></TD>
+</TR>
+</TABLE>
+
+<B><FONT  SIZE=6><P>E-mail to Fax</P></B></FONT>
+<P>以form的方式submit給server以下幾項資訊，設定<FONT COLOR="#ff0000">FORM ACTION = "/email_fax"</FONT>就會把該封e-mail送到指定的傳真機。身分確認方式根據cookie送過來的帳號密碼判斷。<BR>
+傳送成功的話，送出<FONT COLOR="#0000ff">FaxSucceed.html</FONT>，失敗的話，送出<FONT COLOR="#0000ff">FaxError.html</FONT>。</P>
+
+<table BORDER=1>
+<tr>
+    <td>PNUMBER</td>
+    <td>傳真號碼</td>
+</tr>
+<tr>
+    <td>SUBJECT</td>
+    <td>標題</td>
+</tr>
+<tr>
+    <td>SIGN</td>
+    <td>簽名檔</td>
+</tr>
+<tr>
+    <td>CONTENT</td>
+    <td>傳真內容</td>
+</tr>
+</table>
+
+<B><FONT  SIZE=6><P>E-mail to Pager(call機)</P></B></FONT>
+<P>以form的方式submit給server以下幾項資訊，設定<FONT COLOR="#ff0000">FORM ACTION = "/email_pager"</FONT>就會把該封e-mail送到指定的call機。身分確認方式根據cookie送過來的帳號密碼判斷。<BR>
+傳送成功的話，送出<FONT COLOR="#0000ff">PagerSucceed.html</FONT>，失敗的話，送出<FONT COLOR="#0000ff">PagerError.html</FONT>。</P>
+
+<table BORDER=1>
+<tr>
+    <td>PNUMBER</td>
+    <td>call機號碼</td>
+</tr>
+<tr>
+    <td>CONTENT</td>
+    <td>內容</td>
+</tr>
+</table>
+
+</BODY>
+</HTML>

@@ -1,0 +1,1306 @@
+
+
+	           ＰｏｗｅｒＢＢＳ  站 長 手 冊
+
+
+		   June 7, 1994 by Samson Chen
+		   May 12, 1995 by Samson Chen
+
+		   Developed by
+			   Team Square-1991...
+					Samson Chen	(陳紹俊)
+					Aquarius Kuo	(郭耿言)
+
+
+		   Mail Address: pbbs-ask@pbbs.chpi.edu.tw
+		   Ftp Address : pbbs.chpi.edu.tw : /pub/pbbs
+
+
+		   *** PowerBBS is a CARDWARE !!! This means if you
+		       want to use this software, PLEASE send us
+		       a postcard to encourage us. Our address is
+
+		   PowerBBS SysOps, Computer Center,
+		   Chung-Hua Polytechnic Institute,
+		   Hsin-Chu, Taiwan,
+		   R.O.C.
+
+		   新竹市中華工學院電腦中心 PowerBBS SysOps 收
+
+
+一, 簡介
+	歡迎您使用 PowerBBS, 我們先不談技術層面, 我們先看看 PowerBBS 與一般
+    BBS 有什麼不一樣的地方.
+
+    a.架設 PowerBBS 不需要有 Supervisor 的權利,一般 User 也可以在自己的帳號
+      下建一個個人的 BBS, 而且同樣擁有轉信的功能. (AMAZING!!!)
+    b.PowerBBS 可以自由的更改 Client 所能看到的所有訊息.(中文不是夢!)
+    c.只要稍有 UNIX 基礎即可架設, 不用高手才能架.
+    d.可容納同時上線的 Users 總數無限制,沒有 pty 不夠的問題,PowerBBS 不開 pty
+    e.由於 PowerBBS 不開 pty, 安全上沒有問題, 不怕別人破站.
+    f.可容納總註冊人數無限, 採 Binary Search, 反應速度快.
+    g.對 Users 有完整的權限控制, 管理上比較容易.
+    h.可自由設定選單色彩, 不需透過 ANSI Code, 也提供 Macro 增加其彈性.
+    i.信件採一區一檔, 因此硬碟可裝信件數較一般 BBS 為多.
+    j.有連線砍信的功能, 與 NNTP 相容. (ps. NNTP : News 所用規格)
+    k.PowerBBS 站之間轉信採壓縮轉信, 節省網路超過 NNTP 的 60%
+    l.提供對 DBZ 的查詢, 使得信件不會重複收到.
+    m.對系統的負擔非常小, 較一般 BBS 更有效率, 對 User 的反應也較快, 特別
+      適合網路負擔較重的機器.
+    n.支援 Upload/Download 不需透過 ftp 或 sz/rz
+    o.提供 PBBS Mail Gateway 讓 PowerBBS 能將外界 EMail 收到 PBBS 的私人信箱
+    p.適用於 slipper/ppp server
+    q.還有很多 Client/Server 架構上的好處!
+
+
+二, 需求
+	架設 PowerBBS 並不需要太好的設備, 要看要做為什麼樣的服務而定.
+
+	硬體:
+		電腦主機一部(廢話)
+		有連網路(還是廢話)
+		硬碟至少 5 Mega (這個站大概會很小)
+
+	軟體:
+		必需是 UNIX 的作業系統
+		cc 或 gcc (gcc 比較好)
+
+	ps1: 網路必需是 TCP/IP BSD Socket 規格(幾乎所有 UNIX 都有 support)
+	ps2: 目前 Port 的機器主要在 SUNOS 4.x, 及 NetBSD, 下列 Platform 應
+	     也可以 Linux, AIX, OSF/1, HPUX, Solaris
+	     (目前 HPUX 部份還有些問題)
+
+
+三, 取得軟體
+	取得 PowerBBS Server 的所有 Source 並解開...
+	裡面有一些範例設定, 選單等. 
+
+
+四, 設定
+	設定雖然蠻多的, 不過你可以先不要管, 待能動了再來調.
+
+
+五, 產生程式
+	cd 到 pbbs 的目錄裡, 試試執行 Install, 如果可以, 所有程式都
+    會自動作好, 如果不行, 就用下面的方法.
+	cd 到 host 的目錄之中有許多 Makefile.*, 挑一個適合你的機器,
+    拷成 Makefile, 例
+
+		cp Makefile.SUN4 Makefile
+
+	打 make 命令...走走走跑跑跑, 在 PowerBBS 目錄下多一個 pbbsd 的執
+    行檔...
+
+
+六, 執行
+	不要想的太難, 執行 pbbsd 就行了. PowerBBS Server 會自動退到背景.
+
+
+七, 測試
+	找一個 PowerBBS Client 程式, 執行 pbbs <IP> 即可.
+
+
+................
+.PowerBBS 進 階.
+................
+
+一, Macro 巨集文字
+	Macro 是一個特別的符號, 可用在 PowerBBS 要送給 User 的文字是無法預
+    先輸入的如時間或 User name 等, 大部分的選單或文字畫面都可使用.
+
+	 Macro 的格式為下
+
+                {$x}
+                        x 為 macro 命令, 底下為現存之 Macro 命令...
+
+	
+		{$a}	: User 的 address
+		{$b}	: User 總上線次數
+		{$c}	: 全站總上線人數
+		{$f}	: 目前 user 所選的檔區
+		{$g}	: 目前 user 所選的信區
+		{$l}	: User 等級
+		{$n}	: User Name
+		{$p}	: User 總 post 數
+		{$r}	: 總註冊人數
+		{$t}	: 現在時刻
+		{$u}	: 目前站上人數
+
+	選單之中, 最好不要有可能會變動的巨集如時間所選信區檔區等, 因位選
+    單畫面只送一次.
+	{$u} 最好只用在 user 一上線的 prelog 中, 因為 {$u} 所記錄的值, 只
+    有剛上線的情況才準, 之候不會再更動!
+
+
+二、文字的顏色設定
+
+    所有經由 server 送出來的字串, 皆可設定顏色, 其一些畫面的控制, 包
+    含 清除畫面, 閃爍, 恢復預設值等, 其指令格式如下:
+
+        {#[<command>][<textcolor>[,<backgroundcolor>]]#}
+
+        <command>
+          b : 閃爍. (僅 DOS 版有效)
+          c : 清除畫面.
+          n : 恢復預設值. (前景為白色, 背景為黑色, 不閃爍)
+          p : 暫停, 按任意鍵後繼續.
+
+        <color>  (顏色設定僅 DOS 版有效)
+
+                    彩色螢幕           單色螢幕
+          ------------------------------------------
+          0 :         黑    (前、背景)    黑
+          1 :         藍    (前、背景)    白
+          2 :         綠    (前、背景)    白
+          3 :         靛    (前、背景)    白
+          4 :         紅    (前、背景)    白
+          5 :         青    (前、背景)    白
+          6 :         棕    (前、背景)    白
+          7 :        亮灰   (前、背景)    白
+          8 :         灰      (前景)      黑
+          9 :        淡藍     (前景)     亮白
+         10 :        淡綠     (前景)     亮白
+         11 :        亮靛     (前景)     亮白
+         12 :        粉紅     (前景)     亮白
+         13 :        亮青     (前景)     亮白
+         14 :         黃      (前景)     亮白
+         15 :         白      (前景)     亮白
+
+    範例:
+
+      {#b14,2#}     之後出現的字皆會變為 閃爍綠底黃字
+      {#n14,2#}     綠底黃字 不閃爍
+      {#9#}         前景變 淡藍, 底色及閃爍狀態不變
+      {#n#}         恢愎為 黑底白字 不閃爍
+      {#c#}         清除螢幕, 恢愎為 黑底白字 不閃爍
+      {#,4#}        底色 變紅色, 前景色及閃爍狀態不變
+
+    若要有反白的效果, 可令前景為黑色, 白色當底色即可. {#0,7#} 即為反白.
+
+
+三、信區與檔區的設定
+
+    設立信區, 必需先設定 group.list, 這個檔案在與 pbbsd 同的目錄中,
+    group.list 的格式如下:
+#
+#MailPath	J.Sec	P.Sec	Area Description
+#-------------------------------------------------------------------------
+
+main		0	0	[Local] 主信區
+mbox		0	0	[Local] 私人信件區
+nsysop		85	90	[TANET] 站長專用
+
+    #		開頭為註解, 不處理
+    MailPath	信區目錄
+    J.Sec	進入信區的最小等級
+    P.Sec	在該信區寫信的最小等級
+    Area Description 信區說明, 注意, 裡面不能使用 TAB, Client 無法接受
+
+
+    一個信區中有幾個特殊檔案, SysOp 可用一般的 Editor 建立,也可 省咯不用:
+
+	rule          : 信區規則檔, 此檔若存在 User 一 Join 時會看到這段文字
+	areaname      : 信區名稱檔, 此檔若存在, 信區名稱會以此檔內容代替, 避
+			免以目錄名稱造成不易理解
+	origin	      : 當 User 發出一封信時, 此檔案的內容即自動並入那封信的
+			結尾, 可用做廣告用途. 此檔只有第一行有效, 不存在時系
+			統會自動忽略掉
+
+    main 及 mbox 信區是必須要開的信區
+
+    設立檔區與信區的動作類似, 檔案目錄下開子目錄即為檔區, 同樣有幾個檔
+    案要 SysOp 建立:
+
+	files.area    : 這個檔與 group.list 在同個目錄, 格式如下,
+
+#
+#FilePath       J.Sec   Area Description
+#-------------------------------------------------------------------------
+pbbs            0       PBBS 檔案區
+upload          40      User Upload
+ 
+    #		開頭為註解, 不處理
+    MailPath	檔區目錄
+    J.Sec	進入檔區的最小等級
+    Area Description 檔區說明, 注意, 同樣裡面不能使用 TAB, Client 無法接受
+
+	各檔區目錄下又有下列檔案,
+
+	files.bbs     : 當 User List Files 時, 若此檔存在則將其列出, 若此檔
+			不存在, 系統會自動呼叫 ls 將檔案列出
+	post.security : 此檔只在 upload 區有效, 使用 upload 的最低等級
+
+    其它還有一些檔案, 信區目錄中:
+
+	group.nntp    : 轉信設定, 後面有更詳細的說明
+	moderators    : 信區協調人的設定, 格式為 <信區> <協調人> 如:
+			os2	Henry Chen
+			pbbs	Samson Chen
+			協調人的 ID 必須是字首大寫字母. 當協調人在其協調之信
+			區中, 可以刪除自站發出的信, 此中也包括連線刪信的動作
+
+    group.list, group.nntp, moderators, files.bbs, files.area 都可以在 setup.h 中
+    設定, 以配合雙語 BBS 的建立
+
+
+四、設定檔 setup.h
+
+    這大概是最囉唆的一個部分了, 不過大致來說, 有很多地方都不用去動到, 底下是
+    完整的說明:
+
+	#define PBBS_SERV_PORT  6203
+	  要將 PowerBBS 的 Port 定在何處, 我們建議您就定在 6203, 這是我們的
+	  預設值, 你可以定 1025 以上的任何值, 不過不要跟別的軟體衝到了, 舉
+	  例來說, IRC 用的是 6667
+
+	#define SYSTEM_PATH     "/pbbs"
+	  PowerBBS 所在路徑, 程式執行時, 第一步就是 chdir 到這個目錄, 請盡量
+	  使用絕對路徑, 而不要用 "～samson" 之類的東西
+
+	#define LOGFILE         "pbbs.log"
+	  PBBS 動作的記錄檔名
+
+	#define LOGLEVEL        0
+	  動作記錄的詳細程度, 數字越小越詳細, 要注意若太詳細則記錄檔的成長
+	  速度可能非常快
+
+	#define	EXTRA_LOG	"extra.log"
+	#define	EXTRA_LOG_LEVEL	8
+	  當 log level 超過多少時, 另外再記錄到另外一個 LOG 檔
+
+
+	#define RUN_USER	"OWNER"
+	#define	RUN_GROUP	"OWNER"
+	  設定 Process 在執行時要以什麼 User 及 Group 去執行. 這項設定是
+	  為以 Superuser 等級去執行程式而設計(rc.local 中啟動 Process),
+	  使得 PowerBBS 在執行 Process 不要擁有 Superuser 的 Permission,
+	  避免萬一程式中有 Security 上的漏洞造成入侵.(雖然還看不出有這種
+	  問題, 不過保險起見, 若您以 Superuser 啟動 Process, 最好將 User
+	  及 Group 設為 nobody, Port 在 1024 以下要 Superuser 才能 Bind,
+	  如 news 所用的 119 Port, 用此設定, 以 Superuser 啟動, 在 Port
+	  Binding 完後會自動更改自身的 Permission 到其設定)
+	  若您只是以一般的 User 來啟動 Process, 則將此設定設為 "OWNER"
+	  即可, 如此 PowerBBS 會忽略此項動做, RUN_USER 及 RUN_GROUP 中
+	  任一項設為 "OWNER" 都會關閉此功能.
+
+
+	#define USER_DATA_BASE  "users"
+	  User 資料庫要寫在什麼檔案中
+
+	#define ON_LINE_USER    "putmp"
+	  線上 User 的記錄檔
+
+	  以上兩個設定一般是不用去動, 除非有同時開兩站分別管理時才有必要設
+
+	#define TALK_BUFFER     "talk"
+	  Talk 時的 Buffer 目錄, 記得要 mkdir 這個目錄
+
+	#define	USER_PREFERENCE	"user_prefer"
+	  這是當 User 要設定自己的信區時, 設定檔要放的目錄
+
+
+	#define MENU_PATH       "menu"
+	  各 Menu 檔所在目錄
+
+	#define PRELOG_FILE     "prelog"
+	  User Login 之前所看到的畫面
+
+	#define WELCOME_FILE    "welcome"
+	  User Login 成功後的畫面
+
+	#define GOODBYE_FILE    "goodbye"
+	  User 離線時所顯示的畫面
+
+	#define NEWUSER_FILE    "newuser"
+	  新 User 註冊完後的畫面
+
+	#define LEVEL_MSG       "level" 
+	  各等級 User 的畫面, 如等級 40 其畫面為 level.40, 依此類推
+
+
+	#define MAIN_MENU_FILE  "main.mnu"
+	  以上為 Menu 設定, 這個檔案的內容即為 Client 在 Menu 中上面 11
+	  行的畫面, 因此設計時要考慮到 Client 的顯示
+
+	#define MAIN_HELP_FILE  "main.hlp"
+	  以上為 Help 畫面
+
+	  以上從 PRELOG_FILE 到 TOOL_HELP_FILE 的檔案都要放在 MENU_PATH 中
+
+
+	#define BULLETIN_PATH   "bulletin"
+	  佈告欄檔案所在目錄
+
+	#define BULLETIN_MENU_FILE      "bulletin.mnu"
+	  佈告欄選單
+
+	  要公告的佈告欄檔案直接放在 BULLETIN_PATH 之下即可, 檔名就是其公
+	  告事項
+
+
+	#define GROUP_LIST      "group.list"
+	  信區設定
+
+	#define	GROUP_YANK	"group.yank"
+	  user 設定信區時, 強制 user 一定要設定的信區
+
+	#define MODERATORS      "moderators"
+	  信區協調人設定檔
+
+	  以上三檔在 SYSTEM_PATH 下
+
+
+	#define	DEFAULT_GROUP	"main"
+	  user 連入時, 預設的信區, 也就是若 user 在 [J]oin 信區前, 直接
+	  [E]nter 一封信件時, 會發到的信區. 這個設定可以配合 REQUEST_AREA
+	  使用, 因為許多 user 在發要求升級的信件是直接 [E] 而不先 [J]
+
+	#define MAIL_PATH       "mail"
+	  各信區的目錄
+
+	#define RULES           "rule" 
+	  信區規則檔
+
+	#define AREANAME        "areaname" 
+	  信區名稱檔
+
+	  以上 MAIL_PATH 至 AREANAME 各檔皆放在各信區目錄中, 詳見上節有關
+	  信區的設定
+
+
+	#define FILE_PATH       "files"
+	  各檔區所在的目錄
+
+	#define FILE_AREA_LIST  "files.area"
+	  檔區列表選單
+
+	#define FILE_LIST       "files.bbs"
+	  各檔區中的檔案列表
+
+	#define MAX_ALLOW_TAG   10
+	  可讓 User 一次 TAG 最多的檔案數
+
+	#define UPLOAD_PATH     "upload"
+	  UPLOAD 的目錄
+
+
+	#define MAX_LOGIN       5
+	  User 在 Login 時的錯誤最多幾次
+
+	#define MAX_LOAD        100
+	  本站最多同時可容納的上線人數, 請依各站配備而定, 可設超過 256
+
+	#define BAD_USER        "baduser"
+	  User 使用的 ID 有那些是不被允許的設定. 本設定為子字串的比較, 假設
+	  baduser 中有一個設定為 'fuck', 則 '*fuck*' 皆為不合法
+
+
+	#define INIT_LEVEL      30
+	  New User 的等級
+
+	#define CO_SYSOP_LEVEL  90
+	  副站長的等級
+
+	#define SYSOP_LEVEL     99
+	  站長的等級
+
+	#define IDLE_TIME       900
+	  User 在多少秒內無任何動作就斷線
+
+	#define POST_FACTOR     10
+	  IDEL_TIME 在寫信時的延長倍數, 本例中, 當 User 在編輯 POST, 則
+	  idle time 會自動延長為 900 × 10 秒鍾
+
+
+	#define	SENDMAIL_CMD	"/usr/lib/sendmail -oi"
+	  當系統要送 EMail 時該利用的 sendmail 程式所在位置
+	  -oi 是不要截掉'.'行, 更詳細的參數請參照系統 man pages
+
+	#define	USE_EMAIL_LEVEL 45
+	  使用 EMail 的最低等級
+
+
+	#define	REQUEST_AREA	"upgrade"
+	  當 User 在那一區要求升級時要去處理
+
+	#define	AUTO_LEVEL_FROM	40
+	  當 User 在多少級時做自動升級檢查
+
+	#define	AUTO_LEVEL_TO	45
+	  通過自動升級時升到多少
+
+	#define	AUTO_LEVEL_LOGS	30
+	#define	AUTO_LEVEL_POST	5
+	  上線多少次以上, 共發出多少封信以上, 才算通過自動升級程序
+
+
+	#define	ALL_PUBROOM_LVL	40
+	  chat room 2-10 必須有此等級的人才能使用
+
+	#define MORE_ROOM_LVL   80
+	  使用所有 CHATROOM 的等級
+
+	#define	CHAT_AD_LINE	" /h 輔助畫面, ctrl-e 結束, 中華工學院 PowerBBS"
+	  Chat Room 的提示行
+
+
+	#define TZ_MIN_WEST	-480
+	  與格林威治時間的差值, 以分鐘為單位, 讀信的時間轉換用.
+	  從格林威治(GMT)向西為正值, 向東為負值, 臺灣為 -480
+
+
+	#define	POWERNET_LIST	"powernet.list"
+	  PowerNet 的列表
+
+	#define	INTERNET_LIST	"internet.list"
+	  Internet 的列表
+
+	---------------------------------------------------------------
+	接下來是有關藍波快信的設定
+
+	#define	BW_BBS_NAME	"CHPI PowerBBS"
+	  放到信包內的 BBS 站名 (請勿過長)
+
+	#define	BW_PACK_NAME	"richard"
+	  信包的檔名 (一定要 8 個字母以內)
+
+	#define	BW_ZIP_CMD	"/usr/local/bin/zip -qq"
+	  壓縮程式的命令 (-qq 是 quiter mode)
+
+	#define BW_UNZIP_CMD	"/usr/local/bin/unzip -j -qq"
+	  解壓縮程式的命令, 注意, 解開時不能將壓縮檔內的次目錄解開,
+	  因此 -j 是不解次目錄的參數
+                                               
+	---------------------------------------------------------------
+	接下來是有關轉信部分的設定, 更詳細的部分請參考轉信一節
+
+	#define PBBS_NNTP       "YES"
+	  是否要將轉信功能打開 YES 或 NO
+
+	#define NNRP_PORT       7203
+	  收信的通訊埠, 我們建議您使用 7203, 但若您與 NEWS 交換, 則為 119,
+	  但若您用 1024 以下的通訊埠, 則程式必需以 ROOT 去執行
+
+	#define NNRP_LOG        "nnrp.log"
+	  收信程式記錄檔
+
+	#define NNRP_LOGLEVEL   4
+	  詳細程度, 數字越小越詳細
+
+	#define NNRP_IDLE       7200
+	  當對方多久時間未回應則斷線, 單位為秒
+
+	#define NNTP_GROUP      "group.nntp"
+	  信件的 newsgroups 與目錄的設定檔案, 詳見轉信一節
+
+
+	#define STATION_ID      "chpi_pbbs"
+	  信件 path 中, 自站所屬的 ID, 注意, 這個字串必需是全球唯一的,
+	  否則信件路徑檢查時會出問題. 請不要使用 "pbbs" 作為 ID
+
+	#define NNRP_DOMAIN     "pbbs.chpi.edu.tw"
+	  架站所在機器的 Domain Name
+
+	#define SORGANIZATION   "PowerBBS Original Station"
+	  發信單位
+
+	#define	DEFAULT_ORIGIN  "YES"
+	  若填 "YES", 當信區內沒有 origin 的 mark file 時, 信件會自動加
+	  上底下的 ORIGIN, 若填 "NO" 就不加, 若您不轉信, 建議您就不需要
+	  加了.
+
+	#define ORIGIN_LINE	"PowerBBS 總站 <pbbs.chpi.edu.tw>"
+	  見上面的 DEFAULT_ORIGIN 之說明
+
+
+	#define NNTP_LOG        "nntp.log"
+	  送信程式的記錄檔名
+
+	#define NNTP_LOGLEVEL   1
+	  詳細程度, 數字越小越詳細
+
+	#define NNTP_IDLE       600
+	  對方多久未回應則斷線
+
+	#define NNTP_SLEEP      300
+	  每隔多少時間對外送一次信件, 單位為秒
+
+	#define NNTP_QUEUE      "s_queue"
+	  信件的 queue 目錄, 記得要 mkdir 這個目錄
+
+
+	#define ZIP             "gzip"
+	  壓縮程式
+
+	#define UNZIP           "gzip -d -c"
+	  解壓縮程式, 必須在執行時, 解壓的結果往 stdout 送, 所以參數要下對
+
+	  以上兩項是用在壓縮轉信時之用, 詳見轉信一節
+
+	#define	AUTH_USER	"username"
+	#define	AUTH_PASS	"password"
+	  有些限制 local access 的 News Server 在 post 信件時會驗證 poster
+	  的身份, 因此很有可能需要設定 Username 及 Password, 這項功能在
+	  Client Gateway 的送信時才會有效
+	  (本 patch 由 Chenkow Yuan 提供)
+
+	#define IGNORE_NNTP_ERROR
+	  當您有 define 這像時, 當對方送的信在信件開頭(Newsgroups:, Date:,
+	  Message-ID:,... 這些東西)發生錯誤時, pbbsnnrpd 一樣回給對方 OK,
+	  避免對方的轉信被 queue 住, 假設 TCP 網路是可靠的, 則錯誤的信件
+	  再怎麼送都還是錯的, 當然, 這是假設, 若您不相信此一論調, 將這項
+	  刪掉就行了
+
+	#define DBZ_CHANNEL     "/home/staff/samson/pbbs"
+	  本項提供由 Shih-Kun Huang 老師所提供的 DBZ Server 做為快速的
+	  Message-ID checking, 使得信不會重複收到, 有關 DBZ 的用法請參
+	  照 innbbsd 中所附之 README.PowerBBS
+	  若您不想使用 DBZ 的功能(如您站規模小, 或 DBZ make 不出來), 將
+	  此行刪掉即可
+
+	#define	NNRP_DEL_NO_CHECK_PATH
+	  當有設這項時, 收到 Contrl Cancel 也就是連線刪信時, 找到的
+	  Message-ID 只 check 發信人, 若將此項刪除, 除了 check 發信人外,
+	  還會 check Path:, 至於為何要這項, 明眼人一看就知道, 依目前的概念,
+	  Path: 這欄最難造假!
+
+
+
+五、站際轉信
+
+    PowerBBS 轉信規格採用的是 RFC977/1036 的 NNTP (NetNews Transfer Protocol),
+    而不採用傳統的 SMTP (SendMail Transfer Protocol), 如此帶有很多優點, 請參
+    考 TechNote, 最主要如此可與 News Server 互相交換信件, INN 或現今 EagleBBS
+    所採用的 BBSINN 都可以互換, PowerBBS 更把這個交換規格擴充為壓縮轉信, 更節
+    省網路.
+
+    首先在 setup.h 中
+
+	#define PBBS_NNTP	"YES"
+
+    這個設定主要是提供站際刪信的一個旗號, 細節請參考 TechNote
+
+    其它在 setup.h 中有關轉信的部分都要設好, 尤其 STATION_ID 一定要設好,
+    而且要全球唯一, 接下來就是
+
+	#define NNTP_GROUP      "group.nntp"
+
+    group.nntp 這個檔案的設定, 這個檔位於
+
+	#define	SYSTEM_PATH	"/pbbs"
+
+    之下, group.nntp 的內容有兩種東西, 前面幾行為站的定義
+
+#define    index IP              Port  Link_level      Station_id
+#---------------------------------------------------------------------------
+!station   chpi  140.126.3.111   7203  PASSWORD        chpi_pbbs
+!station   csie  140.113.17.154  119   +               bbsroute
+!station   news  140.113.17.159  119   +               news.csie.nctu.edu.tw
+
+	解釋如下:
+
+		!station	表示要定義轉接站
+
+		chpi		這個索引字串用在其後對信區的定義, 最好不要超
+				過六個字母, 這個字串是自己定義, 不要重複就好
+
+		140.126.3.111	對方的 IP, 一定要使用 IP, 不能用 Domain Name
+				pbbs.chpi.edu.tw 這樣會有問題
+
+		7203		對方的接信的 Port, 就是設在 NNRP_PORT 中的值
+				若對方採用 News 系統, 則為 119
+
+		+/PASSWORD	若填 + 則表示採用 RFC977/1036 NNTP 規格轉信,
+				若填一個一般的字串, 則為壓縮轉信, 其字串並為
+				壓縮轉信時所用的密碼, 必需和接轉信對方協調
+
+		chpi_pbbs	對方的 Station ID, 這一項必須詢問接轉信對方,
+				當對方送信進入時, 其 Path: 中的 ID 為何, 這
+				項一定要填對, 因為 pbbsnntpd 是依照此項決定要
+				將信件打包給誰, 若填錯, 會照成 FLOODY 的情
+				況, 要謹慎
+
+    接下來要對信區做定義:
+
+chpi.pbbs                       pbbs                 csie news
+tw.bbs.lists                    list                 csie
+tw.bbs.announce                 announce             csie
+tw.tanet                        tanet                news
+tw.conference                   twconference         news
+
+		chpi.pbbs	此為 group name, 與 News 中的格式相同
+
+		pbbs		mail 的目錄, 此目錄會自動合併 MAIL_PATH
+				因此只要打入個別信區的目錄
+
+		csie news	有那些站與此信區交換, 最多可填 16 站
+
+    再來要將 pbbsnntpd 及 pbbsnnrpd make 出來, 與 pbbsd 類似, 在 nntp/ 及
+    nnrp/ 兩目錄中, 找出洽當的 Makefile, 執行 Make
+
+    Make 好之後再執行程式即可, 程式會自動退成 Daemon. 要注意的是, 若之後要更
+    改 group.nntp 的信區設定, 則這兩個程式的 Process 要 kill 掉重新 RUN, 因
+    為設定檔只在啟動時會去讀.
+
+    假設某接信站出狀況必需暫時停止轉信,將 !station 對該站的設定 remark 掉即
+    可, 再重新啟動 pbbsnntpd 就好了, 不需要將每個信區都更改. 待該站恢復後再
+    將該項設定恢復再重新啟動 Process 就好了.
+
+    另外, pbbsnnrpd 會在 MAIL_PATH 下自動產生一個叫 controlmsg 的目錄, 這個
+    目錄有兩個作用:
+	1. 所有的 control message 會複製一份到此
+	2. control cancel 會 batch 在這, 以便慢慢做
+
+    另外, Link_level 設為 "*" 及 alt feed IP (alternative feed IP), 這是用
+    在 Client Gateway 的轉信上, 後面章節有詳細說明.
+
+
+
+六、其它一些檔案
+
+    佈告欄:
+	佈告欄檔案是放在 
+
+		#define BULLETIN_PATH   "bulletin"
+
+	之下的檔案, 選單為
+
+		#define BULLETIN_MENU_FILE      "bulletin.mnu"
+
+	而其它各檔便為其選項, PowerBBS 支援階層式佈告欄選單, 目錄中若是
+	檔案則為佈告事項, 若為目錄, 則為下一層, 下一層中必需要有
+	BULLETIN_MENU_FILE (bulletin.mnu) 的檔案就是下一層的選單, 依此類
+	推.
+
+    選單:
+	在
+
+		#define MENU_PATH       "menu"
+
+	選單目錄中, 除了有選單檔案外, 還包含有 prelog, welcome, 及等級畫
+	面等, 等級畫面是檔名是
+
+		level.n
+
+	n 是等級數字, 如 level.40 當等級 40 的 User 上線時, 便會 Show 出此
+	畫面
+
+    baduser:
+	在 SYSTEM_PATH 下, 可以用任何 editor 建一個叫 baduser 的檔案, 這
+        是設 User 使用的 ID 有那些是不被允許的. 本設定為子字串的比較, 假設
+        baduser 中有一個設定為 'fuck', 則 '*fuck*' 皆為不合法
+
+
+
+七、某些人的特殊功能
+
+    當 SysOp login 時, 在查詢使用者這項功能裡會多 SysOp 的選單
+
+	1                      特定使用者
+	2                      所有使用者
+	3                      線上使用者
+	4                      列出站長資料
+	5                      更改目前所在信區規則
+	6                      更改佈告欄內容
+	7                      站長廣播
+	8                      更改使用者等級
+	9                      刪除使用者
+	10                     刪除使用者密碼
+	11                     審核新註冊使用者
+	12                     強制使用者離線
+
+    除了列出的 User 資料會較詳盡, 也多了一些必要功能, 其中 1.特定,8.改等,9.刪人
+    在詢問那位 User 時, 可輸入其 User_ID
+
+    在列線上 User 時, 如:
+
+  1    1 Samson Chen        140.126.3.8         工具箱                   
+  2  521 David  Dor         140.126.4.221       工具箱                   
+     ^^^
+	這一欄為 User ID
+
+    第 10 項刪除使用者密碼, 將某 User 密碼刪除, 當 User 再度上線時, PowerBBS
+    不會問其密碼而直接叫 User 設入新的.
+
+    第 11 項審核新註冊使用者, User 若為新註冊時會有 Mark, 一站若有多位站長
+    若其他站長審核過的則下位站長則會跳過以節省時間.
+
+
+    當信區協調人 Join 其所協調的區域時, 進入此項功能便會如:
+
+	1                      特定使用者
+	2                      所有使用者
+	3                      線上使用者
+	4                      列出站長資料
+	5                      更改目前所在信區規則
+
+     此時他可以使用 5.改信規 來更改他所協調區域的規則檔, 當 User 一 Join 到那
+     區時, 文字便會 Show 出.
+
+    當等級大於等於 setup.h 中, 如
+
+        #define E_BULLETIN_LVL  90
+
+    表當 User 等級大於等於 90 時, 可以看到
+
+	1                      特定使用者
+	2                      所有使用者
+	3                      線上使用者
+	4                      列出站長資料
+	6                      更改佈告欄內容
+
+    表示他可以改佈告欄
+
+    各佈告欄, 信區規擇檔都可以使用 Macro 即顏色設定, 因此 SysOp 可以將
+    Macro 及顏色控制告訴可修改的 Co-SysOp 或 Group Moderators.
+
+
+    pbbsd, pbbsnnrpd, pbbsnntpd 三個程式在執行時, 可以加上 -d 參數, 這是讓
+    這三個個程式進入 debug mode, 方便偵錯.
+    pbbsnntpd 還可用 -n 如此 pbbsnntpd 程式會跳過 packing 動作直接開始送信.
+
+
+
+八、文字訊息的更改
+
+    PowerBBS 所有的顯示文字訊息都放在
+
+	host/message.h
+
+    若您想要改變訊息, 或是翻譯成當地文字, 只要改變檔案中的文字再將 pbbsd
+    重新 make 即可, Client 端的文字在 Client source 中的 msg.h 中
+
+
+
+九、工具程式
+
+    PowerBBS 提供了一些工具程式, Make 方法與前述同, 部分程式可以放在 cron
+    table 中讓機器定期自動做.
+
+
+        ＰｏｗｅｒＢＢＳ 工 具 程 式 說 明
+
+	fu (使用者資料庫維修工具) (fixuser.c)
+
+	進入後, 看的的畫面類似下圖:
+
+ num     ID                Real name        S  Lvl login    E-mail
+   1 Samson Chen         陳紹俊                 99 1500 samson@samson.chpi.edu
+   2 Aquarius Kuo        郭耿言                 99  781 cs79026@chpi.edu.tw
+   3 Anada Anada         簡逸音                 99  385 cs80284@chpi.edu.tw
+   4 Spp S               沈士豪                 80  185 cs80283@chpi.edu.tw
+   5 Shamus Lin          林逸祥                 80  191 cs82070@cs.chpi.edu.tw
+   6 Elfpig Lin          林育民                 90   17 cs79007@chpi.edu.tw
+   7 Codex Chen          陳德興                 99  336 ambrosia@chpi.edu.tw
+Command ( H : help ) :
+
+	功能說明如下:
+
+   Enter : next page.           下一頁
+
+       b : back one page.       上一頁
+
+       # : edit data of user #. 輸入使用者的編號, 可進入修改其資料
+
+       / : searh user.          搜尋特定使用者, 用法同 vi 中的 search
+
+       a : set user active tag ON .     恢復某個帳號(ID)的使用
+
+       d : set user disable tag ON .    暫停某個帳號(ID)的使用
+
+       k : set user kill tag ON .       刪除某個帳號(ID)
+
+       q : quit.                結束程式
+
+       s : show user data.      顯示使用者的詳細資料
+
+
+       ps1: a, d, k 的命令之後詢問 User ID 時可連續下如 2 8 12 33 ...
+       ps2: 當 User 忘記了他的密碼, 可利用本程式將其密碼改為 MagicPower
+	    這個字串, 當 User 再度上線時, 系統不會問 User 密碼, 且會強
+	    制 User 將新密碼設入.
+
+
+
+       ****************************************************************
+	pu (使用者資料庫整理工具) (purgeuser.c)
+
+	這是自動處理大量使用者時使用, 格式如下:
+
+        purgeuser <max_days> <hold_level>
+
+        <max_days>   : 保留最大天數, 超過這個天數未曾上站就會被刪除.
+
+        <hold_level> : 保留等級, 等級大於等於這個數字, 則不會被刪除.
+
+	例:
+
+        執行    pu 30 50
+        則等級小於 50, 且超過 30 天沒有上站的使用者都會被刪除.
+
+
+       ****************************************************************
+	reindex (重建使用者資料庫索引) (reindex.c)
+
+	重建使用者資料庫索引檔, 以確定使用者帳號能正確的找到.
+	(不需下任何參數, 若有執行過刪除使用者的動作, 就必需要 reindex)
+
+       ****************************************************************
+	pm (信件資料庫整理工具) (purgemail.c)
+
+	pm 可使用控制檔一次整理多個信區, 或是一次整理一個指定的信區, 格式如下:
+
+       purgemail -s <filename>
+
+       purgemail -d <mail_area_directory> <purge_num> <keep_num>
+
+
+       <filename> 為控制檔的檔名, 內容格式亦為
+
+                <mail_area_directory> <purge_num> <keep_num>
+
+       可使用 # 開頭, 做為註解行.
+
+       控制檔範例如下:
+
+	bball   2500    2000
+	nctu    2500    2000
+	nthu    2500    2000
+	feel    2500    2000
+	sale    3500    3000
+	hard    3500    3000
+	pcgame  3500    3000
+	reli    3000    2500
+	poli    3500    3000
+
+
+       <mail_area_directory> : 信區的目錄名稱.
+
+       <purge_num>           : 大於這個數字以上, 就把舊信刪除
+       <keep_num>            : 保留這個數字的信件.
+
+	例:
+        main 信區有 300 封 post
+
+        執行    pm -d main 200 150
+        則因為 300 > 200 , 所以要執行刪信的動作, 最後 main區 留下 150 封 post.
+
+       ****************************************************************
+	autopost (自動轉 post 信件) (autopost.c)
+
+	自動將檔案內容 post 到信區裡, 格式如下:
+
+	autopost <area_name> <file_name>
+
+	<area_name> 要 post 到的信區
+	<file_name> 要 post 的檔案內容
+
+	例:
+
+	autopost dailylogs pbbs.log
+	會將 pbbs.log post 到 dailylogs 這個信區
+
+       ****************************************************************
+	sd (全信區刪除程式) (superdel.c)
+
+	一次整理所有信區要保留多少信
+
+	superdel <skip_del_file> <keep_num> {-d}
+
+	<skip_del_file>	此檔設定當整理時, 有那些信區要保留不要去刪
+	<keep_num>	要保留多少封
+	-d		debug_mode 可看到訊息(手動執行才能用)
+
+	<skip_del_file> 格式如:
+
+	pbbs
+	sysop
+	modem
+	#include <pm.ctl>
+
+	其中 #include 可轉繼續讀取 pm.ctl 中的設定
+
+	範例:
+	
+	  sd pm.ctl 1000
+
+	  表除了 pm.ctl 中有的設定外, 其於全只保留 1000 封
+
+       ****************************************************************
+	sp (全信區整理程式) scanpurge.c
+
+	上面的 purgemail 或是 superdel 都只有做一個 delete_mark, 連線
+	刪信亦如此, 只有執行此程式才是真正將信件刪除空出 HD 空間, 因此
+	本程式要常常去執行, 格式如下:
+
+	sp {-d}
+
+	-d 是顯式訊息, 手動執行才能用.
+       ****************************************************************
+	pmbox (私人信件整理程式) pmbox.c
+
+	本程式專整理 mbox 內信件, 格式如下:
+
+	pmbox <keeps> {-d}
+
+	<keeps>	每人最多可保留多少封
+	-d	顯式訊息, 手動執行才能用
+
+       ****************************************************************
+	rebuild_msg_rec (records 重建程式) rebuild_msg_rec.c
+
+	本程式可以用來重建 messages 的 records 檔案, 因此一但刪信程式
+	purgemail/superdel/scanpurge 一但發現 records 故障, 會將 records
+	rename 成 records.bak 並 print error message, 此是 SysOp 可用此
+	tool 重建 records 檔.
+	重建的原理是程式會嘗試自 Path: 等 keywords 找出每封信件, 因此本程式
+	並不保證重建的 records 一定是對的, 一但有人在內文使用這些 keywords
+	程式就會判斷錯誤, 但這樣的機率很小.
+	本程式也可用在將 messages 檔拷備到不同平臺機器時重建 records 檔.
+	使用時直接在 util/ 內 cc rebuild_msg_rec.c -o ../rebuild_msg_rec
+
+	rebuild_msg_rec <mail_area_directory>
+	<mail_area_directory> 重建的目錄 (原 records 會 rename 成 records.bak)
+       ****************************************************************
+	ppreview (PowerBBS 螢幕預視)
+
+        為了感謝狗毛智辛苦的畫畫, 因此本人遵照其提議改了一個專為 PowerBBS
+        色彩控制的 Preview 程式, 姑且叫它 ppreview (PowerBBS Previewer)
+        ppreview 的用法再簡單不過:
+
+        ppreview [要被 view 的檔名]
+
+        ppreview 就會把以 PowerBBS 控制碼的檔案轉給你看.
+
+        請注意下列幾點:
+
+        1. Macro 文字不能轉換, 如 {$p} (這是 Server 的事呀!)
+
+        2. 行數以 24 行計.
+           PC 版 25 行, UNIX 版一般 24 行, 故此 ppreview 以 UNIX 為準.
+           以後可能也考慮 PC 版也只用 24 行. 
+
+        本程式可在底下 ftp 到
+
+                ftp://pbbs.chpi.edu.tw/pub/pbbs/client/ppreview.zip 
+       ****************************************************************
+	你可以在 cron table 中設定每天要 maintain 的 shell, 範例如下:
+
+#!/bin/sh -
+#
+#       PowerBBS maintain shell script
+#
+
+#re-index user-database
+/pbbs/reindex
+
+#purge-mails
+/pbbs/pm -s /pbbs/pm.ctl
+/pbbs/sp
+
+#purge-mbox
+/pbbs/pmbox 200
+
+#autopost log files
+/pbbs/autopost dailylogs pbbs.log
+/pbbs/autopost dailylogs nnrp.log
+/pbbs/autopost dailylogs nntp.log 
+
+十、PBBS Mail Gateway 設法
+
+	PBBSMailer 是 PowerBBS 收 EMail 的 Gateway 程式, 檔名為 pbbsmailer 
+ 
+	安裝時只要修改 sendmail.cf 即可. 
+ 
+	假設您的 PowerBBS 裝在 /pbbs 下, 
+ 
+	首先在 sendmail.cf 中設定 mailer 程式 
+ 
+... 
+Mprog,		P=/usr/etc/smrsh, F=lsDFMeu, S=10, R=20, D=$z:/, 
+		A=sh -c $u 
+Mpbbsmail,	P=/pbbs/pbbsmailer, F=lsSDFMuhP, S=10, R=20,	<--+ 
+		A=pbbsmailer $u					<--+ 
+							這兩行是您要加的! 
+ 
+	假設您用 4.1 版舊的 sendmail (可 telnet localhost smtp 得知) 
+	sendmail.cf 如下: 
+ 
+	設在 S0 之後 (Ruleset 0) 
+	 
+... 
+S0 
+ 
+R$+.pbbs<@>$*		$#pbbsmail $:$.pbbs	pbbs mail gateway 
+				  ^		    ^    ^ 
+R$+.pbbs< $+ @ $+ >$*	$#pbbsmail $: $1.pbbs	pbbs mail gateway 
+	 ^  ^ ^  ^		  ^  ^		    ^    ^ 
+R$+.pbbs< $+ @ >$*	$#pbbsmail $: $1.pbbs	pbbs mail gateway 
+	 ^  ^ ^			  ^  ^    	    ^    ^ 
+R$+.pbbs		$#pbbsmail $:$1.pbbs	pbbs mail gateway 
+				  ^  		    ^    ^ 
+R$+.pbbs<@LOCAL>$*	$#pbbsmail $:$1.pbbs	pbbs mail gateway 
+				  ^		    ^    ^ 
+ 
+R<@>			$#local $: <>			special case error msgs` 
+... 
+ 
+	以上以 R$+.pbbs 開頭的 5 行是您要加的, 
+ 
+	注意: 有打 ^ 的地方一定要用[空白鍵] 
+	      而其他的地方一定要用[TAB]鍵 
+	      打 ... 是被省略掉的地方 
+ 
+ 
+	如您的 sendmail 是 8.6.X 以上的版本, sendmail.cf 要如下改法... 
+ 
+	同樣在 S0 Ruleset 0 之後 
+ 
+... 
+S0 
+ 
+R$+.pbbs<@>$*		$#pbbsmail $:$.pbbs	pbbs mail gateway 
+ 
+R<@>			$#local $: <>			special case error msgs 
+... 
+ 
+# handle local hacks 
+R$*			$: $>98 $1 
+ 
+# short circuit local delivery so forwarded email works 
+R$+ < @ $=w . >		$: $1 < @ $2 . @ $H >		first try hub 
+R$+.pbbs< $+ @ $+ >$*	$#pbbsmail $: $1.pbbs	pbbs mail gateway 
+R$+.pbbs< $+ @ >$*	$#pbbsmail $: $1.pbbs	pbbs mail gateway 
+R$+ < $+ @ $+ >		$#local $: $1			yep .... 
+R$+ < $+ @ >		$#local $: @ $1			nope, local address 
+ 
+... 
+ 
+# if this is quoted, strip the quotes and try again 
+R$+			$: $(dequote $1 $)		strip quotes 
+R$+ $=O $+		$@ $>97 $1 $2 $3			try again 
+ 
+# everything else is a local name 
+R$+.pbbs		$#pbbsmail $:$1.pbbs	pbbs mail gateway 
+ 
+# handle locally delivered names 
+R$=L			$#local $: @ $1			special local names 
+R$+			$#local $: $1			regular local names 
+... 
+ 
+ 
+	同樣, 開頭為 R$+.pbbs 的 4 行是要加的. 
+	打 ... 是省略的部份 
+	同前面的說明, 該用 [空白鍵] 或 [TAB] 絕對不能搞錯. 
+ 
+	最後在把 /usr/lib/sendmail 的 process 重新啟動就可以了. 
+ 
+	User 的 email address 為 
+ 
+	Firstname_Lastname.pbbs@[PBBS Host Domain] 
+ 
+
+十一、innbbsd 中的 README.PowerBBS
+(本文件針對 innbbsd-0.50.tar.gz 所設...)
+
+由於 PowerBBS 只用到 innbbsd 對 Message-ID 的處理, 因此 Make 的步驟如下:
+
+	1. Makefile 中 BBSHOME 與 BBS_SRC 的 Path 設與 PowerBBS 中的 setup.h
+	   中的 SYSTEM_PATH 相同
+
+	2. 執行 make <sys-type>
+	   <sys-type> 請參照原 make 的列表
+
+	3. 將 innbbsd 與 ctlinnbbsd 考到 PowerBBS 的 SYSTEM_PATH 裡
+
+	4. 另外有個 bbsnnrp 是 Client Gateway 的轉信程式, 若您要使用
+	   Client Gateway 方式轉信, 一併考過去. 底下有更詳細的說明.
+
+	5. 在 SYSTEM_PATH 下再 mkdir innd
+
+	6. innd 下放下列兩個檔案即可
+
+		bbsname.bbs	(請參照所附的 innd/bbsname.bbs)
+		innbbs.conf	(同樣將原附的 innd/innbbs.conf 拷去就行)
+
+	7. 將 innbbs.conf 中的
+
+		nodelist  local
+		newsfeeds none
+
+	   打開, 就是把前面的 # 拿掉
+
+	8. PowerBBS 的 setup.h 中的 DBZ_CHANNEL 設與 SYSTEM_PATH 同即可
+
+	9. 試執行 innbbsd
+
+	10.若執行有問題則試排除
+
+
+注意事項:
+
+	1. 若 innbbsd 要在 rc.local 中被執行, 則必須在 pbbsnnrpd 之前就
+	   執行
+
+	2. 在 rc.local 中執行 innbbsd 要如下:
+
+		(假設您的 SYSTEM_PATH 為 /pbbs)
+
+		if [ -f /pbbs/innd/.innbbsd ]; then
+			rm -f /pbbs/innd/.innbbsd
+		fi
+		echo 'innbbsd'
+		/pbbs/innbbsd
+
+	3. 若要停止 innbbsd 請用 ctlinnbbsd shutdown
+
+	4. 本版與原 innbbsd-0.50 有一處差異, 在 inndchannel.c 中對
+	   connect from 的 log 若以 -DPowerBBS 去 make 的將不會被
+	   log, 由於 PowerBBS 所使用的 innbbsd 只能以 localuser 去
+	   connect 並且 pbbsnnrpd 使用頻繁, 因此 log 此項已無意義,
+	   在此跳過.
+
+.................................................................
+有關 Client Gateway 的設定
+
+    所謂 Client Gateway 就是讓 PowerBBS 的轉信不必等上游站送, 直接去
+News Server 裡抓, 就好像用 tin 去把信全部抓回來一樣, 使用 Client
+Gateway 的方式轉信, 與 Server Gateway (上游主動送) 其功能上完全相同,
+包括連線砍信都有支援, 唯獨對機器的負擔較 Server Gateway 方式重很多,
+因此除非您只接少數的信區, 不然建議使用 Server Gateway. 詳細的差異
+請參考 innbbsd-0.50 中的 README.
+
+	首先需要有 bbsnnrp 的程式, 在上半部有說明如何 make 出 bbsnnrp
+
+1. 設定 group.nntp
+
+#index  IP               port  Link_level  Station_id             alt feed IP
+#............................................................................
+cgate   140.113.214.200  119   *           news.csie.nctu.edu.tw  140.126.3.111
+
+	index	是一個代號, 不要取太長...
+	IP 	要轉信的 News Server 的 IP
+	port	他的 port (NNTP 是 119)
+	Link_level 	* 表以 POST 去送信, + 用 IHAVE
+			一般來說, 除非是特別設定的 News Server, 不然
+			請用 * 以 POST 出去, + 大多是給 Server Gateway
+			轉信在用的.
+	Station_id	News Server 的 Path: 欄代號.
+	alt feed IP	這要填執行 bbsnnrp 所在機器的 IP
+
+接著信區設定與原來的相同, 如:
+
+tw.bbs.test	bbstest		cgate
+
+
+2. 在 innd/ 內設入兩種檔案:
+
+	active	設您要接的信區, 格式如下:
+
+tw.bbs.test 000000000 000000001 y
+tw.bbs.csbbs.pbbs 000000000 000000001 y
+(依此類推)
+
+	active.cmsg 為連線砍信用, 固定如下:
+
+control.cancel 0000000000 0000000001 y
+control 000000000 000000001 y
+
+
+3. 第一次執行時, 請先重設抓信指標
+(假設抓信的 server 是 news.csie.nctu.edu.tw)
+
+bbsnnrp -c news.csie.nctu.edu.tw active
+bbsnnrp -c news.csie.nctu.edu.tw active.cmsg
+
+注意: 這個步驟非常重要, 不然收 control message 時你就知道什麼叫慘了!!!
+
+
+4. 接下就定時去執行底下的程式
+
+bbsnnrp -r (pbbsnnrp 的 IP) -p (pbbsnnrp 的 port no) news.csie.nctu.edu.tw active
+bbsnnrp -r (pbbsnnrp 的 IP) -p (pbbsnnrp 的 port no) news.csie.nctu.edu.tw active.cmsg
+
+可以用 crontab 的方式去設, 詳細的說明請見 innbbsd-0.50 中 README 第 <3>
+項的 Client Gateway 中的第 <6> 點.
+
+
+5. 記得定期去處理 innd/ 底下的 bbsnnrp.log
+   平常定時執行時, 並不會有 bbsnnrp.log 產生, 但一但以 verbose mode (-v) 去執
+   行 bbsnnrp 時, bbsnnrp.log 會成長的非常快速, 請注意.
+
+6. 多重 News Server 的抓取也請見原文件的 README 說明
+
+7. PowerBBS 可以將 Client Gateway 與 Server Gateway 同時並用, 也就是您可
+將用 Client Gateway 方式抓來的信, 再以 Server Gateway 的方式轉給你的下游站,
+直接混合設定即可.
+
+8. 其他的說明請見原始的 README 文件, 但本說明應已足以應付一般的使用了.
+
+.......................................................................
+感謝交大資工 Shih-Kun Huang 老師提供此 DBZ Server 供 PowerBBS 使用.
+
+
+十二、Telnet-able PBBS
+
+    若您想讓 User 以 telnet 的方式上線, 則有幾項要注意的...
+
+	1. 將 Client 的 Source Makefile 中 CFLAGS 中加上 -DTERMMODE 重新 Make
+	   出的 pbbs client 會將對 DISK 寫入的動作關閉.
+	2. 開個帳號給 pbbs 再將其 shell 設為前面做出的 client 程式.
+	3. 要注意, client 在 post 信件時會呼叫 editor, 您一定要放一個 Patch
+	   版的 editor, 此 editor 不能有 shell 的動作, 否則將造成安全上的漏
+	   洞, 因此系統所附的 vi 絕不能用, 一定要用專為 BBS 設計的 editor.
+	4. 若您要放在 gopher 或 EagleBBS 的 BBSNet 底下, 也是要注意上述的問題.
+	5. 若您要與 World-Wide Web HTTP 合用, 則可在 HTML 中像下列定義:
+
+		<DT><H4><A HREF="rlogin://pbbs@bbs.chpi.edu.tw/">
+		<IMG ALIGN=BOTTON SRC="icons/xbm/telnet.xbm">
+		 Telnet to Square Castle BBS(PowerBBS).</A></H4>
+
+	   表示要連到 bbs.chpi.edu.tw 中帳號為 pbbs 的系統中.
+
+
+十三、問題
+
+    若您有任何疑問, 歡迎 mail 到 pbbs-ask@pbbs.chpi.edu.tw
+    或者在 tw.bbs.csbbs.pbbs 中提出討論, 我們很樂意替您解答.
+    若您須要信件轉接, 也可向我們洽詢.
+
+十四、感謝錄
+
+      (PowerBBS Original Site 感謝錄)
+      本站得以開張, 所動員的人力, 是本系有史以來空前的,
+
+      首先要感謝,電研吳智偉先生, 這部拿來開站的 PC 全靠他一人弄的,
+      指導老師,游坤明教授, 8 Mega RAM 是從他那 K 來的!!!
+      小亨利的機殼, 兩位老師的 HD, 讓本站能維持下去.
+      計算機中心梁秋國主任, 柯宇謙老師, ..., 對我們的支持以及讓我們幾乎
+      把工作站教室變成遊戲間!!!
+      中正理工學院 袁勤國先生, 提供我們不少寶貴的意見, 以及讓 PowerBBS
+      做了向外推廣的第一步.
+      交大資工陳明丰先生, 提供我們與 TANet 連線的機會, 也容忍了我們好幾個 Bug.
+      本站四大畫面, 是 GAME 魔花一晚不眠不休畫出的, 信區選單也是學妹 Jyu 辛
+      苦合併出來的, 還有負責 Novell 的邱士哲, 大風大雨幫我們裝在 Server 上.
+      還有給我們諸多鼓勵的莊東穎老師, 全體計算機中心人員, 學弟陳德興, 以
+      及諸多網上的朋友們.
+      還有一位我們不知道名字的電機系同學, 幫我們燒了一顆 BIOS.
+      最後, 當然兩位設計人的女友(Leia, Candy), 犧牲了不知道多少的約會時間
+      才讓我們完成這套系統.
+
+      另外, 在這也一併感謝交大資工 Shih-Kun Huang 老師的一些建議與 DBZ
+      的提供, Jones Tsai(蔡智強) 新加入了 PBBSWare 參與 PowerBBS 的設計,
+      學弟林逸祥處理不少繁雜的站務. 還有政大新聞系的黃大頭(黃經文)站長,
+      陳百齡老師及所有在政大 PowerBBS 的老師們, 得已讓大學報是透過
+      PowerBBS 轉出的. 最後, 要再次感謝梁秋國主任, 林友雄助教, 替 PowerBBS
+      爭取到更好的設備.
+
+      一二人是無法完成這整個計劃的, 在此也感謝所有支持我們的朋友們
+      (像不像金馬獎頒獎...)
+
+
+Samson Chen
+samson@chpi.edu.tw
+July 5, 1994
+May 12, 1995
+Sep 5, 1995

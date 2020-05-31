@@ -1,0 +1,29 @@
+
+Begin3
+Title:          Firebird BBS
+Version:        2.65M (BIG5 Chinese version)
+Entered-date:   Dec 13, 1997
+Description:    A telnet-based Internet BBS server program, modified and 
+                enhanced from the source code of Phoenix BBS. The user
+                interface is in BIG-5 Chinese. Has gateways to Internet SMTP 
+                mail, interlink between newsgroups and boards, gopher support, 
+                irc support, etc.
+Keywords:       BBS, Chinese, Internet, telnet
+Author:
+                Harimau.bbs@MSIA.pine.ncu.edu.tw (Peng-Piaw Foong)
+                SYSOP.bbs@MSIA.pine.ncu.edu.tw
+Maintained-by:
+                Harimau.bbs@MSIA.pine.ncu.edu.tw (Peng-Piaw Foong)
+                SYSOP.bbs@MSIA.pine.ncu.edu.tw
+Primary-site:
+                MSIA.pine.ncu.edu.tw /pub/bbs/MSIA
+                  795408 bytes  FirebirdBBS2.65M.Big5.tgz
+Alternate-site:
+                ftp.ncu.edu.tw /Unix/bbs/Firebird/MSIA
+                  795408 bytes  FirebirdBBS2.65M.Big5.tgz
+Original-site:
+                MSIA.pine.ncu.edu.tw /pub/bbs/MSIA
+                  795408 bytes  FirebirdBBS2.65M.Big5.tgz
+Platform:       Unix, gcc
+Copying-policy: GPL, free
+End

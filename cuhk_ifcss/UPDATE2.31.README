@@ -1,0 +1,65 @@
+Firebird Bulletin Board System        Version: 1.00 1.30 1.42 1.5 1.63
+Copyright (C) 1995                    Hsien-Tsung Chang, Tso-Ann Chu
+                                      Cheng-Hsuan Li
+Firebird Bulletin Board System        Version: 2.0 2.3
+Copyright (C) 1996                    Hsien-Tsung Chang of LWW
+
+                        FirebirdBBS 2.31 UPGRADE »¡©ú
+
+¤@¡B¦p¦ó Upgrade
+        1. ½Ð±N­ì¨Óªº FirebirdBBS ³Æ¥÷¡C
+        2. ¨ú±o FirebirdBBS2.31.tar ©Î FirebirdBBS2.31.tar.gz
+        3. ¸Ñ¶} tar¡C tar xvf FirebirdBBS2.31.tar
+                3.1 ¦pªG¥H¥ý§ì 2.3 ªº¤H¡A½Ð­×§ï bbs.c 390 lines.
+
+[1;44;36m¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢t bbs.c ¢u¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w[m
+int
+postfile(filename,nboard,posttitle,mode)
+char *filename,*nboard,*posttitle;
+int mode;
+{
+    char bname[STRLEN];
+    char dbname[STRLEN];
+[1;32m    struct boardheader fh;[m
+[1;32m    if(search_record(BOARDS, &fh, sizeof(fh), cmpbnames, nboard)<=0)
+[1;32m    {
+[1;32m        sprintf(bname,"%s °Q½×°Ï§ä¤£¨ì",nboard);
+[1;32m        report(bname);
+[1;32m        return -1;
+[1;32m    }[m
+    in_mail = NA ;
+[1;44;36m¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢t bbs.c ¢u¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w[m
+
+        4. ©ó bbs_src/CONFIG/./configure
+        5. bbs_src/make
+        6. bbs_src/make installbbs
+        7. bbs_src/make installthread
+        8. ½Ð­×§ï menu.ini ¡A¨Ã¬å±¼ sysconf.img
+
+[1;44;36m¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢tmenu.ini¢u¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w[m
+@CleanMail   0, 0, PERM_SYSOP,  "MailClean",   "M) ²M°£©Ò¦³Åª¹Lªº¨p¤H«H¥ó"
+@Announceall 0, 0, PERM_SYSOP,  "Announceall", "A) ¹ï©Ò¦³¤H¼s¼½"
+@EditSFiles  0, 0, PERM_WELCOME,"Files",       "F) ½s¿è¨t²ÎÀÉ®×"
+[1;32m@Setsyspass  0, 0, PERM_SYSOP,  "Setsyspass",  "S) ³]©w¨t²Î±K½X"
+[1;32m#!..          0, 0, 0,           "Exit",        "E) ¦^¨ì¥D¿ï³æ"[m
+%
+
+#------------------------------------------------------------------
+[1;44;36m¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢tmenu.ini¢u¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w¢w[m
+
+        9. ½Ð¥H SYSOP Login BBS ¡A«Ø¥ß syssecurity ªO¡A¥H°O¿ý©Ò¦³
+           ¨t²Î¥\¯à¨Ï¥Îª¬ªp¡C
+       10. ½Ð¥H SYSOP ¶i¤J A) ¨t²ÎºÞ²z¥\¯àªí¡AS) ³]©w¨t²Î±K½X¡A³]©w¨t²Î±K½X¡C
+       11. §¹¦¨¡C
+
+¤G¡B¥»ª©·s¥\¯à
+        1. ­×¥¿¬¡°Ê¬ÝªO SHM ªº§ó·s°ÝÃD¡C
+        2. ­×¥¿ Sendmsg ¦b talk chat ¦^ MSG ·|·í¾÷ªº Bug¡C
+        3. ­×¥¿ºëµØ°Ï¤¤ Gopher Item ªº®æ¦¡¡A¨Ï¤§²Å¦X Gopher ªº®æ¦¡¡C
+        4. ¼W¥[¥DÃD¾\Åª¼Ò¦¡¡C
+        5. ¼W¥[©Ò¦³¦n¤Í¤W¯¸³qª¾¡C
+        6. ¼W¥[¨Ï¥ÎªÌ¦Û­q¬O§_¦¬ MSG¡C
+        7. ¼W¥[¨Ï¥ÎªÌ¦Û­q MSG ¬O§_¦³Án¡C
+        8. ......
+
+                                                         ¤¤¥¿¸ê¤u BBS

@@ -1,0 +1,1058 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Formosa Client BBS Protocol</TITLE>
+</HEAD>
+<BODY>
+
+<B><FONT SIZE=7><P ALIGN="CENTER">Formosa Client BBS Protocol 3.0</P></B></FONT>
+
+<P>每個指令之間以TAB做分隔</P>
+<P>上線限制為三個，如果超過則會自動砍掉一個。</P>
+
+<P><B>900 userid from暱稱</B></P>
+<P>有人call你...</P>
+
+<P><B>905 有人送訊息給你，Server自動通知</B></P>
+
+<P>連線成功，Server先傳回</P>
+<P><B>800 中山大學BBS-美麗之島 Welcome!! Formosa Client/Server BBS version 3.0</B></P>
+<P>在此可以先取得現在所使用的Server版本</P>
+
+<P><FONT SIZE="5"><B>HELLO</B></FONT></P>
+<P>連線後第一個指令，會check使用者使否歡迎。如果成功則傳回800 OK，失敗則斷線。</P>
+<P>Return</P>
+<DIR>
+<LI>800 OK
+</DIR>
+
+<B><FONT SIZE=5><P>USERLOG name passwd [client]</P></font></B>
+<P>使用者登錄</P>
+<TABLE BORDER="0" >
+<TR>
+	<TD>name</TD>
+	<TD>使用者姓名</TD>
+</TR>
+<TR>
+	<TD>passwd</TD>
+	<TD>使用者密碼</TD>
+</TR>
+<TR>
+    <TD>client</TD>
+    <TD>使用者所使用的client端 內定值為主從式閱覽器 可使用的參數為WEBBBS</TD>
+</TR>
+</TABLE>
+
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>724 密碼錯誤
+<LI>725 密碼錯誤三次,強迫離線
+<LI>791 語法錯誤
+</UL>
+
+
+<B><FONT SIZE=5><P>CERTILOG name passwd</P></B></FONT>
+<P>以此方法login之後，可以做一個指令的動作，做完之後便斷線，指令操作方法均與一般操作方法相同。</P>
+<P>以此登錄並不會修改到個人記錄。</P>
+<TABLE BORDER="0" >
+<TR>
+	<TD>name</TD>
+	<TD>USER ID</TD>
+</TR>
+<TR>
+	<TD>passwd</TD>
+	<TD>使用者密碼</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>VERCHK num</P></B></FONT>
+<P>設定所使用的Client版本編號，系統內定值為20。</P>
+<P>num 設定現在所使用的</FONT>Client 版本編號</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>611   版本正確
+<LI>612   目前已有新版本,  建議使用較新版本
+<LI>714 版本太舊 !!  請使用較新版本
+</UL>
+
+<B><FONT SIZE=5><P>LOGINNUM</P></B></FONT> 
+<P>取得線上重複login 的pid 和ip 位置</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>PID  IP_Address
+</UL>
+<B><FONT SIZE=5><P>KILLPID pid</P></B></FONT> 
+<P>刪除自己多餘的login, pid 由LOGINNUM 取得</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>784   此process id 不在線上
+<LI>800  kill process 成功
+</UL>
+
+<B><FONT SIZE=5><P>BBSNAME</P></B></FONT> 
+<P>取得BBS 名稱</P>
+
+<B><FONT SIZE=5><P>ALOWNEW</P></B></FONT> 
+<P>詢問是否可註冊新帳號</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>722   不允許新帳號註冊
+</UL>
+
+<B><FONT SIZE=5><P>USERCHK name</P></B></font>
+<P>檢查此帳號是否存在</P>
+<TABLE >
+<TR>
+	<TD>name</TD>
+	<TD>使用者ID</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>621   使用者帳號不存在
+<LI>622   使用者帳號已存在
+</UL>
+
+</FONT><B><FONT SIZE=5><P>USERNEW name passwd e-mail [user_name]</P></B></FONT> 
+<P>建立新的使用者帳號</P>
+<TABLE >
+<TR>
+	<TD>name</TD>
+	<TD>使用者</TD>
+</TR>
+<TR>
+	<TD>passwd</TD>
+	<TD>使用者密碼</TD>
+</TR>
+<TR>
+	<TD>e-mail</TD>
+	<TD>e-mail 位址</TD>
+</TR>
+<TR>
+	<TD>user_name</TD>
+	<TD>匿名</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>622   使用者帳號已存在
+<LI>721   註冊失敗
+<LI>722   不允許新帳號註冊
+</UL>
+
+<B><FONT SIZE=5><P>BBSINFO</P></B></FONT> 
+<P>取得BBS name ，Terminal ，Client 及Web-BBS的人數</P>
+
+<B><FONT SIZE=5><P>QUIT</P></B></FONT> 
+<P>結束與主機的連線</P>
+
+<B><FONT SIZE=5><P>CHKANNOUNCE</P></B></FONT> 
+<P>取得近站公告最後修改的日期</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>614   最後修改日期的time_t
+</UL>
+
+<B><FONT SIZE=5><P>ANNOUNCE</P></B></FONT> 
+<P>取得進站公告</P>
+
+<B><FONT SIZE=5><P>PLANGET</P></B></FONT> 
+<P>取得現在user 的名片檔</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>761   無名片檔
+</UL>
+
+<B><FONT SIZE=5><P>PLANPUT</P></B></FONT> 
+<P>送出USER 的名片檔</P>
+</FONT><P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>PLANKILL</P></B></FONT>
+<P>刪除user 名片檔</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>SIGNGET</P></B></FONT> 
+<P>取得使用者簽名檔</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>763   無簽名檔
+</UL>
+
+<B><FONT SIZE=5><P>SIGNPUT</P></B></FONT> 
+<P>送出USER 簽名檔</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>SIGNKILL</P></B></FONT> 
+<P>刪除使用者簽名檔</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>CHGPASSWD newpass</P></B></font>
+<P>修改使用者密碼</P>
+<TABLE >
+<TR>
+	<TD>newpass</TD>
+	<TD>新的使用者密碼</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+</UL>
+
+<B><FONT SIZE=5><P>USERGET</P></B></FONT>
+<P>取得USER 資料</P>
+<P>Return</P>
+<TABLE BORDER="1" ALIGN="Center" >
+<TR>
+	<TD>暱稱</TD>
+	<TD>電子郵件信箱</TD>
+	<TD>終端機模式</TD>
+	<TD>login_次數</TD>
+	<TD>張貼次數</TD>
+	<TD>等級</TD>
+	<TD>UID</TD>
+	<TD>上次來的位置</TD>
+	<TD>上次來的時間</TD>
+	<TD>page 的開關</TD>
+	<TD>身份認證等級</TD>
+	<td>自動轉寄功能</td>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>CHGNAME name</P></B></FONT> 
+修改USER 暱稱
+<TABLE >
+<TR>
+	<TD>name</TD>
+	<TD>新的暱稱</TD>
+</TR>
+</TABLE>
+   
+<B><FONT SIZE=5><P>CHGEMAIL e-mail</P></B></FONT> 
+<P>修改USER E-mail</P>
+<TABLE >
+<TR>
+	<TD>e-mail</TD>
+	<TD>新的E-mail</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>FRIENDPUT</P></B></FONT> 
+<P>送出好友名單，一個名字一行，以’.’ 做結束。</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>FRIENDGET</P></B></FONT> 
+<P>取得好友名單</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>785   無友人名單
+</UL>
+
+<B><FONT SIZE=5><P>MAILNUM</P></B></FONT> 
+<P>取得信件數目</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>631   傳回信件數目
+</UL>
+
+<B><FONT SIZE=5><P>MAILHEAD start [end]</P></B></FONT> 
+<P>取得信件標題</P>
+<TABLE >
+<TR>
+	<TD>start</TD>
+	<TD>起始編號</TD>
+</TR>
+<TR>
+	<TD>end</TD>
+	<TD>結束編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>731   此封信件不存在
+<LI>791   語法錯誤
+<LI>793   工作失敗
+</UL>
+<TABLE BORDER="1" >
+<TR>
+	<TD>編號</TD>
+	<TD>mail_state</TD>
+	<TD>C</TD>
+	<TD>擁有者</TD>
+	<TD>日期</TD>
+	<TD>標題</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="1" >
+<TR>
+	<TD>mail_state</TD>
+	<TD></TD>
+</TR>
+<TR>
+	<TD>D</TD>
+	<TD>刪除 不印出標題</TD>
+</TR>
+<TR>
+	<TD>R</TD>
+	<TD>已讀</TD>
+</TR>
+<TR>
+	<TD>N</TD>
+	<TD>未讀</TD>
+</TR>
+</TABLE>
+<TABLE BORDER="1" >
+<TR>
+	<TD>C</TD>
+	<TD>認證等級</TD>
+</TR>
+</TABLE>
+
+</FONT><B><FONT SIZE=5><P>MAILGET mailnum</P></B></FONT> 
+<P>取得信件內容</P>
+<TABLE >
+<TR>
+	<TD>mailnum</TD>
+	<TD>信件編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>731   此封信件不存在
+<li>793   工作失敗
+</UL>
+
+</FONT><B><FONT SIZE=5><P>MAILPUT to sign title</P></B></FONT> 
+<P>寄送信件</P>
+<TABLE >
+<TR>
+	<TD>to</TD>
+	<TD>收件人</TD>
+</TR>
+<TR>
+	<TD>sign </TD>
+	<TD>選擇簽名檔 1-3 表簽名檔 0 表無</TD>
+</TR>
+<TR>
+	<TD>title</TD>
+	<TD>信件標題</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>621   使用者帳號不存在
+<LI>791   語法錯誤
+<LI>793   工作失敗
+</UL>
+
+</FONT><B><FONT SIZE=5><P>MAILKILL mailnum</P></B></FONT> 
+<P>刪除信件，信件於離線時刪除</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>731   此封信件不存在
+<LI>791   語法錯誤
+<LI>793   工作失敗
+</UL>
+
+</FONT><B><FONT SIZE=5><P>MAILGROUP sign title</P></B></FONT> 
+<P>寄給一群人</p>
+C&gt; MAILGROUP [sign] [title]<BR>
+S&gt;  OK_CMD<BR>
+C&gt;  [username]<BR>
+S&gt;  OK_CMD or USERID_NOT_EXIST<BR>
+C&gt;  .         { end }<BR>
+S&gt;  OK_CMD<BR>
+C&gt;  [article body]<BR>
+S&gt;  OK_CMD or...<BR>
+<P>return</P>
+<UL TYPE="CIRCLE">
+<LI>621   使用者帳號不存在
+<LI>793   工作失敗
+</UL>
+
+</FONT><B><FONT SIZE=5><P>MAILNEW</P></B></FONT> 
+<P>檢查是否有新信</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>632   有新信!!
+</UL>
+
+<B><FONT SIZE=5><P>MAILUKILL mailnum</P></B></FONT> 
+<P>取消刪除信件</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>731   此封信件不存在
+<LI>791   語法錯誤
+<LI>793   工作失敗
+</UL>
+<TABLE BORDER="1" >
+<TR>
+	<TD>OK</TD>
+	<TD>mail_state</TD>
+	<TD>Title</TD>
+</TR>
+</TABLE>
+   
+<B><FONT SIZE=5><P>MAILMAIL mailnum to</P></B></FONT> 
+<P>信件轉寄</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>mailnum</TD>
+	<TD>信件編號</TD>
+</TR>
+<TR>
+	<TD>to</TD>
+	<TD>收件人</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>731   此封信件不存在
+<LI>791   語法錯誤
+</UL>
+
+<B><FONT SIZE=5><P>FORWARD</P></B></FONT> 
+<P>自動轉寄功能的開關切換</P>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>800   切換成功
+</UL>
+
+</FONT><B><FONT SIZE=5><P>LIST type</P></B></FONT>
+<P>列出佈告名稱</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>type</TD>
+	<TD></TD>
+</TR>
+<TR>
+	<TD>0</TD>
+	<TD>所有佈告</TD>
+</TR>
+<TR>
+	<TD>1</TD>
+	<TD>zap 掉之佈告</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>741   沒任何佈告欄
+</UL>
+<TABLE BORDER="1" >
+<TR>
+	<TD>name</TD>
+	<TD>zap</TD>
+	<TD>post</TD>
+	<TD>type</TD>
+	<TD>level</TD>
+	<TD>owner</TD>
+	<TD>title</TD>
+	<TD>class</TD>
+</TR>
+</TABLE>
+<P>class   分類佈告之類別</P>
+
+<B><FONT SIZE=5><P>ZAP boardname</P></B></FONT>
+<P>ZAP 佈告</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+</TABLE>  
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>741   沒任何佈告欄
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>BRDWELCHK boardname</P></B></FONT> 
+<P>取得進版畫面最後更改日期</P>
+<P>Return</P>
+614   最後更改的時間（time_t ）如果沒有進版畫面，則為0
+
+<B><FONT SIZE=5><P>BRDWELGET boardname</P></B></FONT> 
+<P>取得進版畫面</P>
+<TABLE BORDER="0" >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告欄名稱</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>745   無進版畫面
+</UL>
+
+<B><FONT SIZE=5><P>BRDWELPUT boardname</P></B></FONT> 
+<P>送出進版畫面</P>
+<TABLE BORDER="0" >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告欄名稱</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>741   沒任何佈告欄
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>BRDWELKILL boardname</P></B></FONT> 
+<P>刪除進版畫面</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告欄名稱</TD>
+</TR>
+</TABLE>
+</FONT><P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>741   沒任何佈告欄
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>POSTIMP boardname postnum</P></B></FONT> 
+<P>標記為重要佈告</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告邊號</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>POSTNUM boardname type [PATH level1 level2 …]</P></B></FONT> 
+<P>取得佈告數</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>type</TD>
+	<TD>屬性  0-一般區  1-精華區</TD>
+</TR>
+</TABLE>
+</FONT><P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>641   傳回佈告數目
+</UL>
+
+<B><FONT SIZE=5><P>POSTHEAD boardname type startnum [endnum] [PATH level1 level2 …]</P></B></FONT> 
+<P>取得佈告標題</P>
+<TABLE >
+<TR>
+	<TD>startnum</TD>
+	<TD>開始編號</TD>
+</TR>
+<TR>
+	<TD>endnum</TD>
+	<TD>結束編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>752   此封佈告不存在
+<LI>791   語法錯誤
+<LI>793   工作失敗
+</UL>
+<TABLE BORDER="1" >
+<TR>
+	<TD>I</TD>
+	<TD>poststate</TD>
+	<TD>c</TD>
+	<TD>owner</TD>
+	<TD>date</TD>
+	<TD>title</TD>
+	<TD>class</TD>
+</TR>
+</TABLE>
+<P>poststate:</P>
+<P> E   文章保留</P>
+
+<B><FONT SIZE=5><P>POSTGET boardname type postnum [PATH level1 level2 …]</P></B></FONT> 
+<P>取得佈告內容</P>
+<TABLE >
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>791   語法錯誤
+<LI>752   此封佈告不存在
+<LI>793   工作失敗
+</UL>
+
+</FONT><B><FONT SIZE=5><P>POSTPUT boardname type sign news title [PATH level1 level2 …]</P></B></FONT> 
+<P>送出佈告</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>type</TD>
+	<TD>是否為精華區(0/1)</TD>
+</TR>
+<TR>
+	<TD>sign</TD>
+	<TD>使用第幾個簽名檔0-3 0 代表不用</TD>
+</TR>
+<TR>
+	<TD>news</TD>
+	<TD>是否送上NEWS (Y/N)</TD>
+</TR>
+<TR>
+	<TD>title</TD>
+	<TD>文章標題</TD>
+</TR>
+</TABLE>
+</FONT><P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>742   此版不存在
+<LI>759   不允許張貼佈告
+</UL>
+
+<B><FONT SIZE=5><P>POSTKILL boardname type postnum [PATH level1 level2 …]</P></B></FONT> 
+<P>刪除佈告</P>
+<TABLE >
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>791   語法錯誤
+<LI>752   此封佈告不存在
+<LI>794   不允許刪除
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>POSTMAIL boardname type postnum to [PATH level1 level2 …]</P></B></FONT> 
+<P>轉寄佈告</P>
+<TABLE >
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+<TR>
+	<TD>to</TD>
+	<TD>收件人</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>751   尚未選擇佈告欄
+<LI>791   語法錯誤
+<LI>752   此封佈告不存在
+</UL>
+
+<B><FONT SIZE=5><P>POSTTRE  boardname postnum [PATH level1 level2 …]</P></B></FONT> 
+<P>轉貼佈告至精華區</P>
+<P>postnum   佈告編號</P>
+
+<B><FONT SIZE=5><P>POSTUKILL boardname type postnum [PATH level1 level2 …]</P></B></FONT> 
+<P>取消刪除佈告</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>type</TD>
+	<TD>是否為精華區</TD>
+</TR>
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>POSTETITLE boardname type postnum postowner newtitle[PATH level1 level2 …]</P></B></FONT> 
+<P>修改佈告標題</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>type</TD>
+	<TD>是否為精華區</TD>
+</TR>
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+<TR>
+	<TD>postowner</TD>
+	<TD>新佈告作者 只有站長可修改</TD>
+</TR>
+<TR>
+	<TD>newtitle</TD>
+	<TD>新佈告標題</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<P>佈告新標題</P>
+
+<B><FONT SIZE=5><P>POSTEDIT  boardname type postnum sign [PATH level1 level2 …]</P></B></FONT> 
+<P>編輯佈告</P>
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>版名</TD>
+</TR>
+<TR>
+	<TD>type</TD>
+	<TD>是否為精華區</TD>
+</TR>
+<TR>
+	<TD>postnum</TD>
+	<TD>佈告編號</TD>
+</TR>
+<TR>
+	<TD>sign</TD>
+	<TD>簽名檔編號</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>POSTMPUT  sign news title</P></B></FONT> 
+<P>一封佈告貼多個版，使用方法請參考MAILGROUP 。</P>
+<TABLE >
+<TR>
+	<TD>sign</TD>
+	<TD>簽名檔編號</TD>
+</TR>
+<TR>
+	<TD>news</TD>
+	<TD>是否送上news</TD>
+</TR>
+<TR>
+	<TD>title</TD>
+	<TD>佈告標題</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>LISTUSER</P></B></FONT> 
+<P>列出線上使用者</P>
+
+<B><FONT SIZE=5><P>PAGE</P></B></FONT> 
+<P>開關呼叫鈴</P>
+
+<B><FONT SIZE=5><P>QUERY userid</P></B></FONT> 
+<P>查詢使用者資料</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>userid</TD>
+	<TD>username</TD>
+	<TD>userlevel</TD>
+	<TD>condition</TD>
+	<TD>numlogins</TD>
+	<TD>numposts</TD>
+	<TD>lasttime</TD>
+	<TD>lastfrom</TD>
+	<TD>email</TD>
+	<TD>checkmail</TD>
+	<td>名片檔</td>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>621   使用者帳號不存在
+</UL>
+
+<B><FONT SIZE=5><P>LISTFUSER</P></B></FONT> 
+<P>列出線上好友</P>
+<P>Return</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>userid</TD>
+	<TD>from</TD>
+	<TD>page</TD>
+	<TD>mode</TD>
+	<TD>nickname</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>TALKTO userid</P></B></FONT> 
+<P>呼叫談話對象</P>
+<TABLE >
+<TR>
+	<TD>userid</TD>
+	<TD>對方ID</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>800 OK  表示開始呼叫
+<LI>904 port  對方答應對話，port 為對話用的port
+</UL>
+
+<B><FONT SIZE=5><P>ALLMESG</P></B></FONT> 
+<P>取得本次上線所收到的所有訊息</P>
+<P>Return</P>
+<P>收到OK_CMD 之後，連續接收所有的線上訊息，最後以一個點結束。</P>
+
+<B><FONT SIZE=5><P>SENDMESG userid message</P></B></FONT> 
+<P>送訊息給別人</P>
+<TABLE >
+<TR>
+	<TD>userid</TD>
+	<TD>對方ID</TD>
+</TR>
+<TR>
+	<TD>message</TD>
+	<TD>訊息</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>791   語法錯誤
+<LI>621   使用者帳號不存在
+<LI>782   此人不在線上
+<LI>793   工作失敗
+</UL>
+
+<B><FONT SIZE=5><P>TALKREP [Y/N] who [why]</P></B></FONT> 
+<P>回應talk</P>
+<TABLE >
+<TR>
+	<TD>Y/N</TD>
+	<TD>是否要跟他talk</TD>
+</TR>
+<TR>
+	<TD>who</TD>
+	<TD>call 我的人</TD>
+</TR>
+<TR>
+	<TD>why</TD>
+	<TD>拒絕原因</TD>
+</TR>
+</TABLE>
+
+<P>有人call 你時...</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>900</TD>
+	<TD>call 你的人</TD>
+	<TD>來源</TD>
+	<TD>暱稱</TD>
+</TR>
+</TABLE>
+<P>回應y 後，會有回應TALK_PORT port  告訴你talk port 的位置</P>
+<P>在talkport 中以isay ...  說話</P>
+<TABLE >
+<TR>
+	<TD>IKEY</TD>
+	<TD>代表一些按鍵</TD>
+</TR>
+<TR>
+	<TD>BACK</TD>
+	<TD>倒退鍵</TD>
+</TR>
+<TR>
+	<TD>ENTER</TD>
+	<TD>ENTER 鍵</TD>
+</TR>
+<TR>
+	<TD>SheSmile</TD>
+	<TD>笑</TD>
+</TR>
+<TR>
+	<TD>SheCry</TD>
+	<TD>哭</TD>
+</TR>
+<TR>
+	<TD>SheAngry</TD>
+	<TD>生氣</TD>
+</TR>
+</TABLE>
+
+</FONT><B><FONT SIZE=5><P>FILEPUT type filename title [PATH level1 lebel2 ..]</P></B></FONT> 
+<P>送上一個檔案</P>
+<TABLE >
+<TR>
+	<TD>type</TD>
+	<TD>站內檔或是站外檔  （0— 站內 1— 站外）</TD>
+</TR>
+<TR>
+	<TD>filename</TD>
+	<TD>上傳檔案名稱</TD>
+</TR>
+<TR>
+	<TD>title</TD>
+	<TD>檔案解說</TD>
+</TR>
+</TABLE>
+<P>type=1 （為站外檔時）</P>
+<P>收到OK 之後，再上傳檔案所在的FTP site ，以及所在的目錄。</P>
+<P>如：</P>
+<P> S&gt;800  OK</P>
+<P> C&gt;ftp.nsysu.edu.tw</P>
+<P> C&gt;/upload/win95/</P>
+<P>800  OK</p>
+
+<P>type=0 （為站內檔時）</P>
+<P>收到OK 之後，便開始上傳檔案內容。</P>
+<P>做完動作後便斷線</P>
+
+<B><FONT SIZE=5><P>FILEGET filenum filename [PATH level1 level2..]</P></B></FONT> 
+<P>取得檔案</P>
+<TABLE >
+<TR>
+	<TD>filenum</TD>
+	<TD>檔案編號</TD>
+</TR>
+</TABLE>
+<P>Return</P>
+<UL TYPE="CIRCLE">
+<LI>952      檔案在站內
+<LI>953      檔案在站外
+</UL>
+
+<P>當檔案在站內時：</P>
+<UL TYPE="CIRCLE">
+<LI>954   檔案名稱
+<LI>800  OK
+</UL>
+<P>  「檔案內容...」</P>
+<P>當檔案在站外時：</P>
+<UL TYPE="CIRCLE">
+<LI>955   檔案名稱 檔案位置  檔案路徑
+<LI>800  OK
+</UL>
+<P>做完動作後便斷線</P>
+
+<B><FONT SIZE=5><P>FILENUM [PATH level1 level2 .. ]</P></B></FONT> 
+<P>取得檔案區佈告數</P>
+<P>做完動作後便斷線</P>
+
+<B><FONT SIZE=5><P>FILEHEAD startnum [endnum] [PATH level1 lebel2 ..]</P></B></FONT> 
+<P>取得檔案區標題</P>
+<TABLE >
+<TR>
+	<TD>startnum</TD>
+	<TD>起始編號</TD>
+</TR>
+<TR>
+	<TD>endnum</TD>
+	<TD>結束編號</TD>
+</TR>
+</TABLE>
+<P>Return:</P>
+<TABLE BORDER="1" >
+<TR>
+	<TD>編號</TD>
+	<TD>類別</TD>
+	<TD>等級</TD>
+	<TD>上傳者</TD>
+	<TD>日期</TD>
+	<TD>檔案描述</TD>
+	<TD>檔案大小(byte)</TD>
+</TR>
+</TABLE>
+
+<TABLE BORDER="1" >
+<TR>
+	<TD>類別</TD>
+	<TD></TD>
+</TR>
+<TR>
+	<TD>D</TD>
+	<TD>已刪除</TD>
+</TR>
+<TR>
+	<TD>T</TD>
+	<TD>目錄</TD>
+</TR>
+<TR>
+	<TD>N</TD>
+	<TD>檔案</TD>
+</TR>
+<TR>
+	<TD>O</TD>
+	<TD>站外檔案</TD>
+</TR>
+<TR>
+	<TD>I</TD>
+	<TD>站內檔案</TD>
+</TR>
+</TABLE>
+<P>做完動作後便斷線</P>
+
+<B><FONT SIZE=5><P>MAKEDIR boardname name [PATH level1 level2 ...]</P></B></FONT> 
+<P>建立精華區中子目錄</P>
+
+<TABLE >
+<TR>
+	<TD>boardname</TD>
+	<TD>佈告名稱</TD>
+</TR>
+<TR>
+	<TD>name</TD>
+	<TD>子目錄名稱</TD>
+</TR>
+<TR>
+	<TD>level...</TD>
+	<TD>路徑</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>TERMOUT</P></B></FONT> 
+<P>產生新的</FONT>Termianl 連線</P>
+<P>Return  </P>
+<TABLE >
+<TR>
+	<TD>906</TD>
+	<TD>連接埠</TD>
+</TR>
+</TABLE>
+
+<B><FONT SIZE=5><P>FILEKILL filenum [PATH level1 level2 ..]</P></B></FONT> 
+<P>刪除檔案</P>
+<TABLE >
+<TR>
+	<TD>filenum</TD>
+	<TD>檔案編號</TD>
+</TR>
+</TABLE>
+<P>做完動作後便斷線</P>
+
+<P ALIGN="RIGHT">林嵩慶</P>
+<P ALIGN="RIGHT">國立中山大學網路組</P>
+</FONT><P ALIGN="RIGHT">Sep 26, 1997</P></BODY>
+</HTML>

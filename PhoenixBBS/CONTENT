@@ -1,0 +1,16 @@
+
+Filename                        Description
+============================    =============================================
+CHECKSUM                        BSD, MD5, SYSV checksum for PhoenixBBS.tar.gz
+CONTENT                         This file
+PhoenixBBS.README               Installation/Admin Guide in plain text
+Phoenix.doc                     Installation Guide in MS-Word 5.0 format
+PhoenixBBS.ps.gz                Installation Guide is PostScript format
+PhoenixBBS.tar.gz               PhoenixBBS package
+bbsinnd.tar.gz                  BBS <-> News gateway program
+doc                             PhoenixBBS related document
+misc                            miscellaneous things such as
+                                ctin, gopher, irc...
+old_stuff                       old versions, old document 
+
+						(Last Update: Apr 29, 1995)

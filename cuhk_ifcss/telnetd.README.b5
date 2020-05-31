@@ -1,0 +1,39 @@
+
+ftp://140.113.189.106/bbs/telnetd.tar.gz 為變身 OS 的 standalone-telnetd
+
+1.standalone-telnetd 使用方法:
+
+  將　/etc/inetd.conf 的有關 telnet 的 mark 起來
+ 
+  重跑  inetd "kill -1 <your inetd process>"
+
+  再以 root 跑 telnetd
+  
+
+2. how to use 變身 OS
+
+在 /usr/local/etc 下增一個檔叫 "OS.list"
+
+內容如下:
+--------------------------------------------------------------------
+SunOS 4.1.3 
+SuperLinux UNIX
+NextStep       ^空一空白格
+        ^空一空白格
+--------------------------------------------------------------------
+每個 OS 名後空一格空白
+注意請從第一行寫起,並不要空行
+最後一行就是 Nexstep 不要再按 enter 往下空一行
+
+3. 讀檔順序:
+ 
+    先去讀取 /etc/issue 檔
+
+    再秀出現再 uptime
+
+    再讀取 OS.list 
+
+
+                                     by  tby
+                                         e-mail: tby@ccca.nctu.edu.tw
+                             

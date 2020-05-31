@@ -1,0 +1,13 @@
+psi.c		 16148 Feb 17 12:05 PSI Server Source
+psi.sun4	155648 Jan 22 01:11 PSI Server for SunOS 4.x
+psi.alpha	 32768 Jan 22 01:08 PSI Server for Alpha/OSF1
+psi.freebsd	115107 Jan 22 01:17 PSI Server for FreeBSD
+psi.linux	163019 Jan 22 18:16 PSI Server for Linux
+psi.hppa	 36864 Jan 22 01:08 PSI Server for HPUX
+psi.irix	 28008 Jan 22 01:14 PSI Server for SGI/IRIX
+psi.rs6k	 17186 Jan 22 01:10 PSI Server for RS6000/AIX
+psi.ultrix	139200 Apr  8 14:11 PSI Server for DEC Ultrix
+psi.solaris	 17976 Feb 17 12:19 PSI Server for Solaris 2.x SPARC
+psi.solaris386	 14000 Mar 19 12:46 PSI Server for Solaris 2.x i386
+pbbs_psi.zip	109963 Feb 17 12:29 PBBS PSI Client
+psi_tech.doc	  5950 Feb 17 12:28 Comment of PSI Protocol
