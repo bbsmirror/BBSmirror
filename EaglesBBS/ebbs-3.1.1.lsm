@@ -1,0 +1,16 @@
+Begin3
+Title:          Eagles BBS (EBBS)
+Version:        3.1.1
+Entered-date:   11 October 1998
+Description:    Full-featured standalone Internet BBS package, based on
+                Ed Luke's Pirates BBS
+Keywords:       BBS, Internet, curses-like, configurable
+Author:         Ray Rocker (rocker@datasync.com)
+Maintained-by:  Ray Rocker (rocker@datasync.com)
+Primary-site:   ftp.datasync.com /pub/ebbs
+                190k ebbs-3.1.1.tar.gz
+Alternate-site: 
+Original-site:
+Platforms:      
+Copying-policy: GPL 2.0
+End

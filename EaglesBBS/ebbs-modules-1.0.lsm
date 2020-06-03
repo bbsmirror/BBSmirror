@@ -1,0 +1,16 @@
+Begin3
+Title:          EBBS Modules
+Version:        1.0
+Entered-date:   4 July 1999
+Description:    Add on modules for Eagles BBS (EBBS).
+                Modules include Monitor, Voting, Ascii Animation, and Stats
+Keywords:       BBS, Internet, curses-like, configurable, EBBS
+Author:         Paul Snow (psnow@nipha.com)
+Maintained-by:  Paul Snow (psnow@nipha.com)
+Primary-site:   ftp.nipha.com /pub
+                190k ebbs-modules-1.0.tar.gz
+Alternate-site:
+Original-site:
+Platforms:
+Copying-policy: GPL 2.0
+End

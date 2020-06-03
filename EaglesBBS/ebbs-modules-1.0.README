@@ -1,0 +1,79 @@
+EBBS Modules 1.0 has been released under the GNU license and is available
+at ftp://ftp.nipha.com/pub/ebbs-modules-1.0.tar.gz.
+
+EBBS Modules are an add on to EBBS 3.1.1, providing extra functionality to
+the bbs system.  There are 7 modules in this initial release: 
+Module Extras, Monitor, Stats, Query, Animation, PostWar, and Voting.
+
+The 2 basic premises of the modules is to stay as much out of the standard
+code as possible, and to be independent of each other.  The main reason
+for this is to enable others to incorporate only the modules that they
+want to either stock or modified EBBS code easily.
+
+The modules add new functions to the builtin functions of EBBS.  None of
+the stock functions are removed.  The new functions are enabled by entries
+in the etc/menu.desc file.
+
+Short description of modules included in this version:
+
+MOD_EXTRAS:
+Module Extras - This module provides 4 main things --
+                1) Extra System and User Configuration
+                2) Functions to display Server Configurations
+                3) Menu display of users online and system time
+                4) Cloak configuration
+  The extra system and user configuration deal with runtime configuration
+    of the system, and user preferences mostly in relation to modules.
+  The display of server configurations are information screens of the
+    standard system config as well as the extra system config.
+  The menu display of users online and system time is identical to what is
+    seen on the monitor, only on the menu screens.  It is system
+    configurable as well as user configurable.
+  The cloak configuration wraps the normal cloak function with checks to
+    match the cloak config specified in the extra system config.  Options
+    are no cloak allowed, only the Sysop account can cloak, and normal
+    cloak operation.
+
+MOD_MONITOR:
+Monitor - This module is an interactive monitor screen.  There are two
+  modes: long (like the Long User List) and short (like the normal
+  monitor).  The main feature of this monitor is the ability to call
+  functions directly from the monitor.  The functions are mainly those
+  found in the Talk menu, plus access to mail and read new. The "Monitor"
+  menu, included in the menu.desc.modules file, must be added to menu.desc
+  for the monitor to work.
+
+MOD_STATS:
+Stats - This module collects and displays statistics for users, currently
+  logins, posts, postwar posts (if postwar module is installed), and chat
+  entries (if Chat() is replaced by StatChat() in menu.desc).
+  A sample "Stats" menu is included in the menu.desc.modules file.
+
+MOD_QUERY:
+Query - This module enables display of stats info and animation in the
+  query.  The stats module and/or the anim module must be installed as
+  well.
+
+MOD_ANIM:
+Animation - This module enables ascii animation, currently only on the
+  query screen.  See separate file Animation.commands for information.
+
+MOD_POSTWAR:
+PostWar - This module enables a postwar mode for a specified board, and
+  collects stats for postwar posts separately from regular posts.
+
+MOD_VOTE:
+Voting - This module is based on the EBBS 2.1 voting system, but has been
+  greatly expanded, making the creation of polls more user friendly,
+  allowing a system defined number of simultaneous polls (the absolute 
+  maximum is hard coded at 25), and allowing users to open a system
+  defined number of polls as well as VoteAdmins.
+  in vote.c
+
+Paul Snow
+psnow@nipha.com
+
+EBBS Modules is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.

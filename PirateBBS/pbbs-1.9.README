@@ -1,0 +1,70 @@
+This is Pirate BBS v1.9 sources + binaries (compiled with GCC 2.2.2d7/jump
+4.1) for Linux 0.98pl1 with TCP/IP enabled.
+
+*********************************************************************
+*** YOU MUST HAVE A TCP/IP KERNEL RUNNING TO USE THIS BBS PACKAGE ***
+*********************************************************************
+
+It'd probably be a good idea to install the TCP/IP system in general (stuff
+in /usr/etc/inet) since files like /etc/hosts are needed for the BBS to
+operate correctly.
+
+Also, the install script is designed for SunOS... I hand installed the
+BBS myself - it's not that hard. People's systems vary so much as to
+what's where, etc., that it didn't seem worthwhile to write up a generic
+install script.
+
+Pirate BBS was originally written for the Mars Hotel Internet BBS, which
+ran on mars.ee.msstate.edu up until a year or so ago, when hardware problems
+forced a shutdown of the student-supported system. Mars just came back up
+on another computer there around 10/7/92 at IP address 130.18.64.37,
+jupiter.ee.msstate.edu.
+
+
+"Extra" files:
+
+	listing: Listing of /usr/bbs on my system. Mainly to show
+	what goes where. All those timezone files and some of the binaries
+	aren't necessary. csh = tcsh. sh = bash.
+
+	bbs.sh:	lives in /usr/local/bin/bbs. Allows starting of the bbs
+	from a shell prompt, not just from login. Lets one enter the BBS,
+ 	use it for a while, then exit back to a shell. NOTE: /usr/bbs and
+	/usr/bbs/bin must have execute permissions set to use this script.
+
+	passwd: relevant entries in my /etc/passwd file.
+	group:     "        "     " "  /etc/group file.
+        bbs.passwd:     /usr/bbs/passwd
+        bbs.group:      /usr/bbs/group
+
+	NOTE: the group/user entries in the above four files aren't
+	necessarily what you want. Just examples...
+
+	libinet.a: in case you don't have it and want to recompile.
+        Goes in /usr/lib.
+
+If dir_structure (/usr/bbs) looks like a miniature root filesystem, that's
+because it is. bbsrf does a chroot() call to make its home filesystem
+/usr/bbs when you enter the BBS. Nice security feature.
+
+There are no manual pages or other docs included other than those in the
+archive. It's pretty user-friendly and easy to administer once running.
+
+The irc, more and protocols dirs (IRC sources, more sources, and rz/sz
+sources) are omitted since most folks already have more, rz/sz/kermit/more.
+I've not started a port of an IRC server, not being on a network yet.
+
+As of this release, I've rooted out all flakey behavior that's appeared
+so it's pretty stable IMO. PBBS can support a LOT of simultaneous users,
+(default max. is 36) and was made to run on a network such as internet,
+but also makes a decent dialup BBS.
+
+This software has NOT been tested on a network, with multiple incoming
+connections, so there may still be some things broken I'm not aware of.
+
+10/20/92
+David Black
+dlbb0@amdahl.com
+
+P.S.: If you're curious about the software, give Mars Hotel, or my own
+BBS, Hip-Hop (408-773-0768) a call!
